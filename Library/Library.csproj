@@ -57,6 +57,9 @@
     </ApplicationDefinition>
     <Compile Include="ViewModel\BaseViewModel.cs" />
     <Compile Include="ViewModel\BookViewModel.cs" />
+    <Compile Include="ViewModel\Customer.cs" />
+    <Compile Include="ViewModel\Filial.cs" />
+    <Compile Include="ViewModel\Worker.cs" />
     <Compile Include="View\Book.xaml.cs">
       <DependentUpon>Book.xaml</DependentUpon>
     </Compile>

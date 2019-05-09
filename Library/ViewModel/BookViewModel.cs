@@ -11,6 +11,39 @@ namespace Library.ViewModel
 {
     class BookViewModel:BaseViewModel
     {
+        private Book currentbook;
+        public Book CurrentBook
+        {
+
+
+            get
+            {
+                return currentbook;
+            }
+            set
+            {
+                currentbook = value;
+
+                OnpropertyChanged(new PropertyChangedEventArgs(nameof(CurrentBook)));
+            }
+
+        }
+
+
+        private Book selectbook;
+        public Book SelectBook
+        {
+            get
+            {
+                return selectbook;
+            }
+            set
+            {
+                selectbook = value;
+
+                OnpropertyChanged(new PropertyChangedEventArgs(nameof(SelectBook)));
+            }
+        }
         private ObservableCollection<Book> books;
         public ObservableCollection<Book> Books
         {
@@ -21,7 +54,7 @@ namespace Library.ViewModel
             set
             {
                 books = value;
-                OnpropertyChanged(new PropertyChangedEventArgs(nameof(Books)));
+                OnpropertyChanged(new PropertyChangedEventArgs(("Books")));
             }
         }
     }
