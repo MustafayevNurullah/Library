@@ -13,7 +13,7 @@ namespace Library.ViewModel
         private Filial currentfilial;
         public Filial CurrentFilial
         {
-
+             
 
             get
             {
