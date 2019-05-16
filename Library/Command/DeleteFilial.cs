@@ -4,13 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Library.Entity
+namespace Library.Command
 {
-    class Filial
+    class DeleteFilial
     {
-        int No;
-        int İd;
-        string Name;
-
     }
 }

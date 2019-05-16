@@ -15,11 +15,11 @@ using System.Windows.Shapes;
 namespace Library.View
 {
     /// <summary>
-    /// Interaction logic for Customer.xaml
+    /// Interaction logic for CustomerView.xaml
     /// </summary>
-    public partial class Customer : Window
+    public partial class CustomerView : Window
     {
-        public Customer()
+        public CustomerView()
         {
             InitializeComponent();
         }

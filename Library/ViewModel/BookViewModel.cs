@@ -11,8 +11,8 @@ namespace Library.ViewModel
 {
     class BookViewModel:BaseViewModel
     {
-        private Book currentbook;
-        public Book CurrentBook
+        private BookEntity currentbook;
+        public BookEntity CurrentBook
         {
 
 
@@ -30,8 +30,8 @@ namespace Library.ViewModel
         }
 
 
-        private Book selectbook;
-        public Book SelectBook
+        private BookEntity selectbook;
+        public BookEntity SelectBook
         {
             get
             {
@@ -44,8 +44,8 @@ namespace Library.ViewModel
                 OnpropertyChanged(new PropertyChangedEventArgs(nameof(SelectBook)));
             }
         }
-        private ObservableCollection<Book> books;
-        public ObservableCollection<Book> Books
+        private ObservableCollection<BookEntity> books;
+        public ObservableCollection<BookEntity> Books
         {
             get
             {

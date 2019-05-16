@@ -8,10 +8,10 @@ using System.Threading.Tasks;
 
 namespace Library.ViewModel
 {
-    class Filial:BaseViewModel
+    class FilialViewModel:BaseViewModel
     {
-        private Filial currentfilial;
-        public Filial CurrentFilial
+        private FilialViewModel currentfilial;
+        public FilialViewModel CurrentFilial
         {
              
 
@@ -27,8 +27,8 @@ namespace Library.ViewModel
             }
 
         }
-        private Filial selectfilial;
-        public Filial SelectFilial
+        private FilialViewModel selectfilial;
+        public FilialViewModel SelectFilial
         {
             get
             {
@@ -41,8 +41,8 @@ namespace Library.ViewModel
                 OnpropertyChanged(new PropertyChangedEventArgs(nameof(SelectFilial)));
             }
         }
-        private ObservableCollection<Filial> filials;
-        public ObservableCollection<Filial> Filials
+        private ObservableCollection<FilialViewModel> filials;
+        public ObservableCollection<FilialViewModel> Filials
         {
             get
             {

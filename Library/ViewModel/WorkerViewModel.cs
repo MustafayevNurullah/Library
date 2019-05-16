@@ -8,10 +8,10 @@ using System.Threading.Tasks;
 
 namespace Library.ViewModel
 {
-    class Worker:BaseViewModel
+    class WorkerViewModel:BaseViewModel
     {
-        private Worker currentworker;
-        public Worker CurrentWorker
+        private WorkerViewModel currentworker;
+        public WorkerViewModel CurrentWorker
         {
             get
             {
@@ -24,8 +24,8 @@ namespace Library.ViewModel
                 OnpropertyChanged(new PropertyChangedEventArgs(nameof(CurrentWorker)));
             }
         }
-        private Worker selectworker;
-        public Worker SelectWorker
+        private WorkerViewModel selectworker;
+        public WorkerViewModel SelectWorker
         {
             get
             {
@@ -38,8 +38,8 @@ namespace Library.ViewModel
                 OnpropertyChanged(new PropertyChangedEventArgs(nameof(SelectWorker)));
             }
         }
-        private ObservableCollection<Filial> filials;
-        public ObservableCollection<Filial> Filials
+        private ObservableCollection<FilialViewModel> filials;
+        public ObservableCollection<FilialViewModel> Filials
         {
             get
             {

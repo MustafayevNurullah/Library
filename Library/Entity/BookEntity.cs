@@ -6,13 +6,15 @@ using System.Threading.Tasks;
 
 namespace Library.Entity
 {
-    class Customer
+    class BookEntity
     {
         int No;
         int Id;
-        int Name;
-        int Surname;
-        int Phone;
-        DateTime dateTime;
+        string Name;
+        string Author;
+        decimal SalePrice;
+        decimal BuyPrice;
+        int Count;
+        FilialEntity Filial;
     }
 }

@@ -15,11 +15,11 @@ using System.Windows.Shapes;
 namespace Library.View
 {
     /// <summary>
-    /// Interaction logic for Filial.xaml
+    /// Interaction logic for FilialView.xaml
     /// </summary>
-    public partial class Filial : Window
+    public partial class FilialView : Window
     {
-        public Filial()
+        public FilialView()
         {
             InitializeComponent();
         }

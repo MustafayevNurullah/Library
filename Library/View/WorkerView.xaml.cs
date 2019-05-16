@@ -15,11 +15,11 @@ using System.Windows.Shapes;
 namespace Library.View
 {
     /// <summary>
-    /// Interaction logic for Book.xaml
+    /// Interaction logic for WorkerView.xaml
     /// </summary>
-    public partial class Book : Window
+    public partial class WorkerView : Window
     {
-        public Book()
+        public WorkerView()
         {
             InitializeComponent();
         }

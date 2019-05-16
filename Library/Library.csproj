@@ -55,22 +55,35 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Command\AddBook.cs" />
+    <Compile Include="Command\AddCustomer.cs" />
+    <Compile Include="Command\AddFilial.cs" />
+    <Compile Include="Command\AddWorker.cs" />
+    <Compile Include="Command\DeleteBook.cs" />
+    <Compile Include="Command\DeleteCustomer.cs" />
+    <Compile Include="Command\DeleteFilial.cs" />
+    <Compile Include="Command\DeleteWorker.cs" />
+    <Compile Include="Command\UpdateBook.cs" />
+    <Compile Include="Command\UpdateCustomer.cs" />
+    <Compile Include="Command\UpdateFilial.cs" />
+    <Compile Include="Command\UpdateWorker.cs" />
+    <Compile Include="Entity\CustomerEntity.cs" />
     <Compile Include="ViewModel\BaseViewModel.cs" />
     <Compile Include="ViewModel\BookViewModel.cs" />
-    <Compile Include="ViewModel\Customer.cs" />
-    <Compile Include="ViewModel\Filial.cs" />
-    <Compile Include="ViewModel\Worker.cs" />
-    <Compile Include="View\Book.xaml.cs">
-      <DependentUpon>Book.xaml</DependentUpon>
+    <Compile Include="ViewModel\CustomerViewModel.cs" />
+    <Compile Include="ViewModel\FilialViewModel.cs" />
+    <Compile Include="ViewModel\WorkerViewModel.cs" />
+    <Compile Include="View\BookView.xaml.cs">
+      <DependentUpon>BookView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Customer.xaml.cs">
-      <DependentUpon>Customer.xaml</DependentUpon>
+    <Compile Include="View\CustomerView.xaml.cs">
+      <DependentUpon>CustomerView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Filial.xaml.cs">
-      <DependentUpon>Filial.xaml</DependentUpon>
+    <Compile Include="View\FilialView.xaml.cs">
+      <DependentUpon>FilialView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Worker.xaml.cs">
-      <DependentUpon>Worker.xaml</DependentUpon>
+    <Compile Include="View\WorkerView.xaml.cs">
+      <DependentUpon>WorkerView.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -80,27 +93,26 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Entity\Book.cs" />
-    <Compile Include="Entity\Customer.cs" />
-    <Compile Include="Entity\Filial.cs" />
-    <Compile Include="Entity\Worker.cs" />
+    <Compile Include="Entity\BookEntity.cs" />
+    <Compile Include="Entity\FilialEntity.cs" />
+    <Compile Include="Entity\WorkerEntity.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="View\Book.xaml">
+    <Page Include="View\BookView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Customer.xaml">
+    <Page Include="View\CustomerView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Filial.xaml">
+    <Page Include="View\FilialView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Worker.xaml">
+    <Page Include="View\WorkerView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

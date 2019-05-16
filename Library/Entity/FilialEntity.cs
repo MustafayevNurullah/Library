@@ -6,17 +6,11 @@ using System.Threading.Tasks;
 
 namespace Library.Entity
 {
-    class Worker
+    class FilialEntity
     {
-        int Id;
         int No;
+        int İd;
         string Name;
-        string Surname;
-        string Phone;
-        decimal Salary;
-        Filial Filial;
-
-
 
     }
 }

@@ -8,12 +8,12 @@ using System.Threading.Tasks;
 
 namespace Library.ViewModel
 {
-    class Customer:BaseViewModel
+    class CustomerViewModel:BaseViewModel
     {
 
 
-        private Customer currentcustomer;
-        public Customer CurrentCustomer
+        private CustomerViewModel currentcustomer;
+        public CustomerViewModel CurrentCustomer
         {
 
 
@@ -31,8 +31,8 @@ namespace Library.ViewModel
         }
 
 
-        private Customer selectcustomer;
-        public Customer SelectCustomer
+        private CustomerViewModel selectcustomer;
+        public CustomerViewModel SelectCustomer
         {
             get
             {
@@ -45,8 +45,8 @@ namespace Library.ViewModel
                 OnpropertyChanged(new PropertyChangedEventArgs(nameof(SelectCustomer)));
             }
         }
-        private ObservableCollection<Customer> customers;
-        public ObservableCollection<Customer> Customers
+        private ObservableCollection<CustomerViewModel> customers;
+        public ObservableCollection<CustomerViewModel> Customers
         {
             get
             {
