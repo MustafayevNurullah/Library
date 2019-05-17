@@ -1,18 +1,6 @@
 ﻿using Library.ViewModel;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Collections.ObjectModel;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-
 namespace Library.View
 {
     /// <summary>
@@ -23,7 +11,9 @@ namespace Library.View
         public FilialView()
         {
             InitializeComponent();
+
             FilialViewModel filialViewModel = new FilialViewModel();
+            filialViewModel.Filials = new ObservableCollection<Entity.FilialEntity>();
             DataContext = filialViewModel;
         }
     }

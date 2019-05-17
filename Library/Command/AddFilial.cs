@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 
 namespace Library.Command
@@ -26,7 +27,9 @@ namespace Library.Command
 
         public void Execute(object parameter)
         {
+
             filialViewModel.Filials.Add(filialViewModel.CurrentFilial);
+            filialViewModel.CurrentFilial = new Entity.FilialEntity();
         }
     }
 }

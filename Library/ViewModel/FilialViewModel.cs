@@ -1,23 +1,18 @@
 ﻿using Library.Command;
 using Library.Entity;
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 namespace Library.ViewModel
 {
    public class FilialViewModel:BaseViewModel
     {
 
-       public AddFilial Add => new AddFilial(this);
+        public AddFilial addFilial { get; set; }
         public FilialViewModel()
         {
             currentfilial = new FilialEntity();
             selectfilial = new FilialEntity();
+            addFilial = new AddFilial(this);
         }
         private FilialEntity currentfilial;
         public FilialEntity CurrentFilial
