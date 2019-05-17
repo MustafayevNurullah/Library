@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace Library.Entity
 {
-    class FilialEntity
+   public class FilialEntity
     {
-        int No;
-        int İd;
-        string Name;
+        public int No { get; set; }
+        public int Id { get; set; }
+        public string Name { get; set; }
 
     }
 }

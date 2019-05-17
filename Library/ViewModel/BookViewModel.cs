@@ -1,4 +1,5 @@
-﻿using Library.Entity;
+﻿using Library.Command;
+using Library.Entity;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -9,13 +10,17 @@ using System.Threading.Tasks;
 
 namespace Library.ViewModel
 {
-    class BookViewModel:BaseViewModel
+   public class BookViewModel:BaseViewModel
     {
+
+        AddBook addBook => new AddBook(this);
         private BookEntity currentbook;
-        public BookEntity CurrentBook
+        public BookViewModel()
         {
 
-
+        }
+        public BookEntity CurrentBook
+        {
             get
             {
                 return currentbook;
@@ -23,7 +28,6 @@ namespace Library.ViewModel
             set
             {
                 currentbook = value;
-
                 OnpropertyChanged(new PropertyChangedEventArgs(nameof(CurrentBook)));
             }
 

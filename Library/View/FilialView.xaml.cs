@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Library.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,6 +23,8 @@ namespace Library.View
         public FilialView()
         {
             InitializeComponent();
+            FilialViewModel filialViewModel = new FilialViewModel();
+            DataContext = filialViewModel;
         }
     }
 }

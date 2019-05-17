@@ -9,10 +9,10 @@
     <Grid>
         <WrapPanel>
             <TextBlock Width="100" Text="Filial"></TextBlock>
-        <TextBox Margin="10,0,0,0" Width="100" Height="30" Name="Filial"></TextBox>
-        <Button Margin="50,0,0,0" Width="100" Content="Add"></Button>
+        <TextBox Margin="10,0,0,0" Text="{Binding CurrentFilial.Name}" Width="100" Height="30" Name="Filial"></TextBox>
+        <Button Margin="50,0,0,0" Width="100" Content="Add" Command="{Binding Add}"></Button>
         </WrapPanel>
-        <ListView Name="List"   SelectedItem="{Binding selectQruplar }" ItemsSource="{Binding groups}" Grid.Row="2" Margin="0,50,0,0" Grid.ColumnSpan="2">
+        <ListView Name="List"   SelectedItem="{Binding SelectFilial }" ItemsSource="{Binding Filials}" Grid.Row="2" Margin="0,50,0,0" Grid.ColumnSpan="2">
 
             <ListView.View>
                 <GridView>
@@ -27,7 +27,7 @@
                     <GridViewColumn Header="Name" Width="100">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Padding="5,0" Text="{Binding QrupAdi}" TextAlignment="Center" VerticalAlignment="Center">
+                                <TextBlock Padding="5,0" Text="{Binding Name}" TextAlignment="Center" VerticalAlignment="Center">
                                 </TextBlock>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>

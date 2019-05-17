@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Library.Command;
+using Library.Entity;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
@@ -8,10 +10,17 @@ using System.Threading.Tasks;
 
 namespace Library.ViewModel
 {
-    class FilialViewModel:BaseViewModel
+   public class FilialViewModel:BaseViewModel
     {
-        private FilialViewModel currentfilial;
-        public FilialViewModel CurrentFilial
+
+       public AddFilial Add => new AddFilial(this);
+        public FilialViewModel()
+        {
+            currentfilial = new FilialEntity();
+            selectfilial = new FilialEntity();
+        }
+        private FilialEntity currentfilial;
+        public FilialEntity CurrentFilial
         {
              
 
@@ -27,8 +36,8 @@ namespace Library.ViewModel
             }
 
         }
-        private FilialViewModel selectfilial;
-        public FilialViewModel SelectFilial
+        private FilialEntity selectfilial;
+        public FilialEntity SelectFilial
         {
             get
             {
@@ -41,8 +50,8 @@ namespace Library.ViewModel
                 OnpropertyChanged(new PropertyChangedEventArgs(nameof(SelectFilial)));
             }
         }
-        private ObservableCollection<FilialViewModel> filials;
-        public ObservableCollection<FilialViewModel> Filials
+        private ObservableCollection<FilialEntity> filials;
+        public ObservableCollection<FilialEntity> Filials
         {
             get
             {
@@ -54,9 +63,5 @@ namespace Library.ViewModel
                 OnpropertyChanged(new PropertyChangedEventArgs("Filials"));
             }
         }
-
-
-
-
     }
 }

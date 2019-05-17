@@ -62,7 +62,7 @@ HorizontalAlignment="Stretch"
                 </TextBox>
             </StackPanel>
             <StackPanel>
-                <Button Height="30" Width="95"   HorizontalAlignment="Right" VerticalAlignment="Top" Command="{Binding Add}" Content="Add" Name="Add" >
+                <Button Height="30" Width="95"   HorizontalAlignment="Right" VerticalAlignment="Top" Command="{Binding addBook}" Content="Add" Name="Add" >
                     <Button.Style>
                         <Style TargetType="{x:Type Button}">
                             <Style.Triggers>
