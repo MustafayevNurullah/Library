@@ -16,15 +16,13 @@ namespace Library.Command
             bookViewModel = BookViewModel;
         }
         public event EventHandler CanExecuteChanged;
-
         public bool CanExecute(object parameter)
         {
             return true;
         }
-
         public void Execute(object parameter)
         {
-
+            bookViewModel.Books.Add(bookViewModel.CurrentBook);
         }
     }
 }

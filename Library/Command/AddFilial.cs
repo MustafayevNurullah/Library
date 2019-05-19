@@ -1,10 +1,7 @@
 ﻿using Library.ViewModel;
+using Newtonsoft.Json;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+
 using System.Windows.Input;
 
 namespace Library.Command
@@ -27,9 +24,18 @@ namespace Library.Command
 
         public void Execute(object parameter)
         {
-
+            if(filialViewModel.Filials.Count!=0)
+            {
+            filialViewModel.CurrentFilial.Id = filialViewModel.Filials[filialViewModel.Filials.Count - 1].Id+1;
+            }
+            else
+            {
+                filialViewModel.CurrentFilial.Id = 1;
+            }
             filialViewModel.Filials.Add(filialViewModel.CurrentFilial);
             filialViewModel.CurrentFilial = new Entity.FilialEntity();
+            string json = JsonConvert.SerializeObject(filialViewModel.Filials);
+            System.IO.File.WriteAllText("Filials.json", json);
         }
     }
 }

@@ -8,7 +8,7 @@
         Title="MainView" Height="250" Width="400">
     <Grid>
         <StackPanel>
-            <Button Height="50" Width="200" Content="Book"></Button>
+            <Button Height="50" Width="200" Command="{Binding Book}" Content="Book"></Button>
             <Button Height="50" Width="200" Content="Customer"></Button>
             <Button Height="50" Command="{Binding Filial}" Width="200" Content="Filial"></Button>
             <Button Height="50" Width="200" Content="Worker"></Button>

@@ -13,9 +13,9 @@ namespace Library.Entity
         public string Name { get; set; }
         public string Author { get; set; }
 
-        public decimal SalePrice { get; set; }
-        public decimal BuyPrice { get; set; }
-        public int Count { get; set; }
-        FilialEntity Filial;
+        public string SalePrice { get; set; }
+        public string BuyPrice { get; set; }
+        public string Count { get; set; }
+        FilialEntity Filial { get; set; }
     }
 }
