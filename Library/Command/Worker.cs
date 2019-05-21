@@ -26,6 +26,7 @@ namespace Library.Command
         {
             WorkerView workerView = new WorkerView();
             workerView.ShowDialog();
+
             mainView.Close();
         }
     }
