@@ -7,18 +7,23 @@
         mc:Ignorable="d"
         Title="Window1" Height="450" Width="800">
     <Grid>
+        <local:UserControl1 Grid.Column="1"></local:UserControl1>
         <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="2*"/>
             <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
+            <RowDefinition />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition />
             <ColumnDefinition Width="3*"/>
         </Grid.ColumnDefinitions>
+        <Button Content="Book" Grid.Row="2"></Button>
+        <Button Content="Customer" Grid.Row="3"></Button>
+        <Button Content="Filial" Grid.Row="4"></Button>
+        <Button Content="Worker" Grid.Row="5"></Button>
+        <Label Content="Library" FontSize="30" HorizontalContentAlignment="Center" FontFamily="Calibri" FontWeight="Black"></Label>
     </Grid>
 </Window>
