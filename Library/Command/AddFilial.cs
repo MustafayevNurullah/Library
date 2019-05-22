@@ -33,9 +33,9 @@ namespace Library.Command
                 filialViewModel.CurrentFilial.Id = 1;
             }
             filialViewModel.Filials.Add(filialViewModel.CurrentFilial);
-            filialViewModel.CurrentFilial = new Entity.FilialEntity();
             string json = JsonConvert.SerializeObject(filialViewModel.Filials);
-            System.IO.File.WriteAllText("Filials.json", json);
+            System.IO.File.WriteAllText("Filials.json", json);           
+            filialViewModel.CurrentFilial = new Entity.FilialEntity();
         }
     }
 }

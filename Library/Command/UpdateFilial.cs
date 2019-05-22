@@ -25,6 +25,7 @@ namespace Library.Command
 
         public void Execute(object parameter)
         {
+            System.Windows.Forms.MessageBox.Show(filialViewModel.CurrentFilial.Name);
             var item = filialViewModel.Filials.FirstOrDefault(x => x.Id == filialViewModel.CurrentFilial.Id);
             int index=filialViewModel.Filials.IndexOf(item);
             filialViewModel.Filials[index] = filialViewModel.CurrentFilial;

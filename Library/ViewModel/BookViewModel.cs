@@ -58,7 +58,6 @@ namespace Library.ViewModel
             set
             {
                 selectbook = value;
-
                 OnpropertyChanged(new PropertyChangedEventArgs(nameof(SelectBook)));
             }
         }
@@ -75,6 +74,20 @@ namespace Library.ViewModel
                 OnpropertyChanged(new PropertyChangedEventArgs(("Books")));
             }
         }
+        private int state=1;
+        public int State
+        {
+            get
+            {
+                return state;
+            }
+            set
+            {
+                state = value;
+                OnpropertyChanged(new PropertyChangedEventArgs(nameof(State)));
+            }
+        }
+
         public List<FilialEntity> filials { get; set; }
     }
 }

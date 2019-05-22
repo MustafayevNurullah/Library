@@ -13,16 +13,18 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Library
+namespace Library.ViewModel
 {
     /// <summary>
-    /// Interaction logic for UserControl1.xaml
+    /// Interaction logic for BookUser.xaml
     /// </summary>
-    public partial class UserControl1 : UserControl
+    public partial class BookUser : UserControl
     {
-        public UserControl1()
+        public BookUser()
         {
             InitializeComponent();
+          
         }
+        
     }
 }

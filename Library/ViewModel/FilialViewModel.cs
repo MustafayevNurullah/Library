@@ -38,10 +38,8 @@ namespace Library.ViewModel
             set
             {
                 currentfilial = value;
-
                 OnpropertyChanged(new PropertyChangedEventArgs(nameof(CurrentFilial)));
             }
-
         }
         private FilialEntity selectfilial;
         public FilialEntity SelectFilial
@@ -53,7 +51,7 @@ namespace Library.ViewModel
             set
             {
                 selectfilial = value;
-
+                currentfilial = SelectFilial.FilialClone();
                 OnpropertyChanged(new PropertyChangedEventArgs(nameof(SelectFilial)));
             }
         }

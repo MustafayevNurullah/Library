@@ -1,0 +1,67 @@
+﻿<Window x:Class="Library.Window1"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Library"
+        xmlns:Usercontrol="clr-namespace:Library.ViewModel"
+        
+        mc:Ignorable="d"
+        Title="Window1" Height="450" Width="800">
+    <Grid>
+        
+        <Grid Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition Height="2*"/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Button Grid.Row="2">
+                <Button.Template>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="3*"/>
+                    </Grid.ColumnDefinitions>
+
+                            <Button Grid.Column="1" Content="Book"></Button>
+                        </Grid>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+                            
+        <Button Content="Customer" Grid.Row="3"></Button>
+        <Button Content="Filial" Grid.Row="4"></Button>
+        <Button Content="Worker" Grid.Row="5"></Button>
+        <Button Content="Logout" Grid.Row="5"></Button>
+
+            <Label Content="Library" FontSize="30" HorizontalContentAlignment="Center" FontFamily="Calibri" FontWeight="Black"></Label>
+                
+            <Ellipse Width="100"
+         Height="50" Grid.Row="1" HorizontalAlignment="Left">
+                <Ellipse.Fill>
+                    <ImageBrush>
+                        <ImageBrush.ImageSource>
+                            <BitmapImage UriSource="/Image/User.png" />
+                        </ImageBrush.ImageSource>
+                    </ImageBrush>
+                </Ellipse.Fill>
+            </Ellipse>
+            <Label Grid.Row="1" VerticalAlignment="Center"  Content="Name Surname" HorizontalAlignment="Right"></Label>
+        </Grid>
+        <Grid Grid.Column="1">
+
+            <Usercontrol:BookUser></Usercontrol:BookUser>
+           
+        </Grid>
+        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition Width="3*"/>
+        </Grid.ColumnDefinitions>
+    </Grid>
+</Window>
