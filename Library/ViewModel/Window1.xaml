@@ -55,7 +55,7 @@
         </Grid>
         <Grid Grid.Column="1">
 
-            <Usercontrol:BookUser></Usercontrol:BookUser>
+            <Usercontrol:BookUser ></Usercontrol:BookUser>
            
         </Grid>
         

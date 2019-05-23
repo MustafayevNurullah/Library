@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 
 namespace Library.Command
@@ -16,7 +17,7 @@ namespace Library.Command
         FilialViewModel filialViewModel { get; set; }
         public UpdateFilial(FilialViewModel filialViewModel)
         {
-            filialViewModel = this.filialViewModel;
+            this.filialViewModel = filialViewModel;
         }
         public bool CanExecute(object parameter)
         {
@@ -25,7 +26,7 @@ namespace Library.Command
 
         public void Execute(object parameter)
         {
-            System.Windows.Forms.MessageBox.Show(filialViewModel.CurrentFilial.Name);
+            MessageBox.Show(filialViewModel.CurrentFilial.Name);
             var item = filialViewModel.Filials.FirstOrDefault(x => x.Id == filialViewModel.CurrentFilial.Id);
             int index=filialViewModel.Filials.IndexOf(item);
             filialViewModel.Filials[index] = filialViewModel.CurrentFilial;

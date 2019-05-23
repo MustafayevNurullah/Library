@@ -15,8 +15,7 @@ namespace Library.ViewModel
         public DeleteFilial deleteFilial { get; set; }
         public FilialViewModel()
         {
-            currentfilial = new FilialEntity();
-            selectfilial = new FilialEntity();
+            
             addFilial = new AddFilial(this);
             updateFilial = new UpdateFilial(this);
             deleteFilial = new DeleteFilial(this);
@@ -25,6 +24,8 @@ namespace Library.ViewModel
                 string jsonFilial = File.ReadAllText("Filials.json");
                 this.Filials = JsonConvert.DeserializeObject<ObservableCollection<FilialEntity>>(jsonFilial);
             }
+            CurrentFilial = new FilialEntity();
+            SelectFilial = new FilialEntity();
         }
         private FilialEntity currentfilial;
         public FilialEntity CurrentFilial
@@ -51,7 +52,10 @@ namespace Library.ViewModel
             set
             {
                 selectfilial = value;
-                currentfilial = SelectFilial.FilialClone();
+                if (value != null)
+                {
+                    CurrentFilial = SelectFilial.FilialClone();
+                }
                 OnpropertyChanged(new PropertyChangedEventArgs(nameof(SelectFilial)));
             }
         }

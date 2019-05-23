@@ -23,7 +23,8 @@ namespace Library.ViewModel
         public BookUser()
         {
             InitializeComponent();
-          
+            BookViewModel bookViewModel = new BookViewModel();
+            DataContext = bookViewModel;
         }
         
     }

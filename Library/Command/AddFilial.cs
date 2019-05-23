@@ -1,4 +1,5 @@
-﻿using Library.ViewModel;
+﻿using Library.Entity;
+using Library.ViewModel;
 using Newtonsoft.Json;
 using System;
 
@@ -35,7 +36,8 @@ namespace Library.Command
             filialViewModel.Filials.Add(filialViewModel.CurrentFilial);
             string json = JsonConvert.SerializeObject(filialViewModel.Filials);
             System.IO.File.WriteAllText("Filials.json", json);           
-            filialViewModel.CurrentFilial = new Entity.FilialEntity();
+            filialViewModel.CurrentFilial = new FilialEntity();
+            filialViewModel.SelectFilial = new FilialEntity();
         }
     }
 }
