@@ -1,6 +1,7 @@
 ﻿using Library.ViewModel;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,20 +14,20 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace Library.View
+namespace Library
 {
     /// <summary>
-    /// Interaction logic for MainView.xaml
+    /// Interaction logic for Window1.xaml
     /// </summary>
-    public partial class MainView : Window
+    public partial class Window1 : Window
     {
-        public MainView()
+        MainViewModel MainView;
+        public Window1()
         {
             InitializeComponent();
-            MainViewModel = new MainViewModel(this);
-            DataContext = MainViewModel;
+            MainView = new MainViewModel(this);
+            DataContext = MainView;
         }
-        public MainViewModel MainViewModel { get; set; }
 
     }
 }

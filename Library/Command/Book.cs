@@ -1,4 +1,5 @@
-﻿using Library.View;
+﻿
+using Library.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,10 +13,10 @@ namespace Library.Command
     {
         public event EventHandler CanExecuteChanged;
 
-        MainView mainView { get; set; }
-        public Book(MainView MainView)
+        MainViewModel MainView { get; set; }
+        public Book(MainViewModel MainView)
         {
-            mainView = MainView;
+            this.MainView = MainView;
         }
 
         public bool CanExecute(object parameter)
@@ -26,9 +27,7 @@ namespace Library.Command
 
         public void Execute(object parameter)
         {
-            BookView bookView = new BookView();
-            bookView.ShowDialog();
-            mainView.Close();
+            MainView.Window1.MainBorder.Child = new BookUser();
         }
     }
 }

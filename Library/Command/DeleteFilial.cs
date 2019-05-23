@@ -1,4 +1,5 @@
-﻿using Library.ViewModel;
+﻿using Library.Entity;
+using Library.ViewModel;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -15,7 +16,7 @@ namespace Library.Command
         FilialViewModel filialViewModel { get; set; }
         public DeleteFilial(FilialViewModel filialViewModel)
         {
-            filialViewModel = this.filialViewModel;
+           this.filialViewModel = filialViewModel;
         }
         public bool CanExecute(object parameter)
         {
@@ -28,6 +29,8 @@ namespace Library.Command
             filialViewModel.Filials.Remove(item);
             string json = JsonConvert.SerializeObject(filialViewModel.Filials);
             System.IO.File.WriteAllText("Filials.json", json);
+            filialViewModel.CurrentFilial = new FilialEntity();
+            filialViewModel.SelectFilial = new FilialEntity();
         }
     }
 }

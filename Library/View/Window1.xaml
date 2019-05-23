@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Library"
-        xmlns:Usercontrol="clr-namespace:Library.ViewModel"
+        xmlns:Usercontrol="clr-namespace:Library.UserControls"
         
         mc:Ignorable="d"
         Title="Window1" Height="450" Width="800">
@@ -19,7 +19,7 @@
                 <RowDefinition/>
                 <RowDefinition />
             </Grid.RowDefinitions>
-            <Button Grid.Row="2">
+            <Button Grid.Row="2" Command="{Binding BookCMD}">
                 <Button.Template>
                     <ControlTemplate TargetType="{x:Type Button}">
                 <Grid>
@@ -28,7 +28,7 @@
                         <ColumnDefinition Width="3*"/>
                     </Grid.ColumnDefinitions>
 
-                            <Button Grid.Column="1" Content="Book"></Button>
+                            <Button Command="{Binding BookCMD}" Grid.Column="1" Content="Book"></Button>
                             <Border>
                                 <Image Margin="10,10,10,10" Source="/Image/Book.png"></Image>
                             </Border>
@@ -37,7 +37,7 @@
                 </Button.Template>
             </Button>
 
-            <Button Grid.Row="3">
+            <Button Grid.Row="3" >
                 <Button.Template>
                     <ControlTemplate TargetType="{x:Type Button}">
                         <Grid>
@@ -54,7 +54,7 @@
                     </ControlTemplate>
                 </Button.Template>
             </Button>
-            <Button Grid.Row="4">
+            <Button Grid.Row="4" Command="{Binding Filial}">
                 <Button.Template>
                     <ControlTemplate TargetType="{x:Type Button}">
                         <Grid>
@@ -63,7 +63,7 @@
                                 <ColumnDefinition Width="3*"/>
                             </Grid.ColumnDefinitions>
 
-                            <Button Grid.Column="1" Content="Filial"></Button>
+                            <Button Command="{Binding FilialCMD}" Grid.Column="1" Content="Filial"></Button>
                             <Border>
                                 <Image Margin="10,10,10,10" Source="/Image/Filial.png"></Image>
                             </Border>
@@ -103,11 +103,10 @@
             </Ellipse>
             <Label Grid.Row="1" VerticalAlignment="Center"  Content="Name Surname" HorizontalAlignment="Right"></Label>
         </Grid>
-        <Grid Grid.Column="1">
+        <Border Name="MainBorder" Grid.Column="1">
 
-            <Usercontrol:BookUser ></Usercontrol:BookUser>
-           
-        </Grid>
+            
+        </Border>
         
         <Grid.ColumnDefinitions>
             <ColumnDefinition />

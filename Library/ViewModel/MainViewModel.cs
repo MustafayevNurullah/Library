@@ -1,22 +1,24 @@
-﻿using Library.View;
+﻿using Library.Command;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Library.ViewModel
 {
-  public  class MainViewModel
+   public class MainViewModel : INotifyPropertyChanged
     {
-        public MainView MainWindow { get; set; }
-        public MainViewModel(MainView MainWindow)
+        public event PropertyChangedEventHandler PropertyChanged;
+        public Book BookCMD { get; set; }
+        public Filial FilialCMD { get; set; }
+        public MainViewModel(Window1 window1)
         {
-            this.MainWindow = MainWindow;
+            BookCMD = new Book(this);
+            FilialCMD = new Filial(this);
+            Window1 = window1;
         }
-        public Command.Filial Filial => new Command.Filial(MainWindow);
-        public Command.Book Book => new Command.Book(MainWindow);
-        public Command.Customer Customer => new Command.Customer(MainWindow);
-        public Command.Worker Worker => new Command.Worker(MainWindow);
+       public Window1 Window1;
     }
 }

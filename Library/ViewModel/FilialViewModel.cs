@@ -23,6 +23,7 @@ namespace Library.ViewModel
             {
                 string jsonFilial = File.ReadAllText("Filials.json");
                 this.Filials = JsonConvert.DeserializeObject<ObservableCollection<FilialEntity>>(jsonFilial);
+                
             }
             CurrentFilial = new FilialEntity();
             SelectFilial = new FilialEntity();
@@ -54,7 +55,7 @@ namespace Library.ViewModel
                 selectfilial = value;
                 if (value != null)
                 {
-                    CurrentFilial = SelectFilial.FilialClone();
+                     CurrentFilial = SelectFilial.FilialClone();
                 }
                 OnpropertyChanged(new PropertyChangedEventArgs(nameof(SelectFilial)));
             }

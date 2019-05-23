@@ -1,4 +1,5 @@
-﻿using Library.View;
+﻿
+using Library.Entity;
 using Library.ViewModel;
 using Newtonsoft.Json;
 using System;
@@ -26,12 +27,13 @@ namespace Library.Command
 
         public void Execute(object parameter)
         {
-            MessageBox.Show(filialViewModel.CurrentFilial.Name);
             var item = filialViewModel.Filials.FirstOrDefault(x => x.Id == filialViewModel.CurrentFilial.Id);
             int index=filialViewModel.Filials.IndexOf(item);
             filialViewModel.Filials[index] = filialViewModel.CurrentFilial;
             string json = JsonConvert.SerializeObject(filialViewModel.Filials);
             System.IO.File.WriteAllText("Filials.json", json);
+            filialViewModel.CurrentFilial = new FilialEntity();
+            filialViewModel.SelectFilial = new FilialEntity();
         }
     }
 }

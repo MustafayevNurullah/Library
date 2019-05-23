@@ -2,7 +2,7 @@
 using Library.ViewModel;
 using Newtonsoft.Json;
 using System;
-
+using System.Linq;
 using System.Windows.Input;
 
 namespace Library.Command
@@ -25,9 +25,13 @@ namespace Library.Command
 
         public void Execute(object parameter)
         {
-            if(filialViewModel.Filials.Count!=0)
+            var item = filialViewModel.Filials.FirstOrDefault(x => x.Name == filialViewModel.CurrentFilial.Name);
+            if(item==null)
             {
-            filialViewModel.CurrentFilial.Id = filialViewModel.Filials[filialViewModel.Filials.Count - 1].Id+1;
+
+            if (filialViewModel.Filials.Count != 0)
+            {
+                filialViewModel.CurrentFilial.Id = filialViewModel.Filials[filialViewModel.Filials.Count - 1].Id + 1;
             }
             else
             {
@@ -38,6 +42,8 @@ namespace Library.Command
             System.IO.File.WriteAllText("Filials.json", json);           
             filialViewModel.CurrentFilial = new FilialEntity();
             filialViewModel.SelectFilial = new FilialEntity();
+            }
+            
         }
     }
 }

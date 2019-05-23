@@ -1,4 +1,6 @@
-﻿using Library.View;
+﻿
+using Library.UserControls;
+using Library.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,13 +12,13 @@ using System.Windows.Input;
 namespace Library.Command
 {
 
-  public  class Filial : ICommand
+    public class Filial : ICommand
     {
         public event EventHandler CanExecuteChanged;
-        public MainView MainWindow { get; set; }
-        public Filial(MainView mainView)
+        MainViewModel MainViewModel { get; set; }
+        public Filial (MainViewModel mainViewModel)
         {
-            MainWindow = mainView;
+            MainViewModel = mainViewModel;
         }
         public bool CanExecute(object parameter)
         {
@@ -25,9 +27,7 @@ namespace Library.Command
 
         public void Execute(object parameter)
         {
-            FilialView filialView = new FilialView();
-            filialView.ShowDialog();
-            MainWindow.Close();
+            MainViewModel.Window1.MainBorder.Child = new FilialUserControl();
         }
     }
 }
