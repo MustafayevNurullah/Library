@@ -14,13 +14,13 @@
             <TextBox Margin="10,0,0,0" Text="{Binding CurrentFilial.Address,Mode=TwoWay}" Width="100" Height="30" Name="Address"></TextBox>
             <Button Margin="10,0,0,0" Width="100" Content="Add" Command="{Binding addFilial}"></Button>
             <Button Margin="30,0,0,0" Width="100" Content="Update" Command="{Binding updateFilial}"></Button>
-            <Button Margin="30,0,0,0" Width="100" Content="Delete" Command="{Binding deleteFilial}"></Button>
+           
         </WrapPanel>
         <ListView Name="List"   SelectedItem="{Binding SelectFilial }" ItemsSource="{Binding Filials}" Grid.Row="2" Margin="0,50,0,0" Grid.ColumnSpan="2">
             <ListView.ContextMenu>
                 <ContextMenu >
-                    <MenuItem Header="Add" />
-                    <MenuItem Header="Delete"/>
+                    <MenuItem Header="Add"  />
+                    <MenuItem Header="Delete" Command="{Binding deleteFilial }"/>
                     <MenuItem Header="Update"/>
                 </ContextMenu>
             </ListView.ContextMenu>

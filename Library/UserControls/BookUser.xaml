@@ -57,21 +57,12 @@ HorizontalAlignment="Stretch"
                 </TextBox>
             </StackPanel>
             <StackPanel>
-                <Button Height="30" Width="95"   HorizontalAlignment="Right" VerticalAlignment="Top" Command="{Binding addBook}" Content="Add" Name="Add" >
+                <Button Height="30" Width="95"   HorizontalAlignment="Right" VerticalAlignment="Top" Command="{Binding addBook}" Content="Add" Name="Add"  >
                 </Button>
-                <Button Name="Update" Height="30" Width="95" HorizontalAlignment="Right" Command="{Binding Update}" VerticalAlignment="Top" Content="Deyis" >
-                    <Button.Style>
-                        <Style TargetType="{x:Type Button}">
-                            <Style.Triggers>
-                                <DataTrigger  Binding="{Binding state, Mode=TwoWay}" Value="2">
-                                    <Setter Property="IsEnabled" Value="True"></Setter>
-                                </DataTrigger>
-                            </Style.Triggers >
-                            <Setter Property="IsEnabled" Value="False"></Setter>
-                        </Style >
-                    </Button.Style>
+                <Button Name="Update" Height="30" Width="95" HorizontalAlignment="Right" Command="{Binding UpdateBook}" VerticalAlignment="Top" Content="Deyis" >
+                   
                 </Button>
-                <Button Height="30" Width="95" HorizontalAlignment="Right" Command="{Binding imtina}" VerticalAlignment="Top" Content="Delete"  >
+                <Button Height="30" Width="95" HorizontalAlignment="Right" Command="{Binding DeleteBook}" VerticalAlignment="Top" Content="Delete"  >
                     <Button.Style>
                         <Style TargetType="{x:Type Button}">
                             <Style.Triggers>

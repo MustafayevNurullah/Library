@@ -26,6 +26,7 @@ namespace Library.ViewModel
             BookViewModel bookViewModel = new BookViewModel();
             DataContext = bookViewModel;
         }
+
         
     }
 }

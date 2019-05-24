@@ -26,7 +26,7 @@ namespace Library.Command
 
         public void Execute(object parameter)
         {
-            var item= filialViewModel.Filials.FirstOrDefault(x => x.Id == filialViewModel.CurrentFilial.Id);
+            var item= filialViewModel.Filials.FirstOrDefault(x => x.Id == filialViewModel.SelectFilial.Id);
             filialViewModel.Filials.Remove(item);
             ObservableCollection<FilialEntity> NewFilials = filialViewModel.Filials;
             for (int i = 0; i < NewFilials.Count; i++)

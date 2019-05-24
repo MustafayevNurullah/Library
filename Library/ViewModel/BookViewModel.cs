@@ -17,11 +17,15 @@ namespace Library.ViewModel
 
         private BookEntity currentbook;
         public AddBook addBook { get; set; }
+        public DeleteBook DeleteBook { get; set; }
+        public UpdateBook UpdateBook { get; set; }
         public BookViewModel()
         {
             Books = new ObservableCollection<BookEntity>();
 
             addBook = new AddBook(this);
+            DeleteBook = new DeleteBook(this);
+            UpdateBook = new UpdateBook(this);
             currentbook = new BookEntity();
             selectbook = new BookEntity();
             filials = new List<FilialEntity>();
@@ -29,9 +33,12 @@ namespace Library.ViewModel
             {
                 string jsonFilial = File.ReadAllText("Filials.json");
                this.filials = JsonConvert.DeserializeObject<List<FilialEntity>>(jsonFilial);
-                
             }
-            
+            if (File.Exists("Books.json"))
+            {
+                string jsonBook = File.ReadAllText("Books.json");
+                this.Books = JsonConvert.DeserializeObject<ObservableCollection<BookEntity>>(jsonBook);
+            }
         }
         public BookEntity CurrentBook
         {
@@ -44,10 +51,7 @@ namespace Library.ViewModel
                 currentbook = value;
                 OnpropertyChanged(new PropertyChangedEventArgs(nameof(CurrentBook)));
             }
-
         }
-
-
         private BookEntity selectbook;
         public BookEntity SelectBook
         {

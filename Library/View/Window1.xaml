@@ -80,7 +80,7 @@
                                 <ColumnDefinition Width="3*"/>
                             </Grid.ColumnDefinitions>
 
-                            <Button Grid.Column="1" Content="Filial"></Button>
+                            <Button Grid.Column="1" Content="Logout"></Button>
                             <Border>
                                 <Image Margin="10,10,10,10" Source="/Image/Logout.jpg"></Image>
                             </Border>
