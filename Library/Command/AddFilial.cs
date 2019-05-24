@@ -25,7 +25,8 @@ namespace Library.Command
 
         public void Execute(object parameter)
         {
-            var item = filialViewModel.Filials.FirstOrDefault(x => x.Name == filialViewModel.CurrentFilial.Name);
+            
+             var item = filialViewModel.Filials.FirstOrDefault(x => x.Name == filialViewModel.CurrentFilial.Name );
             if(item==null)
             {
 

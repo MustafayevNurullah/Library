@@ -19,20 +19,13 @@ namespace Library.ViewModel
             addFilial = new AddFilial(this);
             updateFilial = new UpdateFilial(this);
             deleteFilial = new DeleteFilial(this);
-            if (File.Exists("Filials.json"))
-            {
-                string jsonFilial = File.ReadAllText("Filials.json");
-                this.Filials = JsonConvert.DeserializeObject<ObservableCollection<FilialEntity>>(jsonFilial);
-                
-            }
             CurrentFilial = new FilialEntity();
             SelectFilial = new FilialEntity();
+          
         }
         private FilialEntity currentfilial;
         public FilialEntity CurrentFilial
         {
-             
-
             get
             {
                 return currentfilial;
@@ -69,7 +62,15 @@ namespace Library.ViewModel
             }
             set
             {
+                if (File.Exists("Filials.json"))
+                {
+                    string jsonFilial = File.ReadAllText("Filials.json");
+                    this.filials = JsonConvert.DeserializeObject<ObservableCollection<FilialEntity>>(jsonFilial);
+                }
+                else
+                {
                 filials = value;
+                }
                 OnpropertyChanged(new PropertyChangedEventArgs("Filials"));
             }
         }

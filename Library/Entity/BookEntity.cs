@@ -16,6 +16,24 @@ namespace Library.Entity
         public string SalePrice { get; set; }
         public string BuyPrice { get; set; }
         public string Count { get; set; }
-        FilialEntity Filial { get; set; }
+        public FilialEntity Filial { get; set; }
+
+        
+        public BookEntity Clone()
+        {
+            BookEntity bookEntity = new BookEntity(); 
+            bookEntity.No = this.No;
+            bookEntity.Id = this.No;
+            bookEntity.Name = this.Name;
+            bookEntity.Author = this.Author;
+            bookEntity.SalePrice = this.SalePrice;
+            bookEntity.BuyPrice = this.BuyPrice;
+            bookEntity.Count = this.Count;
+            bookEntity.Filial = this.Filial;
+            return bookEntity;
+        }
+
+
+
     }
 }

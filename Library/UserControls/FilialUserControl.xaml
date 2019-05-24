@@ -5,18 +5,25 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Library.UserControls"
              mc:Ignorable="d" 
-             d:DesignHeight="250" d:DesignWidth="500">
+             d:DesignHeight="250" d:DesignWidth="600">
     <Grid>
-        <WrapPanel>
+        <WrapPanel Background="Gray">
             <TextBlock Width="100" Text="Filial"></TextBlock>
             <TextBox Margin="10,0,0,0" Text="{Binding CurrentFilial.Name,Mode=TwoWay}" Width="100" Height="30" Name="Filial"></TextBox>
+            <TextBlock Width="100" Text="Address"></TextBlock>
+            <TextBox Margin="10,0,0,0" Text="{Binding CurrentFilial.Address,Mode=TwoWay}" Width="100" Height="30" Name="Address"></TextBox>
             <Button Margin="10,0,0,0" Width="100" Content="Add" Command="{Binding addFilial}"></Button>
             <Button Margin="30,0,0,0" Width="100" Content="Update" Command="{Binding updateFilial}"></Button>
             <Button Margin="30,0,0,0" Width="100" Content="Delete" Command="{Binding deleteFilial}"></Button>
-
         </WrapPanel>
         <ListView Name="List"   SelectedItem="{Binding SelectFilial }" ItemsSource="{Binding Filials}" Grid.Row="2" Margin="0,50,0,0" Grid.ColumnSpan="2">
-
+            <ListView.ContextMenu>
+                <ContextMenu >
+                    <MenuItem Header="Add" />
+                    <MenuItem Header="Delete"/>
+                    <MenuItem Header="Update"/>
+                </ContextMenu>
+            </ListView.ContextMenu>
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="No" Width="30" >
@@ -35,9 +42,16 @@
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
+                    <GridViewColumn Header="Adress" Width="90" >
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Padding="5,0" Text="{Binding Address}" TextAlignment="Center" VerticalAlignment="Center">
+                                </TextBlock>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
                 </GridView>
             </ListView.View>
         </ListView>
-
     </Grid>
 </UserControl>

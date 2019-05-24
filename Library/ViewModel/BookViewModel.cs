@@ -58,36 +58,31 @@ namespace Library.ViewModel
             set
             {
                 selectbook = value;
-                OnpropertyChanged(new PropertyChangedEventArgs(nameof(SelectBook)));
+                if (value != null)
+                {
+                    CurrentBook = SelectBook.Clone();
+                }
+                    OnpropertyChanged(new PropertyChangedEventArgs(nameof(SelectBook)));
             }
         }
         private ObservableCollection<BookEntity> books;
+       
         public ObservableCollection<BookEntity> Books
         {
             get
             {
+                
                 return books;
             }
             set
             {
+
                 books = value;
                 OnpropertyChanged(new PropertyChangedEventArgs(("Books")));
             }
         }
-        private int state=1;
-        public int State
-        {
-            get
-            {
-                return state;
-            }
-            set
-            {
-                state = value;
-                OnpropertyChanged(new PropertyChangedEventArgs(nameof(State)));
-            }
-        }
-
+     
+        
         public List<FilialEntity> filials { get; set; }
     }
 }

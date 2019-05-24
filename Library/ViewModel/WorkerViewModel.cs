@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Library.ViewModel
 {
-    class WorkerViewModel:BaseViewModel
+   public class WorkerViewModel:BaseViewModel
     {
         private WorkerViewModel currentworker;
         public WorkerViewModel CurrentWorker

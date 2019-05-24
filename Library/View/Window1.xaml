@@ -46,7 +46,7 @@
                                 <ColumnDefinition Width="3*"/>
                             </Grid.ColumnDefinitions>
 
-                            <Button Grid.Column="1" Content="Worker"></Button>
+                            <Button Command= "{Binding WorkerCMD}" Grid.Column="1" Content="Worker"></Button>
                             <Border>
                                 <Image Margin="10,10,10,10" Source="/Image/Worker.png"></Image>
                             </Border>
@@ -88,11 +88,16 @@
                     </ControlTemplate>
                 </Button.Template>
             </Button>
-
-            <Label Content="Library" FontSize="30" HorizontalContentAlignment="Center" FontFamily="Calibri" FontWeight="Black"></Label>
-                
-            <Ellipse Width="100"
-         Height="50" Grid.Row="1" HorizontalAlignment="Left">
+            <Label Grid.Row="1">
+                <Label.Template>
+                    <ControlTemplate TargetType="{x:Type Label}">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Column="1" Content="Name Surname" VerticalAlignment="Center"></Label>
+                           <Ellipse Grid.Row="1" >
                 <Ellipse.Fill>
                     <ImageBrush>
                         <ImageBrush.ImageSource>
@@ -101,14 +106,19 @@
                     </ImageBrush>
                 </Ellipse.Fill>
             </Ellipse>
-            <Label Grid.Row="1" VerticalAlignment="Center"  Content="Name Surname" HorizontalAlignment="Right"></Label>
+                        </Grid>
+                    </ControlTemplate>
+                </Label.Template>
+            </Label>
+                
+            
+            <Label Content="Library" FontSize="30" HorizontalContentAlignment="Center" FontFamily="Calibri" FontWeight="Black"></Label>
         </Grid>
         <Border Name="MainBorder" Grid.Column="1">
 
             
         </Border>
-        
-        <Grid.ColumnDefinitions>
+                <Grid.ColumnDefinitions>
             <ColumnDefinition />
             <ColumnDefinition Width="3*"/>
         </Grid.ColumnDefinitions>

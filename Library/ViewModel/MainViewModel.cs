@@ -1,4 +1,5 @@
-﻿using Library.Command;
+﻿
+using Library.Command;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,10 +14,12 @@ namespace Library.ViewModel
         public event PropertyChangedEventHandler PropertyChanged;
         public Book BookCMD { get; set; }
         public Filial FilialCMD { get; set; }
+        public Worker WorkerCMD { get; set; }
         public MainViewModel(Window1 window1)
         {
             BookCMD = new Book(this);
             FilialCMD = new Filial(this);
+            WorkerCMD = new Worker(this);
             Window1 = window1;
         }
        public Window1 Window1;
