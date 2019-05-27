@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Library.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,8 @@ namespace Library.UserControls
         public WorkerUserControl()
         {
             InitializeComponent();
+            WorkerViewModel workerViewModel = new WorkerViewModel();
+            DataContext = workerViewModel;
         }
     }
 }

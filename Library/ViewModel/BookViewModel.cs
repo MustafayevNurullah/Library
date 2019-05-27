@@ -1,4 +1,5 @@
 ﻿using Library.Command;
+using Library.Command.BuyBook;
 using Library.Entity;
 using Newtonsoft.Json;
 using System;
@@ -19,16 +20,17 @@ namespace Library.ViewModel
         public AddBook addBook { get; set; }
         public DeleteBook DeleteBook { get; set; }
         public UpdateBook UpdateBook { get; set; }
-        public BookViewModel()
+        public BuyBook BuyBookCMD { get; set; }
+
+        public BookViewModel(MainViewModel mainViewModel)
         {
             Books = new ObservableCollection<BookEntity>();
-
+            BuyBookCMD = new BuyBook(mainViewModel,this);
             addBook = new AddBook(this);
             DeleteBook = new DeleteBook(this);
             UpdateBook = new UpdateBook(this);
             currentbook = new BookEntity();
             selectbook = new BookEntity();
-            filials = new List<FilialEntity>();
             if (File.Exists("Filials.json"))
             {
                 string jsonFilial = File.ReadAllText("Filials.json");

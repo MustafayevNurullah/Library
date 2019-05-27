@@ -1,19 +1,39 @@
-﻿using System;
+﻿using Library.Command;
+using Library.Entity;
+using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Library.ViewModel
 {
-    class CustomerViewModel:BaseViewModel
+   public class CustomerViewModel:BaseViewModel
     {
+       public  AddCustomer addCustomer { get; set; }
+       public DeleteCustomer deleteCustomer { get; set; }
+      public  UpdateCustomer updateCustomer { get; set; }
+        public CustomerViewModel()
+        {
+            addCustomer = new AddCustomer(this);
+            deleteCustomer = new DeleteCustomer(this);
+            updateCustomer = new UpdateCustomer(this);
+            SelectCustomer = new CustomerEntity();
+            Customers = new ObservableCollection<CustomerEntity>();
+            CurrentCustomer = new CustomerEntity();
+            if (File.Exists("Customers.json"))
+            {
+                string jsonBook = File.ReadAllText("Customers.json");
+                this.Customers = JsonConvert.DeserializeObject<ObservableCollection<CustomerEntity>>(jsonBook);
+            }
+        }
 
-
-        private CustomerViewModel currentcustomer;
-        public CustomerViewModel CurrentCustomer
+        private CustomerEntity currentcustomer;
+        public CustomerEntity CurrentCustomer
         {
 
 
@@ -31,8 +51,8 @@ namespace Library.ViewModel
         }
 
 
-        private CustomerViewModel selectcustomer;
-        public CustomerViewModel SelectCustomer
+        private CustomerEntity selectcustomer;
+        public CustomerEntity SelectCustomer
         {
             get
             {
@@ -41,12 +61,13 @@ namespace Library.ViewModel
             set
             {
                 selectcustomer = value;
+                CurrentCustomer = SelectCustomer.Clone();
 
                 OnpropertyChanged(new PropertyChangedEventArgs(nameof(SelectCustomer)));
             }
         }
-        private ObservableCollection<CustomerViewModel> customers;
-        public ObservableCollection<CustomerViewModel> Customers
+        private ObservableCollection<CustomerEntity> customers;
+        public ObservableCollection<CustomerEntity> Customers
         {
             get
             {

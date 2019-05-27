@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="Library.UserControls.WorkerUserControl"
+﻿<UserControl x:Class="Library.UserControls.BuyUserControl"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -12,30 +12,26 @@
             <RowDefinition Height="6*"/>
             <RowDefinition Height="5*"/>
         </Grid.RowDefinitions>
-
         <DockPanel  Background="Gray" Grid.Row="0"  VerticalAlignment="Stretch"
 HorizontalAlignment="Stretch"
                     Grid.ColumnSpan="2" >
-
         </DockPanel>
         <DockPanel   Background="LightGray" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
                      Grid.ColumnSpan="2" >
-
             <StackPanel>
                 <WrapPanel>
                     <TextBlock HorizontalAlignment="Left"  Text="Name" Width="100" Height="30"    >
-
                     </TextBlock>
-                    <TextBox Height="30" Width="100 " Text="{Binding CurrentWorker.Name,Mode=TwoWay}"  Name="Name" >
+                    <TextBox Height="30" Width="100 " Text="{Binding CurrentBuyBook.BookId.Name,Mode=TwoWay}"  Name="Name" >
                     </TextBox>
                 </WrapPanel>
                 <WrapPanel>
-                    <TextBlock HorizontalAlignment="Left"  Text="Surname" Width="100" Height="30"    ></TextBlock>
-                    <TextBox Height="30" Width="100" Text="{Binding CurrentWorker.Surname,Mode=TwoWay}"  Name="Surname"></TextBox>
+                    <TextBlock HorizontalAlignment="Left"  Text="Note" Width="100" Height="30"    ></TextBlock>
+                    <TextBox Height="30" Width="100" Text="{Binding CurrentBuyBook.Note,Mode=TwoWay}"  Name="Note"></TextBox>
                 </WrapPanel>
                 <WrapPanel>
-                    <TextBlock HorizontalAlignment="Left" Text="Salary"   Width="100" Height="30"></TextBlock>
-                    <TextBox Height="30" Width="100"  Name="Salary" Text="{Binding CurrentWorker.Salary,Mode=TwoWay}"></TextBox>
+                    <TextBlock HorizontalAlignment="Left" Text="Price"   Width="100" Height="30"></TextBlock>
+                    <TextBox Height="30" Width="100"  Name="Price" Text="{Binding CurrentBuyBook.Price,Mode=TwoWay}"></TextBox>
                 </WrapPanel>
             </StackPanel>
             <StackPanel>
@@ -47,35 +43,28 @@ HorizontalAlignment="Stretch"
 
             </StackPanel>
             <StackPanel>
-                <TextBlock Margin="100,0,0,0" Height="30" VerticalAlignment="Top" Text="Filiali" Width="100" ></TextBlock>
-                <TextBlock Margin="100,0,0,0" Height="30" VerticalAlignment="Top" Text="Phone" Width="100" ></TextBlock>
+                <TextBlock Margin="100,0,0,0" Height="30" VerticalAlignment="Top" Text="Customer" Width="100" ></TextBlock>
+                <TextBlock Margin="100,0,0,0" Height="30" VerticalAlignment="Top" Text="BuyPrice" Width="100" ></TextBlock>
+                <TextBlock Margin="100,0,0,0" Height="30" VerticalAlignment="Top" Text="Date" Width="100" ></TextBlock>
 
             </StackPanel>
             <StackPanel>
-                <ComboBox Name="Filial" Height="30" Width="100" ItemsSource="{Binding filials}" DisplayMemberPath="Name"
-                              SelectedItem="{Binding CurrentWorker.Filial }" SelectedValuePath="Id"
-                              SelectedValue="{Binding CurrentWorker.Filial.Id ,Mode=TwoWay}"></ComboBox>
-                <TextBox Height="30" Name="Phone" VerticalAlignment="Top" Width="100 " Text="{Binding CurrentWorker.Phone,Mode=TwoWay}">
+                <ComboBox Name="Customers" Height="30" Width="100" ItemsSource="{Binding customerList}" DisplayMemberPath="Name"
+                              SelectedItem="{Binding CurrentBuyBook.Customer }" SelectedValuePath="Id"
+                              SelectedValue="{Binding CurrentBuyBook.Customer.Id ,Mode=TwoWay}"></ComboBox>
+                <TextBox Height="30" Name="BuyPrice" VerticalAlignment="Top" Width="100 " Text="{Binding CurrentBuyBook.BookId.BuyPrice,Mode=TwoWay}">
+                </TextBox>
+                <TextBox Height="30" Name="Date" VerticalAlignment="Top" Width="100 " Text="{Binding CurrentBuyBook.BookId.BuyPrice,Mode=TwoWay}">
                 </TextBox>
             </StackPanel>
             <StackPanel>
-                <Button Height="30" Width="95"   HorizontalAlignment="Right" VerticalAlignment="Top" Command="{Binding addWorker}" Content="Add" Name="Add" >
-              
-
-                </Button>
-                <Button Name="Update" Height="30" Width="95" HorizontalAlignment="Right" Command="{Binding UpdateWorker}" VerticalAlignment="Top" Content="Update" >
-                </Button>
-                <Button Height="30" Width="95" HorizontalAlignment="Right" Command="{Binding DeleteWorker}" VerticalAlignment="Top" Content="Delete"  >
-                   
+                <Button Name="Buy" Height="30" Width="95" HorizontalAlignment="Right" Command="{Binding buyBookCommand}" VerticalAlignment="Top" Content="Buy" >
                 </Button>
             </StackPanel>
-
         </DockPanel>
-
-        <TextBlock  Height="30" Text="Worker" FontWeight="Bold" FontFamily="30"  Width="100" HorizontalAlignment="Center" Grid.ColumnSpan="2" Margin="246,0,246,1">
+        <TextBlock  Height="30" Text="BookBuy" FontWeight="Bold" FontFamily="30"  Width="100" HorizontalAlignment="Center" Grid.ColumnSpan="2" Margin="246,0,246,1">
         </TextBlock>
-
-        <ListView Visibility="Visible" Name="List"   SelectedItem="{Binding SelectWorker }" ItemsSource="{Binding Workers}" Grid.Row="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.ColumnSpan="2">
+        <ListView Visibility="Visible" Name="List"   SelectedItem="{Binding SelectBuyBook }" ItemsSource="{Binding BuyBooks}" Grid.Row="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.ColumnSpan="2">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="No" Width="30" >
@@ -89,41 +78,48 @@ HorizontalAlignment="Stretch"
                     <GridViewColumn Header="Name" Width="100">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Padding="5,0" Text="{Binding Name}" TextAlignment="Center" VerticalAlignment="Center">
+                                <TextBlock Padding="5,0" Text="{Binding BookId.Name}" TextAlignment="Center" VerticalAlignment="Center">
                                 </TextBlock>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
-                    <GridViewColumn Header="Surname" Width="60">
+                    <GridViewColumn Header="Customer" Width="60">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Padding="5,0" Text="{Binding Surname}"   TextAlignment="Center" VerticalAlignment="Center">
-                                </TextBlock>
-                            </DataTemplate>
-                        </GridViewColumn.CellTemplate>
-
-                    </GridViewColumn>
-                    <GridViewColumn Header="Salary" Width="100">
-                        <GridViewColumn.CellTemplate>
-                            <DataTemplate>
-                                <TextBlock Padding="5,0" Text="{Binding Salary}" TextAlignment="Center" VerticalAlignment="Center">
-                                </TextBlock>
-                            </DataTemplate>
-                        </GridViewColumn.CellTemplate>
-                    </GridViewColumn>
-                    <GridViewColumn Header="Filial" Width="100">
-                        <GridViewColumn.CellTemplate>
-                            <DataTemplate>
-                                <TextBlock Padding="5,0" Text="{Binding Filial.Name}"  TextAlignment="Center" VerticalAlignment="Center">
+                                <TextBlock Padding="5,0" Text="{Binding Customer.Name}"   TextAlignment="Center" VerticalAlignment="Center">
                                 </TextBlock>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
 
                     </GridViewColumn>
-                    <GridViewColumn Header="Phone" Width="100">
+                    <GridViewColumn Header="Price" Width="100">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Padding="5,0" Text="{Binding Phone}" TextAlignment="Center" VerticalAlignment="Center">
+                                <TextBlock Padding="5,0" Text="{Binding Price}" TextAlignment="Center" VerticalAlignment="Center">
+                                </TextBlock>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header="Note" Width="100">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Padding="5,0" Text="{Binding Note}"  TextAlignment="Center" VerticalAlignment="Center">
+                                </TextBlock>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header="BuyPrice" Width="100">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Padding="5,0" Text="{Binding BookId.BuyPrice}" TextAlignment="Center" VerticalAlignment="Center">
+                                </TextBlock>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header="Date" Width="100">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Padding="5,0" Text="{Binding BookId.Date}" TextAlignment="Center" VerticalAlignment="Center">
                                 </TextBlock>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>

@@ -34,7 +34,7 @@ namespace Library.Command
                 BookViewModel.Books[i] = BookViewModel.Books[i];
             }
             string json = JsonConvert.SerializeObject(BookViewModel.Books);
-            System.IO.File.WriteAllText("Books.json", json);
+            System.IO.File.WriteAllText("Customers.json", json);
             BookViewModel.CurrentBook = new BookEntity();
             BookViewModel.SelectBook = new BookEntity();
         }

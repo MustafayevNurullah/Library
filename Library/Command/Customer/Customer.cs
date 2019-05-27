@@ -1,4 +1,4 @@
-﻿
+﻿using Library.UserControls;
 using Library.ViewModel;
 using System;
 using System.Collections.Generic;
@@ -7,27 +7,26 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
-namespace Library.Command
+namespace Library.Command.Customer
 {
-    public class Book : ICommand
+    public class Customer : ICommand
     {
         public event EventHandler CanExecuteChanged;
-
-        MainViewModel MainView { get; set; }
-        public Book(MainViewModel MainView)
+        MainViewModel mainViewModel { get; set; }
+        public Customer(MainViewModel mainViewModel)
         {
-            this.MainView = MainView;
-        }
+            this.mainViewModel = mainViewModel;
 
+        }
         public bool CanExecute(object parameter)
         {
             return true;
-
         }
 
         public void Execute(object parameter)
         {
-            MainView.Window1.MainBorder.Child = new BookUser();
+            mainViewModel.Window1.MainBorder.Child = new CustomerUserControl();
+
         }
     }
 }

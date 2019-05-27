@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Library.Command
+namespace Library.Entity
 {
-    class AddWorker
+    class RentEntity
     {
     }
 }

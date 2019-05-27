@@ -60,24 +60,51 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Command\AddBook.cs" />
-    <Compile Include="Command\AddCustomer.cs" />
-    <Compile Include="Command\AddFilial.cs" />
-    <Compile Include="Command\AddWorker.cs" />
-    <Compile Include="Command\Book.cs" />
-    <Compile Include="Command\DeleteBook.cs" />
-    <Compile Include="Command\DeleteCustomer.cs" />
-    <Compile Include="Command\DeleteFilial.cs" />
-    <Compile Include="Command\DeleteWorker.cs" />
-    <Compile Include="Command\Filial.cs" />
-    <Compile Include="Command\UpdateBook.cs" />
-    <Compile Include="Command\UpdateCustomer.cs" />
-    <Compile Include="Command\UpdateFilial.cs" />
-    <Compile Include="Command\UpdateWorker.cs" />
-    <Compile Include="Command\Worker.cs" />
+    <Compile Include="Command\BookCommand\AddBook.cs" />
+    <Compile Include="Command\BuyBook\BuyBook.cs" />
+    <Compile Include="Command\BuyBook\BuyBookCommand.cs" />
+    <Compile Include="Command\BuyReport\BuyReport.cs" />
+    <Compile Include="Command\Customer\AddCustomer.cs" />
+    <Compile Include="Command\Customer\Customer.cs" />
+    <Compile Include="Command\Filial\AddFilial.cs" />
+    <Compile Include="Command\Login\Login.cs" />
+    <Compile Include="Command\Logout\Logout.cs" />
+    <Compile Include="Command\User\AddUser.cs" />
+    <Compile Include="Command\User\DeleteUser.cs" />
+    <Compile Include="Command\User\UpdateUser.cs" />
+    <Compile Include="Command\User\User.cs" />
+    <Compile Include="Command\Worker\AddWorker.cs" />
+    <Compile Include="Command\BookCommand\Book.cs" />
+    <Compile Include="Command\BookCommand\DeleteBook.cs" />
+    <Compile Include="Command\Customer\DeleteCustomer.cs" />
+    <Compile Include="Command\Filial\DeleteFilial.cs" />
+    <Compile Include="Command\Worker\DeleteWorker.cs" />
+    <Compile Include="Command\Filial\Filial.cs" />
+    <Compile Include="Command\BookCommand\UpdateBook.cs" />
+    <Compile Include="Command\Customer\UpdateCustomer.cs" />
+    <Compile Include="Command\Filial\UpdateFilial.cs" />
+    <Compile Include="Command\Worker\UpdateWorker.cs" />
+    <Compile Include="Command\Worker\Worker.cs" />
+    <Compile Include="Entity\BuyEntity.cs" />
+    <Compile Include="Entity\BuyReportEntity.cs" />
     <Compile Include="Entity\CustomerEntity.cs" />
+    <Compile Include="Entity\Permission.cs" />
+    <Compile Include="Entity\RentEntity.cs" />
+    <Compile Include="Entity\UserEntity.cs" />
+    <Compile Include="UserControls\BuyReport.xaml.cs">
+      <DependentUpon>BuyReport.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\BuyUserControl.xaml.cs">
+      <DependentUpon>BuyUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\CustomerUserControl.xaml.cs">
+      <DependentUpon>CustomerUserControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\FilialUserControl.xaml.cs">
       <DependentUpon>FilialUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UserUserControl.xaml.cs">
+      <DependentUpon>UserUserControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControls\WorkerUserControl.xaml.cs">
       <DependentUpon>WorkerUserControl.xaml</DependentUpon>
@@ -87,9 +114,13 @@
       <DependentUpon>BookUser.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModel\BookViewModel.cs" />
+    <Compile Include="ViewModel\BuyReportViewModel.cs" />
+    <Compile Include="ViewModel\BuyViewModel.cs" />
     <Compile Include="ViewModel\CustomerViewModel.cs" />
     <Compile Include="ViewModel\FilialViewModel.cs" />
+    <Compile Include="ViewModel\LoginViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
+    <Compile Include="ViewModel\UserViewModel.cs" />
     <Compile Include="ViewModel\WorkerViewModel.cs" />
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
@@ -98,6 +129,9 @@
     <Compile Include="Entity\BookEntity.cs" />
     <Compile Include="Entity\FilialEntity.cs" />
     <Compile Include="Entity\WorkerEntity.cs" />
+    <Compile Include="View\Login.xaml.cs">
+      <DependentUpon>Login.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Window1.xaml.cs">
       <DependentUpon>Window1.xaml</DependentUpon>
     </Compile>
@@ -105,11 +139,31 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UserControls\BuyReport.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\BuyUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\CustomerUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UserControls\FilialUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UserControls\UserUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UserControls\WorkerUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Login.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -146,7 +200,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Image\User.png" />
+    <Resource Include="Image\UserProfil.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Image\Book.png" />
@@ -163,5 +217,12 @@
   <ItemGroup>
     <Resource Include="Image\Library.jpeg" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\User.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\BookUser.jpg" />
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

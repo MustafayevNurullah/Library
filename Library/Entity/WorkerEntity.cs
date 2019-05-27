@@ -6,15 +6,29 @@ using System.Threading.Tasks;
 
 namespace Library.Entity
 {
-    class WorkerEntity
+  public  class WorkerEntity
     {
-        int Id;
-        int No;
-        string Name;
-        string Surname;
-        string Phone;
-        decimal Salary;
-        FilialEntity Filial;
+        public int Id { get; set; }
+        public int No { get; set; }
+        public string Name { get; set; }
+        public string Surname { get; set; }
+        public string Phone { get; set; }
+        public string Salary { get; set; }
+        public FilialEntity Filial { get; set; }
+
+        public WorkerEntity Clone()
+        {
+            WorkerEntity workerEntity = new WorkerEntity();
+            workerEntity.Id = this.Id;
+            workerEntity.No = this.No;
+            workerEntity.Name = this.Name;
+            workerEntity.Surname = this.Surname;
+            workerEntity.Phone = this.Phone;
+            workerEntity.Salary = this.Salary;
+            workerEntity.Filial = this.Filial;
+            return workerEntity;
+
+        }
 
 
 

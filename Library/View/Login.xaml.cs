@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Library.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,23 +11,20 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Library.ViewModel
+namespace Library.View
 {
     /// <summary>
-    /// Interaction logic for BookUser.xaml
+    /// Interaction logic for Login.xaml
     /// </summary>
-    public partial class BookUser : UserControl
+    public partial class Login : Window
     {
-        public BookUser(MainViewModel mainViewModel)
+        public Login()
         {
             InitializeComponent();
-            BookViewModel bookViewModel = new BookViewModel(mainViewModel);
-            DataContext = bookViewModel;
+           LoginViewModel Login = new LoginViewModel(this);
+            DataContext = Login;
         }
-
-        
     }
 }

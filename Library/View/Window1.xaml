@@ -5,11 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Library"
         xmlns:Usercontrol="clr-namespace:Library.UserControls"
-        
         mc:Ignorable="d"
-        Title="Window1" Height="450" Width="800">
+        Title="Window1" Height="450" Width="900">
     <Grid>
-        
         <Grid Grid.Column="0">
             <Grid.RowDefinitions>
                 <RowDefinition />
@@ -18,6 +16,9 @@
                 <RowDefinition/>
                 <RowDefinition/>
                 <RowDefinition />
+                <RowDefinition />
+                <RowDefinition/>
+                <RowDefinition/>
             </Grid.RowDefinitions>
             <Button Grid.Row="2" Command="{Binding BookCMD}">
                 <Button.Template>
@@ -30,7 +31,7 @@
 
                             <Button Command="{Binding BookCMD}" Grid.Column="1" Content="Book"></Button>
                             <Border>
-                                <Image Margin="10,10,10,10" Source="/Image/Book.png"></Image>
+                                <Image  Source="/Image/Book.png"></Image>
                             </Border>
                         </Grid>
                     </ControlTemplate>
@@ -48,7 +49,7 @@
 
                             <Button Command= "{Binding WorkerCMD}" Grid.Column="1" Content="Worker"></Button>
                             <Border>
-                                <Image Margin="10,10,10,10" Source="/Image/Worker.png"></Image>
+                                <Image  Source="/Image/Worker.png"></Image>
                             </Border>
                         </Grid>
                     </ControlTemplate>
@@ -65,7 +66,7 @@
 
                             <Button Command="{Binding FilialCMD}" Grid.Column="1" Content="Filial"></Button>
                             <Border>
-                                <Image Margin="10,10,10,10" Source="/Image/Filial.png"></Image>
+                                <Image  Source="/Image/Filial.png"></Image>
                             </Border>
                         </Grid>
                     </ControlTemplate>
@@ -80,9 +81,59 @@
                                 <ColumnDefinition Width="3*"/>
                             </Grid.ColumnDefinitions>
 
-                            <Button Grid.Column="1" Content="Logout"></Button>
+                            <Button Grid.Column="1" Content="User" Command="{Binding UserCMD}"></Button>
                             <Border>
-                                <Image Margin="10,10,10,10" Source="/Image/Logout.jpg"></Image>
+                                <Image Source="/Image/User.jpg"></Image>
+                            </Border>
+                        </Grid>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+            <Button Grid.Row="6">
+                <Button.Template>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition Width="3*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Button Grid.Column="1" Content="Customer" Command="{Binding CustomerCMD}"></Button>
+                            <Border>
+                                <Image  Source="/Image/BookUser.jpg"></Image>
+                            </Border>
+                        </Grid>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+            <Button Grid.Row="7">
+                <Button.Template>
+                    <ControlTemplate TargetType="{x:Type Button }">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition Width="3*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Button Grid.Column="1" Content="BuyReport" Command="{Binding BuyReportCMD}"></Button>
+                            <Border>
+                            </Border>
+                        </Grid>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+            <Button Grid.Row="8">
+                <Button.Template>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition Width="3*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Button Grid.Column="1" Content="Logout" Command="{Binding LogoutCMD}"></Button>
+                            <Border>
+                                <Image  Source="/Image/Logout.jpg"></Image>
                             </Border>
                         </Grid>
                     </ControlTemplate>
@@ -96,12 +147,12 @@
                                 <ColumnDefinition/>
                                 <ColumnDefinition />
                             </Grid.ColumnDefinitions>
-                            <Label Grid.Column="1" Content="Name Surname" VerticalAlignment="Center"></Label>
+                            <Label Grid.Column="1" Content="{Binding PesentlyUser.Username}" VerticalAlignment="Center"></Label>
                            <Ellipse Grid.Row="1" >
                 <Ellipse.Fill>
                     <ImageBrush>
                         <ImageBrush.ImageSource>
-                            <BitmapImage UriSource="/Image/User.png" />
+                            <BitmapImage UriSource="/Image/UserProfil.png" />
                         </ImageBrush.ImageSource>
                     </ImageBrush>
                 </Ellipse.Fill>

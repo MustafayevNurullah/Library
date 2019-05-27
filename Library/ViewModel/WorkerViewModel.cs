@@ -1,7 +1,11 @@
-﻿using System;
+﻿using Library.Command;
+using Library.Entity;
+using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,8 +14,33 @@ namespace Library.ViewModel
 {
    public class WorkerViewModel:BaseViewModel
     {
-        private WorkerViewModel currentworker;
-        public WorkerViewModel CurrentWorker
+       public AddWorker addWorker { get; set; }
+      public  UpdateWorker UpdateWorker { get; set; }
+      public  DeleteWorker DeleteWorker { get; set; }
+      public   WorkerViewModel()
+        {
+
+            addWorker = new AddWorker(this);
+            UpdateWorker = new UpdateWorker(this);
+            DeleteWorker = new DeleteWorker(this);
+            CurrentWorker = new WorkerEntity();
+            SelectWorker = new WorkerEntity();
+            Workers = new ObservableCollection<WorkerEntity>();
+            filials = new List<FilialEntity>();
+            if (File.Exists("Filials.json"))
+            {
+                string jsonFilial = File.ReadAllText("Filials.json");
+                this.filials = JsonConvert.DeserializeObject<List<FilialEntity>>(jsonFilial);
+            }
+           
+            if (File.Exists("Workers.json"))
+            {
+                string jsonBook = File.ReadAllText("Workers.json");
+                this.Workers = JsonConvert.DeserializeObject<ObservableCollection<WorkerEntity>>(jsonBook);
+            }
+        }
+    private WorkerEntity currentworker;
+        public WorkerEntity CurrentWorker
         {
             get
             {
@@ -24,8 +53,8 @@ namespace Library.ViewModel
                 OnpropertyChanged(new PropertyChangedEventArgs(nameof(CurrentWorker)));
             }
         }
-        private WorkerViewModel selectworker;
-        public WorkerViewModel SelectWorker
+        private WorkerEntity selectworker;
+        public WorkerEntity SelectWorker
         {
             get
             {
@@ -34,22 +63,23 @@ namespace Library.ViewModel
             set
             {
                 selectworker = value;
-
+                CurrentWorker = selectworker.Clone();
                 OnpropertyChanged(new PropertyChangedEventArgs(nameof(SelectWorker)));
             }
         }
-        private ObservableCollection<FilialViewModel> filials;
-        public ObservableCollection<FilialViewModel> Filials
+        private ObservableCollection<WorkerEntity> workers;
+        public ObservableCollection<WorkerEntity> Workers
         {
             get
             {
-                return filials;
+                return workers;
             }
             set
             {
-                filials = value;
-                OnpropertyChanged(new PropertyChangedEventArgs("Filials"));
+                workers = value;
+                OnpropertyChanged(new PropertyChangedEventArgs("Workers"));
             }
         }
+        public List<FilialEntity> filials { get; set; }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Library.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,20 +14,18 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Library.ViewModel
+namespace Library.UserControls
 {
     /// <summary>
-    /// Interaction logic for BookUser.xaml
+    /// Interaction logic for BuyReport.xaml
     /// </summary>
-    public partial class BookUser : UserControl
+    public partial class BuyReport : UserControl
     {
-        public BookUser(MainViewModel mainViewModel)
+        public BuyReport()
         {
             InitializeComponent();
-            BookViewModel bookViewModel = new BookViewModel(mainViewModel);
-            DataContext = bookViewModel;
+            BuyReportViewModel buyReportViewModel = new BuyReportViewModel();
+            DataContext = buyReportViewModel;
         }
-
-        
     }
 }

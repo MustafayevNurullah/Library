@@ -57,7 +57,7 @@ HorizontalAlignment="Stretch"
                 </TextBox>
             </StackPanel>
             <StackPanel>
-                <Button Height="30" Width="95"   HorizontalAlignment="Right" VerticalAlignment="Top" Command="{Binding addBook}" Content="Add" Name="Add"  >
+                <Button Height="30" Width="95" Background="Transparent"   HorizontalAlignment="Right" VerticalAlignment="Top" Command="{Binding addBook}" Content="Add" Name="Add"  >
                 </Button>
                 <Button Name="Update" Height="30" Width="95" HorizontalAlignment="Right" Command="{Binding UpdateBook}" VerticalAlignment="Top" Content="Deyis" >
                    
@@ -77,11 +77,18 @@ HorizontalAlignment="Stretch"
             </StackPanel>
 
         </DockPanel>
-
         <TextBlock  Height="30" Text="Books" FontWeight="Bold" FontFamily="30"  Width="100" HorizontalAlignment="Center" Grid.ColumnSpan="2" Margin="246,0,246,1">
         </TextBlock>
 
-        <ListView Visibility="Visible" Name="List"   SelectedItem="{Binding SelectBook }" ItemsSource="{Binding Books}" Grid.Row="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.ColumnSpan="2">
+        <ListView  Visibility="Visible" Name="List"   SelectedItem="{Binding SelectBook }" ItemsSource="{Binding Books}" Grid.Row="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.ColumnSpan="2">
+            <ListView.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Header="Buy" Command="{Binding BuyBookCMD}" >
+                    </MenuItem>
+                    <MenuItem Header="Rent" />
+
+                </ContextMenu>
+            </ListView.ContextMenu>
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="No" Width="30" >

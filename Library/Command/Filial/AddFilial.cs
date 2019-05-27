@@ -2,6 +2,8 @@
 using Library.ViewModel;
 using Newtonsoft.Json;
 using System;
+using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Windows.Input;
 
@@ -10,17 +12,22 @@ namespace Library.Command
     public class AddFilial : ICommand
     {
         private FilialViewModel filialViewModel { get; set; }
+        List<UserEntity> Users;
+
         public AddFilial (FilialViewModel FilialViewModel)
         {
             filialViewModel = FilialViewModel;
+            if (File.Exists("Users.json"))
+            {
+                string jsonFilial = File.ReadAllText("Users.json");
+                this.Users = JsonConvert.DeserializeObject<List<UserEntity>>(jsonFilial);
+            }
         }
-
-
         public event EventHandler CanExecuteChanged;
 
         public bool CanExecute(object parameter)
         {
-            return true;
+            return Users.FirstOrDefault(x => x.Presently == true).CanCreateBranch;
         }
 
         public void Execute(object parameter)
