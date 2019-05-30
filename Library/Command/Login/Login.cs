@@ -7,6 +7,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
 
@@ -28,8 +29,8 @@ namespace Library.Command.Login
 
         public void Execute(object parameter)
         {
-
-          var item=loginViewModel.Users.FirstOrDefault(x => x.Username == loginViewModel.CurrentUser.Username && x.Password==loginViewModel.CurrentUser.Password);
+            var passwordUser = (parameter as PasswordBox).Password;
+          var item=loginViewModel.Users.FirstOrDefault(x => x.Username == loginViewModel.CurrentUser.Username && x.Password==passwordUser);
             if (item!=null)
             {
             var index = loginViewModel.Users.IndexOf(item);

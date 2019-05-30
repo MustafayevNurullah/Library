@@ -51,8 +51,8 @@
                     </TextBox>
                 </Border>
                 <Border Margin="20" Width="250" Height="50" CornerRadius="10" Background="White">
-                    <TextBox Text="{Binding CurrentUser.Password,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Foreground="{StaticResource TBForeColor}"  FontSize="20"  Name="Password"  Width="240" TextAlignment="Left" Height="40">
-                </TextBox>
+                    <PasswordBox Name="Password"  Foreground="{StaticResource TBForeColor}"  FontSize="20"   Width="240"  Height="40">
+                </PasswordBox>
                 </Border>
                 <Border  Width="150" Height="50"  CornerRadius="10" >
                     <Border.Background>
@@ -61,7 +61,7 @@
                         </LinearGradientBrush>
                     </Border.Background>
 
-                    <Button Command="{Binding login}"  Content="Login" Width="140" Height="40" >
+                    <Button Command="{Binding login}" CommandParameter="{Binding ElementName=Password}"  Content="Login" Width="140" Height="40" >
                         <Button.Foreground>
                             <LinearGradientBrush>
                                 <GradientStop Color="#6B6A7D"/>

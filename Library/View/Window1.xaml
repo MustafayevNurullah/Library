@@ -79,7 +79,7 @@
         </Grid>
         <Border Name="MainBorder" Grid.Column="1">
             <Border.Background>
-                    <ImageBrush ImageSource="/Image/images.jpg"/>
+                    <ImageBrush ImageSource="/Image/L.jpg"/>
 
             </Border.Background>
         </Border>
