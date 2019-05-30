@@ -5,7 +5,30 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Library.UserControls"
              mc:Ignorable="d" 
-             d:DesignHeight="250" d:DesignWidth="600">
+             d:DesignHeight="250" d:DesignWidth="600" HorizontalAlignment="Left">
+    <UserControl.Style >
+        <Style TargetType="UserControl">
+            <Style.Triggers>
+                <EventTrigger  RoutedEvent="Window.Loaded">
+                    <EventTrigger.Actions>
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="Width" Duration="0:0:12" >
+
+                                    <LinearDoubleKeyFrame Value="100" KeyTime="0:0:0"/>
+                                    <LinearDoubleKeyFrame Value="300" KeyTime="0:0:1"/>
+                                    <LinearDoubleKeyFrame Value="500" KeyTime="0:0:2"/>
+                                    <LinearDoubleKeyFrame Value="600" KeyTime="0:0:3"/>
+                                    <LinearDoubleKeyFrame Value="670" KeyTime="0:0:4"/>
+
+                                </DoubleAnimationUsingKeyFrames>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger.Actions>
+                </EventTrigger>
+            </Style.Triggers>
+        </Style>
+    </UserControl.Style>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition />

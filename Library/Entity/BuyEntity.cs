@@ -8,15 +8,15 @@ using System.Threading.Tasks;
 namespace Library.Entity
 {
       public class BuyEntity
-      {
+    {
         public int Id { get; set; }
         public UserEntity UserId { get; set; }
         public int No { get; set; }
         public BookEntity BookId { get; set; }
         public CustomerEntity Customer { get; set; }
-        public string Price { get; set; }
+        public double Price { get; set; }
         public string Note { get; set; }
-        public string Date { get; set; }
+        public DateTime Date { get; set; }
         public BuyEntity Clone()
         {
             BuyEntity buyEntity = new BuyEntity();

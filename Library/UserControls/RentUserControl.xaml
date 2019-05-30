@@ -1,11 +1,11 @@
-﻿<UserControl x:Class="Library.UserControls.BuyUserControl"
+﻿<UserControl x:Class="Library.UserControls.RentUserControl"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Library.UserControls"
              mc:Ignorable="d" 
-             d:DesignHeight="250" d:DesignWidth="600" HorizontalAlignment="Left">
+             d:DesignHeight="450" d:DesignWidth="800" Background="Red" HorizontalAlignment="Left">
     <UserControl.Style >
         <Style TargetType="UserControl">
             <Style.Triggers>
@@ -14,11 +14,13 @@
                         <BeginStoryboard>
                             <Storyboard>
                                 <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="Width" Duration="0:0:12" >
+
                                     <LinearDoubleKeyFrame Value="100" KeyTime="0:0:0"/>
                                     <LinearDoubleKeyFrame Value="300" KeyTime="0:0:1"/>
                                     <LinearDoubleKeyFrame Value="500" KeyTime="0:0:2"/>
                                     <LinearDoubleKeyFrame Value="600" KeyTime="0:0:3"/>
                                     <LinearDoubleKeyFrame Value="670" KeyTime="0:0:4"/>
+
                                 </DoubleAnimationUsingKeyFrames>
                             </Storyboard>
                         </BeginStoryboard>
@@ -28,22 +30,27 @@
         </Style>
     </UserControl.Style>
     <Grid>
+
+        <DockPanel  Background="Gray" Grid.Row="0"  VerticalAlignment="Stretch"
+          HorizontalAlignment="Stretch"
+                    Grid.ColumnSpan="2" >
+        </DockPanel>
         <DockPanel   Background="LightGray" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
                      Grid.ColumnSpan="2" >
             <StackPanel>
                 <WrapPanel>
                     <TextBlock HorizontalAlignment="Left"  Text="Name" Width="100" Height="30"    >
                     </TextBlock>
-                    <TextBox Height="30" Width="100 " Text="{Binding CurrentBuyBook.BookId.Name,Mode=TwoWay}"  Name="Name" >
+                    <TextBox Height="30" Width="100 " Text="{Binding CurrentRentBook.BookId.Name,Mode=TwoWay}"  Name="Name" >
                     </TextBox>
                 </WrapPanel>
                 <WrapPanel>
-                    <TextBlock HorizontalAlignment="Left"  Text="Note" Width="100" Height="30"    ></TextBlock>
-                    <TextBox Height="30" Width="100" Text="{Binding CurrentBuyBook.Note,Mode=TwoWay}"  Name="Note"></TextBox>
+                    <TextBlock HorizontalAlignment="Left"  Text="Deadline" Width="100" Height="30"    ></TextBlock>
+                    <TextBox Height="30" Width="100" Text="{Binding CurrentRentBook.Deadline,Mode=TwoWay}"  Name="Note"></TextBox>
                 </WrapPanel>
                 <WrapPanel>
                     <TextBlock HorizontalAlignment="Left" Text="Price"   Width="100" Height="30"></TextBlock>
-                    <TextBox IsEnabled="False" Height="30" Width="100"  Name="Price" Text="{Binding CurrentBuyBook.BookId.SalePrice,Mode=TwoWay}"></TextBox>
+                    <TextBox Height="30" Width="100"  Name="Price" Text="{Binding CurrentRentBook.Price,Mode=TwoWay}"></TextBox>
                 </WrapPanel>
             </StackPanel>
             <StackPanel>
@@ -56,25 +63,25 @@
             </StackPanel>
             <StackPanel>
                 <TextBlock Margin="100,0,0,0" Height="30" VerticalAlignment="Top" Text="Customer" Width="100" ></TextBlock>
-                <TextBlock Margin="100,0,0,0" Height="30" VerticalAlignment="Top" Text="SalePrice" Width="100" ></TextBlock>
+                <TextBlock Margin="100,0,0,0" Height="30" VerticalAlignment="Top" Text="RealTime" Width="100" ></TextBlock>
                 <TextBlock Margin="100,0,0,0" Height="30" VerticalAlignment="Top" Text="Date" Width="100" ></TextBlock>
 
             </StackPanel>
             <StackPanel>
                 <ComboBox Name="Customers" Height="30" Width="100" ItemsSource="{Binding customerList}" DisplayMemberPath="Name"
-                              SelectedItem="{Binding CurrentBuyBook.Customer }" SelectedValuePath="Id"
-                              SelectedValue="{Binding CurrentBuyBook.Customer.Id ,Mode=TwoWay}"></ComboBox>
-                <TextBox Height="30" Name="BuyPrice" VerticalAlignment="Top" Width="100 " Text="{Binding CurrentBuyBook.Price,Mode=TwoWay}">
+                              SelectedItem="{Binding CurrentRentBook.Customer }" SelectedValuePath="Id"
+                              SelectedValue="{Binding CurrentRentBook.Customer.Id ,Mode=TwoWay}"></ComboBox>
+                <TextBox Height="30" Name="BuyPrice" VerticalAlignment="Top" Width="100 " Text="{Binding CurrentRentBook.BookId.BuyPrice,Mode=TwoWay}">
                 </TextBox>
-                <TextBox IsEnabled="False" Height="30" Name="Date" VerticalAlignment="Top" Width="100 " Text="{Binding CurrentBuyBook.Date}">
+                <TextBox IsEnabled="False" Height="30" Name="Date" VerticalAlignment="Top" Width="100 " Text="{Binding CurrentRentBook.Date}">
                 </TextBox>
             </StackPanel>
             <StackPanel>
-                <Button Name="Buy" Height="30" Width="95" HorizontalAlignment="Right" Command="{Binding buyBookCommand}" VerticalAlignment="Top" Content="Buy" >
+                <Button Name="Rent" Height="30" Width="95" HorizontalAlignment="Right" Command="{Binding rentBook}" VerticalAlignment="Top" Content="Rent" >
                 </Button>
             </StackPanel>
         </DockPanel>
-       
-        
+        <TextBlock  Height="30" Text="RentBook" FontWeight="Bold" FontFamily="30"  Width="100" HorizontalAlignment="Center" Grid.ColumnSpan="2" Margin="246,0,246,1">
+        </TextBlock>
     </Grid>
 </UserControl>

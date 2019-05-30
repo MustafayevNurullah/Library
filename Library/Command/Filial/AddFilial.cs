@@ -12,22 +12,17 @@ namespace Library.Command
     public class AddFilial : ICommand
     {
         private FilialViewModel filialViewModel { get; set; }
-        List<UserEntity> Users;
 
         public AddFilial (FilialViewModel FilialViewModel)
         {
             filialViewModel = FilialViewModel;
-            if (File.Exists("Users.json"))
-            {
-                string jsonFilial = File.ReadAllText("Users.json");
-                this.Users = JsonConvert.DeserializeObject<List<UserEntity>>(jsonFilial);
-            }
+           
         }
         public event EventHandler CanExecuteChanged;
 
         public bool CanExecute(object parameter)
         {
-            return Users.FirstOrDefault(x => x.Presently == true).CanCreateBranch;
+            return true;
         }
 
         public void Execute(object parameter)

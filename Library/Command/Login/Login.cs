@@ -3,10 +3,12 @@ using Library.ViewModel;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using System.Windows.Media;
 
 namespace Library.Command.Login
 {
@@ -28,7 +30,7 @@ namespace Library.Command.Login
         {
 
           var item=loginViewModel.Users.FirstOrDefault(x => x.Username == loginViewModel.CurrentUser.Username && x.Password==loginViewModel.CurrentUser.Password);
-            if(item!=null)
+            if (item!=null)
             {
             var index = loginViewModel.Users.IndexOf(item);
                 loginViewModel.Users[index].Presently = true;
@@ -37,6 +39,17 @@ namespace Library.Command.Login
                 Window1 window1 = new Window1();
                 loginViewModel.Login.Close();
                 window1.ShowDialog();
+            }
+            else
+            {
+                if( loginViewModel.Users.FirstOrDefault(x => x.Username == loginViewModel.CurrentUser.Username )==null)
+                {
+                loginViewModel.Login.Username.Background = new SolidColorBrush(System.Windows.Media.Color.FromArgb(0xFF, 0xFF, 0, 0));
+                }
+                if (loginViewModel.Users.FirstOrDefault(x => x.Password == loginViewModel.CurrentUser.Password)== null)
+                {
+                loginViewModel.Login.Password.Background = new SolidColorBrush(System.Windows.Media.Color.FromArgb(0xFF, 0xFF, 0, 0));
+                }
             }
 
         }

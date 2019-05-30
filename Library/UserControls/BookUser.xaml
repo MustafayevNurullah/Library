@@ -5,7 +5,30 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Library.ViewModel"
              mc:Ignorable="d" 
-             d:DesignHeight="250" d:DesignWidth="600">
+             d:DesignHeight="250" d:DesignWidth="670" HorizontalAlignment="Left">
+    <UserControl.Style >
+        <Style TargetType="UserControl">
+            <Style.Triggers>
+                <EventTrigger  RoutedEvent="Window.Loaded">
+                    <EventTrigger.Actions>
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="Width" Duration="0:0:12" >
+
+                                    <LinearDoubleKeyFrame Value="100" KeyTime="0:0:0"/>
+                                    <LinearDoubleKeyFrame Value="300" KeyTime="0:0:1"/>
+                                    <LinearDoubleKeyFrame Value="500" KeyTime="0:0:2"/>
+                                    <LinearDoubleKeyFrame Value="600" KeyTime="0:0:3"/>
+                                    <LinearDoubleKeyFrame Value="670" KeyTime="0:0:4"/>
+
+                                </DoubleAnimationUsingKeyFrames>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger.Actions>
+                </EventTrigger>
+            </Style.Triggers>
+        </Style>
+    </UserControl.Style>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition />
@@ -17,14 +40,14 @@
 HorizontalAlignment="Stretch"
                     Grid.ColumnSpan="2" >
         </DockPanel>
-        <DockPanel   Background="LightGray" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
+        <DockPanel Background="LightGray"  Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
                      Grid.ColumnSpan="2" >
+           
             <StackPanel>
                 <WrapPanel>
-                    <TextBlock HorizontalAlignment="Left"  Text="Name" Width="100" Height="30"    >
-
+                    <TextBlock HorizontalAlignment="Left"  Text="Name"  Width="100" Height="30"    >
                     </TextBlock>
-                    <TextBox Height="30" Width="100 " Text="{Binding CurrentBook.Name,Mode=TwoWay}"  Name="Name" >
+                        <TextBox Height="30" Width="100 " Text="{Binding CurrentBook.Name,Mode=TwoWay}"  Name="Name" >
                     </TextBox>
                 </WrapPanel>
                 <WrapPanel>
@@ -33,7 +56,7 @@ HorizontalAlignment="Stretch"
                 </WrapPanel>
                 <WrapPanel>
                     <TextBlock HorizontalAlignment="Left" Text="Count"   Width="100" Height="30"></TextBlock>
-                    <TextBox Height="30" Width="100"  Name="Count" Text="{Binding CurrentBook.Count,Mode=TwoWay}"></TextBox>
+                    <TextBox Height="30" Width="100"  Name="Count" Text="{Binding CurrentBook.Count,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"></TextBox>
                 </WrapPanel>
             </StackPanel>
             <StackPanel>
@@ -51,7 +74,7 @@ HorizontalAlignment="Stretch"
                 <ComboBox Name="Filial" Height="30" Width="100" ItemsSource="{Binding filials}" DisplayMemberPath="Name"
                               SelectedItem="{Binding CurrentBook.Filial,Mode=TwoWay }"
                               ></ComboBox>
-                <TextBox Height="30" Name="SalePrice" VerticalAlignment="Top" Width="100 " Text="{Binding CurrentBook.SalePrice,Mode=TwoWay}">
+                <TextBox Height="30" Name="SalePrice" VerticalAlignment="Top" Width="100 " Text="{Binding CurrentBook.SalePrice,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}">
                 </TextBox>
                 <TextBox Height="30" Name="ByPrice" VerticalAlignment="Top" Width="100 " Text="{Binding CurrentBook.BuyPrice,Mode=TwoWay}">
                 </TextBox>
@@ -59,8 +82,16 @@ HorizontalAlignment="Stretch"
             <StackPanel>
                 <Button Height="30" Width="95" Background="Transparent"   HorizontalAlignment="Right" VerticalAlignment="Top" Command="{Binding addBook}" Content="Add" Name="Add"  >
                 </Button>
-                <Button Name="Update" Height="30" Width="95" HorizontalAlignment="Right" Command="{Binding UpdateBook}" VerticalAlignment="Top" Content="Deyis" >
-                   
+                <Button Name="Update" Height="30" Width="95" HorizontalAlignment="Right" Command="{Binding UpdateBook}" VerticalAlignment="Top" Content="Update" >
+                    <Button.Style>
+                        <Style TargetType="{x:Type Button}">
+                            <Style.Triggers>
+                                    
+                            </Style.Triggers>
+                            
+                            
+                        </Style>
+                    </Button.Style>
                 </Button>
                 <Button Height="30" Width="95" HorizontalAlignment="Right" Command="{Binding DeleteBook}" VerticalAlignment="Top" Content="Delete"  >
                     <Button.Style>
@@ -85,7 +116,7 @@ HorizontalAlignment="Stretch"
                 <ContextMenu>
                     <MenuItem Header="Buy" Command="{Binding BuyBookCMD}" >
                     </MenuItem>
-                    <MenuItem Header="Rent" />
+                    <MenuItem Header="Rent" Command="{Binding RentCMD}" />
 
                 </ContextMenu>
             </ListView.ContextMenu>
@@ -94,7 +125,7 @@ HorizontalAlignment="Stretch"
                     <GridViewColumn Header="No" Width="30" >
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Padding="5,0" Text="{Binding Id}" TextAlignment="Center" VerticalAlignment="Center">
+                                <TextBlock  Padding="5,0" Text="{Binding Id}" TextAlignment="Center" VerticalAlignment="Center">
                                 </TextBlock>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>

@@ -15,21 +15,16 @@ namespace Library.Command
     {
         public event EventHandler CanExecuteChanged;
         CustomerViewModel customerViewModel { get; set; }
-        List<UserEntity> Users;
 
         public AddCustomer(CustomerViewModel customerViewModel)
         {
             this.customerViewModel = customerViewModel;
-            if (File.Exists("Users.json"))
-            {
-                string jsonFilial = File.ReadAllText("Users.json");
-                this.Users = JsonConvert.DeserializeObject<List<UserEntity>>(jsonFilial);
-            }
+           
         }
 
         public bool CanExecute(object parameter)
         {
-            return Users.FirstOrDefault(x => x.Presently == true).CanCreateCustomer;
+            return true;
         }
 
         public void Execute(object parameter)

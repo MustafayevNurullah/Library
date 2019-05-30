@@ -17,18 +17,16 @@ using System.Windows.Shapes;
 namespace Library.UserControls
 {
     /// <summary>
-    /// Interaction logic for BuyUserControl.xaml
+    /// Interaction logic for Rentreport.xaml
     /// </summary>
-    public partial class BuyUserControl : UserControl
+    public partial class Rentreport : UserControl
     {
-        public BuyUserControl(BookViewModel bookViewModel)
+        public Rentreport()
         {
             InitializeComponent();
-            BuyViewModel buyViewModel = new BuyViewModel();
-            buyViewModel.CurrentBuyBook.BookId = bookViewModel.SelectBook;
-            buyViewModel.CurrentBuyBook.Date = DateTime.Now;
-            DataContext = buyViewModel;
-
+            RentReportViewModel rentReportViewModel = new RentReportViewModel();
+            DataContext = rentReportViewModel;
         }
+
     }
 }

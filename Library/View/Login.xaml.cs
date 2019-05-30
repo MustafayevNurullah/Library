@@ -1,4 +1,5 @@
-﻿using Library.ViewModel;
+﻿using Library.Command.Login;
+using Library.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,8 +24,12 @@ namespace Library.View
         public Login()
         {
             InitializeComponent();
+            
            LoginViewModel Login = new LoginViewModel(this);
-            DataContext = Login;
+            
+         DataContext = Login;
+        }
+
         }
     }
-}
+

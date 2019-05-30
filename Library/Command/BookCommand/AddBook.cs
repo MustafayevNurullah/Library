@@ -14,21 +14,16 @@ namespace Library.Command
     public class AddBook : ICommand
     {
         private BookViewModel bookViewModel { get; set; }
-        List<UserEntity> Users;
         public AddBook (BookViewModel BookViewModel)
         {
             bookViewModel = BookViewModel;
-            if (File.Exists("Users.json"))
-            {
-                string jsonFilial = File.ReadAllText("Users.json");
-                this.Users = JsonConvert.DeserializeObject<List<UserEntity>>(jsonFilial);
-            }
+           
         }
         public event EventHandler CanExecuteChanged;
         public bool CanExecute(object parameter)
         {
 
-            return Users.FirstOrDefault(x => x.Presently == true).CanCreateBook;
+            return true;
         }
         public void Execute(object parameter)
         {

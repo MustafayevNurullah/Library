@@ -5,7 +5,30 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Library.UserControls"
              mc:Ignorable="d" 
-             d:DesignHeight="250" d:DesignWidth="700">
+             d:DesignHeight="250" d:DesignWidth="700" HorizontalAlignment="Left">
+    <UserControl.Style >
+        <Style TargetType="UserControl">
+            <Style.Triggers>
+                <EventTrigger  RoutedEvent="Window.Loaded">
+                    <EventTrigger.Actions>
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="Width" Duration="0:0:12" >
+
+                                    <LinearDoubleKeyFrame Value="100" KeyTime="0:0:0"/>
+                                    <LinearDoubleKeyFrame Value="300" KeyTime="0:0:1"/>
+                                    <LinearDoubleKeyFrame Value="500" KeyTime="0:0:2"/>
+                                    <LinearDoubleKeyFrame Value="600" KeyTime="0:0:3"/>
+                                    <LinearDoubleKeyFrame Value="670" KeyTime="0:0:4"/>
+
+                                </DoubleAnimationUsingKeyFrames>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger.Actions>
+                </EventTrigger>
+            </Style.Triggers>
+        </Style>
+    </UserControl.Style>
     <Grid>
         <WrapPanel Background="Gray">
             <TextBlock Width="100" Text="Username"></TextBlock>
@@ -20,7 +43,8 @@
             <CheckBox Content="CanCreateCustomer" IsChecked="{Binding CurrentUser.CanCreateCustomer}"></CheckBox>
             <CheckBox Content="CanRent" IsChecked="{Binding CurrentUser.CanRent}"></CheckBox>
         </WrapPanel>
-        <ListView Name="List"   SelectedItem="{Binding SelectUser }" ItemsSource="{Binding Users}" Grid.Row="2" Margin="0,50,0,0" Grid.ColumnSpan="2">
+        <ListView Name="List"   SelectedItem="{Binding SelectUser }"  ItemsSource="{Binding Users}" Grid.Row="2" Margin="0,50,0,0" Grid.ColumnSpan="2">
+                
             <ListView.ContextMenu>
                 <ContextMenu >
                     <MenuItem Header="Add"  />
@@ -89,12 +113,27 @@
                     <GridViewColumn Header="CanRent" Width="90" >
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Padding="5,0" Text="{Binding CanRent}" TextAlignment="Center" VerticalAlignment="Center">
+                                <TextBlock Name="CanRent" Padding="5,0" Text="{Binding CanRent}" TextAlignment="Center" VerticalAlignment="Center">
+                                    <!--<Image  Source="/Image/True.jpg">
+                                   <Image.Style>
+                                       <Style TargetType="{x:Type Image}">
+                                           <Style.Triggers>
+                                               <DataTrigger Binding="{Binding CanRent}" Value="False">
+                                                   <Setter Property="Source" Value="/Image/False.png"/>
+                                               </DataTrigger>
+                                           </Style.Triggers>
+                                       </Style>
+                                       
+                                   </Image.Style>     
+                                        
+                                        
+                                    </Image>-->
                                 </TextBlock>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
                 </GridView>
+               
             </ListView.View>
         </ListView>
     </Grid>

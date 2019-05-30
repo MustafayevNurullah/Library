@@ -27,13 +27,17 @@ namespace Library.Command
 
         public void Execute(object parameter)
         {
-            var item = filialViewModel.Filials.FirstOrDefault(x => x.Id == filialViewModel.CurrentFilial.Id);
-            int index=filialViewModel.Filials.IndexOf(item);
-            filialViewModel.Filials[index] = filialViewModel.CurrentFilial;
-            string json = JsonConvert.SerializeObject(filialViewModel.Filials);
-            System.IO.File.WriteAllText("Filials.json", json);
-            filialViewModel.CurrentFilial = new FilialEntity();
-            filialViewModel.SelectFilial = new FilialEntity();
+            var a = filialViewModel.Filials.FirstOrDefault(x => x.Name == filialViewModel.CurrentFilial.Name && x.Address == filialViewModel.CurrentFilial.Address);
+            if (a == null)
+            {
+                var item = filialViewModel.Filials.FirstOrDefault(x => x.Id == filialViewModel.CurrentFilial.Id);
+                int index = filialViewModel.Filials.IndexOf(item);
+                filialViewModel.Filials[index] = filialViewModel.CurrentFilial;
+                string json = JsonConvert.SerializeObject(filialViewModel.Filials);
+                System.IO.File.WriteAllText("Filials.json", json);
+                filialViewModel.CurrentFilial = new FilialEntity();
+                filialViewModel.SelectFilial = new FilialEntity();
+            }
         }
     }
 }

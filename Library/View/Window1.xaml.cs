@@ -25,6 +25,7 @@ namespace Library
         public Window1()
         {
             InitializeComponent();
+            
             MainView = new MainViewModel(this);
             DataContext = MainView;
         }

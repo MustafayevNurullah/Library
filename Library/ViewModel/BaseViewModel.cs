@@ -10,7 +10,6 @@ namespace Library.ViewModel
    public class BaseViewModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
-
         public void OnpropertyChanged(PropertyChangedEventArgs e)
         {
             PropertyChanged?.Invoke(this,e);

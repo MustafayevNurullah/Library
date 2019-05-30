@@ -9,6 +9,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Media;
 
 namespace Library.ViewModel
 {
@@ -23,6 +24,7 @@ namespace Library.ViewModel
             login = new Login(this);
             CurrentUser = new UserEntity();
             Users = new ObservableCollection<UserEntity>();
+          
         }
         
       UserEntity currentuser;
@@ -30,6 +32,8 @@ namespace Library.ViewModel
         {
             get
             {
+
+       
                 return currentuser;
             }
             set

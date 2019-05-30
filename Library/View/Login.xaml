@@ -5,27 +5,76 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Library.View"
         mc:Ignorable="d"
-        Title="Login" Height="450" Width="800">
-    <Grid>
-        <WrapPanel>
+         Height="450" Width="600"  WindowStyle="None">
 
+    <Window.Resources>
+        <LinearGradientBrush x:Key="TBForeColor">
+            <GradientStop Color="#AEADAB"/>
+        </LinearGradientBrush>
+    </Window.Resources>
+    <Grid >
+        <Grid.Background>
+            <LinearGradientBrush>
+                <GradientStop Color="#A19A81" Offset="0"/>
+                <GradientStop Color="#5F5B5D" Offset="0.1"/>
+                <GradientStop Color="#3F3C4D" Offset="0.2"/>
+                <GradientStop Color="#4D4B59" Offset="0.3"/>
+                <GradientStop Color="#292D41" Offset="0.4"/>
+                <GradientStop Color="#343343" Offset="0.5"/>
+                <GradientStop Color="#222F3F" Offset="0.6"/>
+                <GradientStop Color="#2C2E3D" Offset="0.7"/>
+                <GradientStop Color="#393745" Offset="0.8"/>
+                <GradientStop Color="#3C323D" Offset="0.9"/>
+                <GradientStop Color="#3C2735" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Border Width="350" MaxWidth="350" MinWidth="350" MaxHeight="320" MinHeight="320"  CornerRadius="20" Height="320"  BorderThickness="1">
+            
+            <Border.Background>
+                <LinearGradientBrush>
+                    <GradientStop Color="#8E8D93" Offset="0"/>
+                </LinearGradientBrush>
+            </Border.Background>
             <StackPanel>
-                <TextBlock Text="Username" Width="200" Height="40"></TextBlock>
-                <TextBlock  Text="Username" Width="200" Height="40"></TextBlock>
+                <Image  Height="70"  Source="/Image/Login.png"></Image>
+                <Label HorizontalContentAlignment="Center" Content="Member Login"  FontSize="35">
+                    <Label.Foreground>
+                        <LinearGradientBrush>
+                            <GradientStop Color="#2A2F4C" />
+                        </LinearGradientBrush>
+                    </Label.Foreground>
+                </Label>
+                <Border Width="250" Height="50" CornerRadius="10" Background="White">
+                    <TextBox  Name="Username" Foreground="{StaticResource TBForeColor}" FontSize="20" Text="{Binding CurrentUser.Username,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" TextAlignment="Left"  Width="240" Height="40">
+                   
 
+                    </TextBox>
+                </Border>
+                <Border Margin="20" Width="250" Height="50" CornerRadius="10" Background="White">
+                    <TextBox Text="{Binding CurrentUser.Password,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Foreground="{StaticResource TBForeColor}"  FontSize="20"  Name="Password"  Width="240" TextAlignment="Left" Height="40">
+                </TextBox>
+                </Border>
+                <Border  Width="150" Height="50"  CornerRadius="10" >
+                    <Border.Background>
+                        <LinearGradientBrush>
+                            <GradientStop Color="#2A2F4C"/>
+                        </LinearGradientBrush>
+                    </Border.Background>
+
+                    <Button Command="{Binding login}"  Content="Login" Width="140" Height="40" >
+                        <Button.Foreground>
+                            <LinearGradientBrush>
+                                <GradientStop Color="#6B6A7D"/>
+                            </LinearGradientBrush>
+                        </Button.Foreground>
+                        <Button.Background>
+                            <LinearGradientBrush>
+                                <GradientStop Color="#2A2F4C"/>
+                            </LinearGradientBrush>
+                        </Button.Background>
+                    </Button>
+                </Border>
             </StackPanel>
-            <StackPanel>
-                <TextBox Width="200" Height="40" Text="{Binding CurrentUser.Username}"></TextBox>
-                <TextBox Width="200" Height="40" Text="{Binding CurrentUser.Password}"></TextBox>
-                <Button Content="Login" Height="70" Command="{Binding login}"  >
-                    <Button.InputBindings>
-                        <KeyBinding  Command="{Binding login}" Key="Enter" />
-                    </Button.InputBindings>
-                    
-                </Button>
-
-            </StackPanel>
-
-        </WrapPanel>
+        </Border>
     </Grid>
 </Window>

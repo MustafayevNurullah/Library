@@ -18,6 +18,7 @@ namespace Library.Entity
         public bool CanCreateBranch { get; set; }
         public bool CanCreateCustomer { get; set; }
         public bool CanRent { get; set; }
+        public string CanBook { get; set; } 
 
         public UserEntity Clone()
         {

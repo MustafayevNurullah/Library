@@ -27,12 +27,8 @@ namespace Library.ViewModel
             SelectUser = new UserEntity();
             permissions = new List<Permission>();
             Users = new ObservableCollection<UserEntity>();
-
         }
-
-
-
-      UserEntity currentuser;
+       UserEntity currentuser;
        public UserEntity CurrentUser
         {
             get
@@ -58,17 +54,19 @@ namespace Library.ViewModel
             }
             set
             {
-                selectuser = value;
-                CurrentUser = selectuser.Clone();
-                OnpropertyChanged(new PropertyChangedEventArgs("SelectUser"));
-            }
+                if ( value.Presently!=true)
+                {
+                    selectuser = value;
+                    CurrentUser = selectuser.Clone();
+                    OnpropertyChanged(new PropertyChangedEventArgs("SelectUser"));
+                }
+                }
         }
         private ObservableCollection<UserEntity> users;
         public ObservableCollection<UserEntity> Users
         {
             get
             {
-
                 return users;
             }
             set

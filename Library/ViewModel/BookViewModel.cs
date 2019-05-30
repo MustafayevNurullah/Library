@@ -1,5 +1,6 @@
 ﻿using Library.Command;
 using Library.Command.BuyBook;
+using Library.Command.Rent;
 using Library.Entity;
 using Newtonsoft.Json;
 using System;
@@ -21,11 +22,13 @@ namespace Library.ViewModel
         public DeleteBook DeleteBook { get; set; }
         public UpdateBook UpdateBook { get; set; }
         public BuyBook BuyBookCMD { get; set; }
+        public Rent RentCMD { get; set; }
 
         public BookViewModel(MainViewModel mainViewModel)
         {
             Books = new ObservableCollection<BookEntity>();
             BuyBookCMD = new BuyBook(mainViewModel,this);
+            RentCMD = new Rent(mainViewModel, this);
             addBook = new AddBook(this);
             DeleteBook = new DeleteBook(this);
             UpdateBook = new UpdateBook(this);
@@ -50,6 +53,7 @@ namespace Library.ViewModel
             }
             set
             {
+               
                 currentbook = value;
                 OnpropertyChanged(new PropertyChangedEventArgs(nameof(CurrentBook)));
             }

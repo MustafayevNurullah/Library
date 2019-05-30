@@ -15,22 +15,18 @@ namespace Library.Command.User
     {
         public event EventHandler CanExecuteChanged;
         UserViewModel userViewModel { get; set; }
-        List<UserEntity> Users;
 
         public AddUser(UserViewModel userViewModel)
         {
             this.userViewModel = userViewModel;
-            if (File.Exists("Users.json"))
-            {
-                string jsonFilial = File.ReadAllText("Users.json");
-                this.Users = JsonConvert.DeserializeObject<List<UserEntity>>(jsonFilial);
-            }
+           
         }
 
 
         public bool CanExecute(object parameter)
         {
-            return Users.FirstOrDefault(x => x.Presently == true).CanCreateUser;
+            return true;
+        
 
         }
 

@@ -4,6 +4,8 @@ using Library.Command.BuyBook;
 using Library.Command.BuyReport;
 using Library.Command.Customer;
 using Library.Command.Logout;
+using Library.Command.Rent;
+using Library.Command.RentReport;
 using Library.Command.User;
 using System;
 using System.Collections.Generic;
@@ -11,6 +13,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Shapes;
 
 namespace Library.ViewModel
 {
@@ -24,8 +27,10 @@ namespace Library.ViewModel
         public Logout LogoutCMD { get; set; }
         public Customer CustomerCMD { get; set; }
         public BuyReport BuyReportCMD { get; set; }
+        public RentReport RentReportCMD { get; set; }
         public MainViewModel(Window1 window1)
         {
+            RentReportCMD = new RentReport(this);
             BuyReportCMD = new BuyReport(this);
             LogoutCMD = new Logout(this);
             UserCMD = new User(this);
