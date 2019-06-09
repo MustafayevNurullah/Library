@@ -29,7 +29,8 @@ namespace Library.Command.User
         }
         public bool CanExecute(object parameter)
         {
-            return Users.FirstOrDefault(x => x.Presently == true).CanCreateUser;
+            //return Users.FirstOrDefault(x => x.Presently == true).CanCreateUser;
+            return true;
         }
 
         public void Execute(object parameter)

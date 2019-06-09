@@ -11,5 +11,10 @@ namespace Library.Domain.Abstraction
         void SaveChanges();
         IUserRepository UserRepository { get; }
         IBranchRepository BranchRepository { get; }
+        IBookRepository BookRepository { get; }
+        ICustomerRepository CustomerRepository { get; }
+        IRentRepository RentRepository { get; }
+        ISaleRepository SaleRepository { get; }
+        IWorkerRepository WorkerRepository { get; }
     }
 }

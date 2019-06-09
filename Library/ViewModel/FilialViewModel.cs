@@ -53,7 +53,7 @@ namespace Library.ViewModel
                 OnpropertyChanged(new PropertyChangedEventArgs(nameof(SelectFilial)));
             }
         }
-        private ObservableCollection<FilialEntity> filials;
+        private ObservableCollection<FilialEntity> filials = new ObservableCollection<FilialEntity>();
         public ObservableCollection<FilialEntity> Filials
         {
             get
@@ -62,15 +62,15 @@ namespace Library.ViewModel
             }
             set
             {
-                if (File.Exists("Filials.json"))
-                {
-                    string jsonFilial = File.ReadAllText("Filials.json");
-                    this.filials = JsonConvert.DeserializeObject<ObservableCollection<FilialEntity>>(jsonFilial);
-                }
-                else
-                {
+                //if (File.Exists("Filials.json"))
+                //{
+                //    string jsonFilial = File.ReadAllText("Filials.json");
+                //    this.filials = JsonConvert.DeserializeObject<ObservableCollection<FilialEntity>>(jsonFilial);
+                //}
+                //else
+                //{
+                //}
                 filials = value;
-                }
                 OnpropertyChanged(new PropertyChangedEventArgs("Filials"));
             }
         }

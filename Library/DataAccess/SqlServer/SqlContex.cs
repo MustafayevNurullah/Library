@@ -14,7 +14,5 @@ namespace Library.DataAccess.SqlServer
         {
             SqlUnitOfWork = sqlUnitOfWork;
         }
-
-
     }
 }

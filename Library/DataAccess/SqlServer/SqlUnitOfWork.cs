@@ -26,5 +26,15 @@ namespace Library.DataAccess.SqlServer
         public IUserRepository UserRepository => throw new NotImplementedException();
 
         public IBranchRepository BranchRepository =>  new SqlBranchRepository(SqlContex);
+
+        public IBookRepository BookRepository => throw new NotImplementedException();
+
+        public ICustomerRepository CustomerRepository => throw new NotImplementedException();
+
+        public IRentRepository RentRepository => throw new NotImplementedException();
+
+        public ISaleRepository SaleRepository => throw new NotImplementedException();
+
+        public IWorkerRepository WorkerRepository => throw new NotImplementedException();
     }
 }

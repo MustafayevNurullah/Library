@@ -23,19 +23,11 @@ namespace Library.Command
         {
             return true;
         }
-
         public void Execute(object parameter)
         {
             var item= filialViewModel.Filials.FirstOrDefault(x => x.Id == filialViewModel.SelectFilial.Id);
             filialViewModel.Filials.Remove(item);
-            ObservableCollection<FilialEntity> NewFilials = filialViewModel.Filials;
-            for (int i = 0; i < NewFilials.Count; i++)
-            {
-                filialViewModel.Filials[i] = filialViewModel.Filials[i];
-            }
-
-            string json = JsonConvert.SerializeObject(filialViewModel.Filials);
-            System.IO.File.WriteAllText("Filials.json", json);
+            App.Db.BranchRepository.Delete(item);
             filialViewModel.CurrentFilial = new FilialEntity();
             filialViewModel.SelectFilial = new FilialEntity();
         }

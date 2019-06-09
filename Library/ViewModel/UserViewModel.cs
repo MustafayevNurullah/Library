@@ -34,6 +34,7 @@ namespace Library.ViewModel
             get
             {
                 return currentuser;
+
             }
             set
             {

@@ -32,8 +32,8 @@ namespace Library.Command
         }
         public bool CanExecute(object parameter)
         {
-            return Users.FirstOrDefault(x => x.Presently == true).CanCreateBranch;
-
+            //  return Users.FirstOrDefault(x => x.Presently == true).CanCreateBranch;
+            return true;
         }
 
         public void Execute(object parameter)

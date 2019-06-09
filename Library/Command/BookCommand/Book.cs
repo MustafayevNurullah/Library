@@ -30,7 +30,8 @@ namespace Library.Command
 
         public bool CanExecute(object parameter)
         {
-             return Users.FirstOrDefault(x => x.Presently == true).CanCreateBook;
+            //  return Users.FirstOrDefault(x => x.Presently == true).CanCreateBook;
+            return true;
 
 
         }

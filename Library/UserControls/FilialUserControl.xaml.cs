@@ -27,7 +27,11 @@ namespace Library.UserControls
         {
             InitializeComponent();
             FilialViewModel filialViewModel = new FilialViewModel();
-            filialViewModel.Filials= new ObservableCollection < FilialEntity >();
+            // filialViewModel.Filials= new ObservableCollection < FilialEntity >();
+
+            List<FilialEntity> filials = App.Db.BranchRepository.GetAll();
+            filialViewModel.Filials = new ObservableCollection<FilialEntity>(filials);
+
             DataContext = filialViewModel;
         }
     }

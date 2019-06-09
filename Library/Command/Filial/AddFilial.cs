@@ -31,7 +31,7 @@ namespace Library.Command
              var item = filialViewModel.Filials.FirstOrDefault(x => x.Name == filialViewModel.CurrentFilial.Name );
             if(item==null)
             {
-
+                App.Db.BranchRepository.Insert(filialViewModel.CurrentFilial);
             if (filialViewModel.Filials.Count != 0)
             {
                 filialViewModel.CurrentFilial.Id = filialViewModel.Filials[filialViewModel.Filials.Count - 1].Id + 1;

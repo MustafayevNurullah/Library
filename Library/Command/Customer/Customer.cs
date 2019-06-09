@@ -30,8 +30,8 @@ namespace Library.Command.Customer
         }
         public bool CanExecute(object parameter)
         {
-            return Users.FirstOrDefault(x => x.Presently == true).CanCreateCustomer;
-
+            //  return Users.FirstOrDefault(x => x.Presently == true).CanCreateCustomer;
+            return true;
         }
 
         public void Execute(object parameter)
