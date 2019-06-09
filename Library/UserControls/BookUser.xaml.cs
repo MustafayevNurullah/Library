@@ -24,6 +24,7 @@ namespace Library.ViewModel
         {
             InitializeComponent();
             BookViewModel bookViewModel = new BookViewModel(mainViewModel);
+            App.Db.BranchRepository.GetAll();
             DataContext = bookViewModel;
         }
 

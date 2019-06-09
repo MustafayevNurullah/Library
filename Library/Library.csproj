@@ -89,13 +89,20 @@
     <Compile Include="Command\Filial\UpdateFilial.cs" />
     <Compile Include="Command\Worker\UpdateWorker.cs" />
     <Compile Include="Command\Worker\Worker.cs" />
-    <Compile Include="Entity\BuyEntity.cs" />
-    <Compile Include="Entity\BuyReportEntity.cs" />
-    <Compile Include="Entity\CustomerEntity.cs" />
-    <Compile Include="Entity\Permission.cs" />
-    <Compile Include="Entity\RentEntity.cs" />
-    <Compile Include="Entity\RentReportEntity.cs" />
-    <Compile Include="Entity\UserEntity.cs" />
+    <Compile Include="DataAccess\SqlServer\SqlBranchRepository.cs" />
+    <Compile Include="DataAccess\SqlServer\SqlContex.cs" />
+    <Compile Include="DataAccess\SqlServer\SqlUnitOfWork.cs" />
+    <Compile Include="Domain\Abstraction\IBranchRepository.cs" />
+    <Compile Include="Domain\Abstraction\IRepository.cs" />
+    <Compile Include="Domain\Abstraction\IUnitOfWork.cs" />
+    <Compile Include="Domain\Abstraction\IUserRepository.cs" />
+    <Compile Include="Domain\Entity\BuyEntity.cs" />
+    <Compile Include="Domain\Entity\BuyReportEntity.cs" />
+    <Compile Include="Domain\Entity\CustomerEntity.cs" />
+    <Compile Include="Domain\Entity\Permission.cs" />
+    <Compile Include="Domain\Entity\RentEntity.cs" />
+    <Compile Include="Domain\Entity\RentReportEntity.cs" />
+    <Compile Include="Domain\Entity\UserEntity.cs" />
     <Compile Include="UserControls\BuyReport.xaml.cs">
       <DependentUpon>BuyReport.xaml</DependentUpon>
     </Compile>
@@ -139,9 +146,9 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Entity\BookEntity.cs" />
-    <Compile Include="Entity\FilialEntity.cs" />
-    <Compile Include="Entity\WorkerEntity.cs" />
+    <Compile Include="Domain\Entity\BookEntity.cs" />
+    <Compile Include="Domain\Entity\FilialEntity.cs" />
+    <Compile Include="Domain\Entity\WorkerEntity.cs" />
     <Compile Include="View\Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
     </Compile>
@@ -211,6 +218,12 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="Json\Books.json" />
+    <None Include="Json\BuyBooks.json" />
+    <None Include="Json\Customers.json" />
+    <None Include="Json\Filials.json" />
+    <None Include="Json\RentBooks.json" />
+    <None Include="Json\Users.json" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
