@@ -27,24 +27,10 @@ namespace Library.Command
         }
         public void Execute(object parameter)
         {
-            var item = bookViewModel.Books.FirstOrDefault(x => x.Id == bookViewModel.CurrentBook.Id);
-            if (item == null)
-            {
-
-                if (bookViewModel.Books.Count != 0)
-                {
-                    bookViewModel.CurrentBook.Id = bookViewModel.Books[bookViewModel.Books.Count - 1].Id + 1;
-                }
-                else
-                {
-                    bookViewModel.CurrentBook.Id = 1;
-                }
                 bookViewModel.Books.Add(bookViewModel.CurrentBook);
-                string json = JsonConvert.SerializeObject(bookViewModel.Books);
-                System.IO.File.WriteAllText("Books.json", json);
+            App.Db.BookRepository.Insert(bookViewModel.CurrentBook);         
                 bookViewModel.CurrentBook = new BookEntity();
                 bookViewModel.SelectBook = new BookEntity();
-            }
         }
     }
 }

@@ -18,11 +18,11 @@ namespace Library
         {
 
             SqlConnectionStringBuilder sqlConnectionStringBuilder = new SqlConnectionStringBuilder();
-            sqlConnectionStringBuilder.DataSource = "STHQ0127-11";
+            sqlConnectionStringBuilder.DataSource = "DESKTOP-A8D17ST";
             sqlConnectionStringBuilder.InitialCatalog = "Library";
-            // sqlConnectionStringBuilder.IntegratedSecurity = true;
-            sqlConnectionStringBuilder.UserID = "admin";
-            sqlConnectionStringBuilder.Password = "admin";
+             sqlConnectionStringBuilder.IntegratedSecurity = true;
+            //sqlConnectionStringBuilder.UserID = "admin";
+            //sqlConnectionStringBuilder.Password = "admin";
             Db = new SqlUnitOfWork(sqlConnectionStringBuilder.ToString());
         }
 

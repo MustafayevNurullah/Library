@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Library.Entity;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,7 +26,8 @@ namespace Library.ViewModel
         {
             InitializeComponent();
             BookViewModel bookViewModel = new BookViewModel(mainViewModel);
-            App.Db.BranchRepository.GetAll();
+          bookViewModel.Books = new ObservableCollection<BookEntity>( App.Db.BookRepository.GetAll());
+            bookViewModel.filials = new List<FilialEntity>(App.Db.BranchRepository.GetAll());
             DataContext = bookViewModel;
         }
 

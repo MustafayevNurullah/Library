@@ -33,8 +33,7 @@ namespace Library.Command
                 var item = filialViewModel.Filials.FirstOrDefault(x => x.Id == filialViewModel.CurrentFilial.Id);
                 int index = filialViewModel.Filials.IndexOf(item);
                 filialViewModel.Filials[index] = filialViewModel.CurrentFilial;
-                string json = JsonConvert.SerializeObject(filialViewModel.Filials);
-                System.IO.File.WriteAllText("Filials.json", json);
+                App.Db.BranchRepository.Update(filialViewModel.CurrentFilial);
                 filialViewModel.CurrentFilial = new FilialEntity();
                 filialViewModel.SelectFilial = new FilialEntity();
             }

@@ -34,16 +34,16 @@ namespace Library.ViewModel
             UpdateBook = new UpdateBook(this);
             currentbook = new BookEntity();
             selectbook = new BookEntity();
-            if (File.Exists("Filials.json"))
-            {
-                string jsonFilial = File.ReadAllText("Filials.json");
-               this.filials = JsonConvert.DeserializeObject<List<FilialEntity>>(jsonFilial);
-            }
-            if (File.Exists("Books.json"))
-            {
-                string jsonBook = File.ReadAllText("Books.json");
-                this.Books = JsonConvert.DeserializeObject<ObservableCollection<BookEntity>>(jsonBook);
-            }
+            //if (File.Exists("Filials.json"))
+            //{
+            //    string jsonFilial = File.ReadAllText("Filials.json");
+            //   this.filials = JsonConvert.DeserializeObject<List<FilialEntity>>(jsonFilial);
+            //}
+            //if (File.Exists("Books.json"))
+            //{
+            //    string jsonBook = File.ReadAllText("Books.json");
+            //    this.Books = JsonConvert.DeserializeObject<ObservableCollection<BookEntity>>(jsonBook);
+            //}
         }
         public BookEntity CurrentBook
         {

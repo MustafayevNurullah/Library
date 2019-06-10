@@ -23,7 +23,7 @@ namespace Library.DataAccess.SqlServer
             using (SqlConnection Connection = new SqlConnection(ConnectionString))
             {
                 Connection.Open();
-                string cmd = $"Delete From Filial Where Filial.Id={delete.Id}";
+                string cmd = $"Delete From Branchs Where Branchs.Id={delete.Id}";
                 using (SqlCommand sqlCommand = new SqlCommand(cmd, Connection))
                 {
                     sqlCommand.ExecuteNonQuery();
@@ -35,7 +35,7 @@ namespace Library.DataAccess.SqlServer
             using (SqlConnection connection = new SqlConnection(ConnectionString))
             {
                 connection.Open();
-               string cmd= "Select * From Filial";
+               string cmd= "Select * From Branchs";
                 using (SqlCommand sqlCommand=new SqlCommand(cmd,connection))
                 {
                    
@@ -59,7 +59,7 @@ namespace Library.DataAccess.SqlServer
             using (SqlConnection connection = new SqlConnection(ConnectionString))
             {
                 connection.Open();
-                string cmd = @"Insert into Filial(Name,Address)"+
+                string cmd = @"Insert into Branchs(Name,Address)" +
                 $"Values('{insert.Name}','{insert.Address}')";
                 using (SqlCommand sqlCommand = new SqlCommand(cmd, connection))
                 {
@@ -71,8 +71,19 @@ namespace Library.DataAccess.SqlServer
         }
         public void Update(FilialEntity Update)
         {
-
-
+            string cmd = $"UPDATE Branchs " +
+                 $"SET Name = @Name,Address = @Address WHERE Branchs.Id = @Id";
+            using (SqlConnection connection = new SqlConnection(ConnectionString))
+            {
+                connection.Open();
+                using (SqlCommand command = new SqlCommand(cmd, connection))
+                {
+                    command.Parameters.AddWithValue("@Name", Update.Name);
+                    command.Parameters.AddWithValue("@Address", Update.Address);
+                    command.Parameters.AddWithValue("@Id", Update.Id);
+                    command.ExecuteNonQuery();
+                }
+            }
 
         }
     }

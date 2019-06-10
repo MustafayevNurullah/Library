@@ -12,13 +12,10 @@ namespace Library.Entity
         public int Id { get; set; }
         public string Name { get; set; }
         public string Author { get; set; }
-
         public double SalePrice { get; set; }
         public double BuyPrice { get; set; }
         public int Count { get; set; }
-        public FilialEntity Filial { get; set; }
-
-        
+        public string BranchName { get; set; }
         public BookEntity Clone()
         {
             BookEntity bookEntity = new BookEntity(); 
@@ -29,7 +26,7 @@ namespace Library.Entity
             bookEntity.SalePrice = this.SalePrice;
             bookEntity.BuyPrice = this.BuyPrice;
             bookEntity.Count = this.Count;
-            bookEntity.Filial = this.Filial;
+            bookEntity.BranchName = this.BranchName;
             return bookEntity;
         }
 
