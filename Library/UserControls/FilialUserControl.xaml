@@ -6,6 +6,12 @@
              xmlns:local="clr-namespace:Library.UserControls"
              mc:Ignorable="d" 
              d:DesignHeight="250" d:DesignWidth="700" HorizontalAlignment="Left">
+    <UserControl.Resources>
+        <LinearGradientBrush x:Key="TBForeColor">
+            <GradientStop Color="#AEADAB"/>
+        </LinearGradientBrush>
+    </UserControl.Resources>
+    
     <UserControl.Style >
         <Style TargetType="UserControl">
             <Style.Triggers>
@@ -32,10 +38,17 @@
     <Grid>
         <WrapPanel Background="Gray">
             <TextBlock Width="100" Text="Name"></TextBlock>
-            <TextBox Margin="10,0,0,0" Text="{Binding CurrentFilial.Name,Mode=TwoWay}" Width="100" Height="30" Name="Name"></TextBox>
+            <Border Width="110" Height="35" CornerRadius="10" Background="White">
+                <TextBox BorderThickness="0" Text="{Binding CurrentFilial.Name,Mode=TwoWay}"  Name="Name" Foreground="{StaticResource TBForeColor}" FontSize="20"  TextAlignment="Left"  Width="100" Height="30">
+                </TextBox>
+            </Border>
             <TextBlock Width="100" Text="Address"></TextBlock>
-            <TextBox Margin="10,0,0,0" Text="{Binding CurrentFilial.Address,Mode=TwoWay}" Width="100" Height="30" Name="Address"></TextBox>
-            <Button Margin="10,0,0,0" Width="100" Content="Add" IsEnabled="True" Command="{Binding addFilial}">
+            <!--<TextBox Margin="10,0,0,0" Text="{Binding CurrentFilial.Address,Mode=TwoWay}" Width="100" Height="30" Name="Address"></TextBox>-->
+            <Border Width="110" Height="35" CornerRadius="10" Background="White">
+                <TextBox BorderThickness="0"  Name="Address" Foreground="{StaticResource TBForeColor}" FontSize="20" Text="{Binding CurrentFilial.Address,Mode=TwoWay}" TextAlignment="Left"  Width="100" Height="30">
+                </TextBox>
+            </Border>
+            <Button Margin="10,0,0,0" Width="100"  Content="Add" IsEnabled="True" Command="{Binding addFilial}">
                 <Button.Style>
                     <Style TargetType="{x:Type Button}">
                         <Style.Triggers>
@@ -57,7 +70,7 @@
             <Button Margin="30,0,0,0" Width="100" Content="Update" Command="{Binding updateFilial}"></Button>
 
         </WrapPanel>
-        <ListView Name="List"    SelectedItem="{Binding SelectFilial }" ItemsSource="{Binding Filials}" Grid.Row="2" Margin="0,50,0,0" Grid.ColumnSpan="2">
+        <ListView Name="List" Background="Transparent"   SelectedItem="{Binding SelectFilial }" ItemsSource="{Binding Filials}" Grid.Row="2" Margin="0,50,0,0" Grid.ColumnSpan="2">
             <ListView.ContextMenu>
                 <ContextMenu >
                     <MenuItem Header="Add"  />

@@ -45,13 +45,14 @@
                     </Label.Foreground>
                 </Label>
                 <Border Width="250" Height="50" CornerRadius="10" Background="White">
-                    <TextBox  Name="Username" Foreground="{StaticResource TBForeColor}" FontSize="20" Text="{Binding CurrentUser.Username,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" TextAlignment="Left"  Width="240" Height="40">
+                    <TextBox  Name="Username" Foreground="{StaticResource TBForeColor}" BorderThickness="0"
+                              FontSize="20" Text="{Binding CurrentUser.Username,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" TextAlignment="Left"  Width="240" Height="40">
                    
 
                     </TextBox>
                 </Border>
-                <Border Margin="20" Width="250" Height="50" CornerRadius="10" Background="White">
-                    <PasswordBox Name="Password"  Foreground="{StaticResource TBForeColor}"  FontSize="20"   Width="240"  Height="40">
+                <Border Margin="20" Width="250" Height="50" CornerRadius="10" Background="White"> 
+                    <PasswordBox Name="Password"  Foreground="{StaticResource TBForeColor}"  FontSize="20" BorderThickness="0"   Width="240"  Height="40">
                 </PasswordBox>
                 </Border>
                 <Border  Width="150" Height="50"  CornerRadius="10" >
@@ -60,8 +61,7 @@
                             <GradientStop Color="#2A2F4C"/>
                         </LinearGradientBrush>
                     </Border.Background>
-
-                    <Button Command="{Binding login}" CommandParameter="{Binding ElementName=Password}"  Content="Login" Width="140" Height="40" >
+                    <Button Command="{Binding login}" BorderThickness="0" CommandParameter="{Binding ElementName=Password}"  Content="Login" Width="140" Height="40" >
                         <Button.Foreground>
                             <LinearGradientBrush>
                                 <GradientStop Color="#6B6A7D"/>
