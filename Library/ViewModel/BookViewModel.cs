@@ -27,6 +27,7 @@ namespace Library.ViewModel
         public BookViewModel(MainViewModel mainViewModel)
         {
             Books = new ObservableCollection<BookEntity>();
+            filials = new List<FilialEntity>();
             BuyBookCMD = new BuyBook(mainViewModel,this);
             RentCMD = new Rent(mainViewModel, this);
             addBook = new AddBook(this);
@@ -92,7 +93,6 @@ namespace Library.ViewModel
             }
         }
      
-        
         public List<FilialEntity> filials { get; set; }
     }
 }

@@ -86,5 +86,29 @@ namespace Library.DataAccess.SqlServer
             }
 
         }
+
+        public string GetBranch(int Id)
+        {
+            string cmd;
+            using (SqlConnection Connection = new SqlConnection(ConnectionString))
+            {
+                Connection.Open();
+                 cmd = $"Select Name From Branchs Where Branchs.Id={Id}";
+                using (SqlCommand sqlCommand = new SqlCommand(cmd, Connection))
+                {
+                    SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
+                    while (sqlDataReader.Read())
+                    {
+                        FilialEntity filialEntity = new FilialEntity();
+                        cmd = Convert.ToString(sqlDataReader[nameof(filialEntity.Name)]);
+                    }
+            return cmd ;
+                }
+            }
+
+            
+
+
+        }
     }
 }

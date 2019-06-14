@@ -26,8 +26,8 @@ namespace Library.ViewModel
         {
             InitializeComponent();
             BookViewModel bookViewModel = new BookViewModel(mainViewModel);
-          bookViewModel.Books = new ObservableCollection<BookEntity>( App.Db.BookRepository.GetAll());
             bookViewModel.filials = new List<FilialEntity>(App.Db.BranchRepository.GetAll());
+            bookViewModel.Books = new ObservableCollection<BookEntity>( App.Db.BookRepository.GetAll());
             DataContext = bookViewModel;
         }
 

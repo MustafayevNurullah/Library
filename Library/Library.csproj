@@ -292,5 +292,8 @@
   <ItemGroup>
     <Resource Include="Image\L.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Library.sql" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

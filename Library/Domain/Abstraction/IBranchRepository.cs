@@ -8,6 +8,8 @@ using System.Threading.Tasks;
 namespace Library.Domain.Abstraction
 {
    public interface IBranchRepository:IRepository<FilialEntity>
-    {
+    { 
+         string GetBranch(int Id);
+
     }
 }
