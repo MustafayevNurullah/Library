@@ -87,7 +87,7 @@ namespace Library.DataAccess.SqlServer
 
         }
 
-        public string GetBranch(int Id)
+        public FilialEntity GetBranch(int Id)
         {
             string cmd;
             using (SqlConnection Connection = new SqlConnection(ConnectionString))
@@ -97,16 +97,17 @@ namespace Library.DataAccess.SqlServer
                 using (SqlCommand sqlCommand = new SqlCommand(cmd, Connection))
                 {
                     SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
+                        FilialEntity filialEntity = new FilialEntity();
                     while (sqlDataReader.Read())
                     {
-                        FilialEntity filialEntity = new FilialEntity();
-                        cmd = Convert.ToString(sqlDataReader[nameof(filialEntity.Name)]);
+                        filialEntity.Name = Convert.ToString(sqlDataReader[nameof(filialEntity.Name)]);
+                        filialEntity.Address = Convert.ToString(sqlDataReader[nameof(filialEntity.Address)]);
+                        filialEntity.Id = Convert.ToInt32(sqlDataReader[nameof(filialEntity.Id)]);
                     }
-            return cmd ;
+                    return filialEntity ;
                 }
             }
 
-            
 
 
         }

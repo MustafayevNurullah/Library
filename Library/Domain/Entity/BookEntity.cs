@@ -15,7 +15,8 @@ namespace Library.Entity
         public double SalePrice { get; set; }
         public double BuyPrice { get; set; }
         public int Count { get; set; }
-        public FilialEntity BranchId { get; set; }
+        public int BranchId { get; set; }
+        public FilialEntity Branch { get; set; }
         public BookEntity Clone()
         {
             BookEntity bookEntity = new BookEntity(); 

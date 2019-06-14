@@ -41,7 +41,7 @@ namespace Library.DataAccess.SqlServer
             using (SqlConnection connection = new SqlConnection(ConnectionString))
             {
                 connection.Open();
-                string cmd = "Select * From Books";
+                string cmd = "Select * From Books ";
                 using (SqlCommand sqlCommand = new SqlCommand(cmd, connection))
                 {
                     SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
@@ -54,10 +54,13 @@ namespace Library.DataAccess.SqlServer
                         BookEntity.Name = Convert.ToString(sqlDataReader[nameof(BookEntity.Name)]);
                         BookEntity.Author = Convert.ToString(sqlDataReader[nameof(BookEntity.Author)]);
                         BookEntity.Count = Convert.ToInt32(sqlDataReader[nameof(BookEntity.Count)]);
-                        System.Windows.Forms.MessageBox.Show(BookViewModel.filials[0].Name);
-                        FilialEntity a = BookViewModel.filials.FirstOrDefault(x=> x.Id== Convert.ToInt32(sqlDataReader[nameof(BookEntity.BranchId)])).FilialClone();
+                        BookEntity.BranchId =  Convert.ToInt32(sqlDataReader[nameof(BookEntity.BranchId)]);
                         BookEntity.BuyPrice = Convert.ToDouble(sqlDataReader[nameof(BookEntity.BuyPrice)]);
                         BookEntity.SalePrice = Convert.ToDouble(sqlDataReader[nameof(BookEntity.SalePrice)]);
+
+                        BookEntity.Branch = new FilialEntity();
+                        BookEntity.Branch = App.Db.BranchRepository.GetBranch(BookEntity.BranchId);
+
                        // BookEntity.BranchName = App.Db.BranchRepository.GetBranch(BookEntity.BranchId);
                        
                         books.Add(BookEntity);

@@ -9,7 +9,7 @@ namespace Library.Domain.Abstraction
 {
    public interface IBranchRepository:IRepository<FilialEntity>
     { 
-         string GetBranch(int Id);
+         FilialEntity GetBranch(int Id);
 
     }
 }
