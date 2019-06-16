@@ -47,8 +47,6 @@
                 <Border Width="250" Height="50" CornerRadius="10" Background="White">
                     <TextBox  Name="Username" Foreground="{StaticResource TBForeColor}" BorderThickness="0"
                               FontSize="20" Text="{Binding CurrentUser.Username,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" TextAlignment="Left"  Width="240" Height="40">
-                   
-
                     </TextBox>
                 </Border>
                 <Border Margin="20" Width="250" Height="50" CornerRadius="10" Background="White"> 

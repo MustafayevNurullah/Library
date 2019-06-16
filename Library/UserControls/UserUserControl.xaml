@@ -6,44 +6,25 @@
              xmlns:local="clr-namespace:Library.UserControls"
              mc:Ignorable="d" 
              d:DesignHeight="250" d:DesignWidth="700" HorizontalAlignment="Left">
-    <UserControl.Style >
-        <Style TargetType="UserControl">
-            <Style.Triggers>
-                <EventTrigger  RoutedEvent="Window.Loaded">
-                    <EventTrigger.Actions>
-                        <BeginStoryboard>
-                            <Storyboard>
-                                <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="Width" Duration="0:0:12" >
-
-                                    <LinearDoubleKeyFrame Value="100" KeyTime="0:0:0"/>
-                                    <LinearDoubleKeyFrame Value="300" KeyTime="0:0:1"/>
-                                    <LinearDoubleKeyFrame Value="500" KeyTime="0:0:2"/>
-                                    <LinearDoubleKeyFrame Value="600" KeyTime="0:0:3"/>
-                                    <LinearDoubleKeyFrame Value="670" KeyTime="0:0:4"/>
-
-                                </DoubleAnimationUsingKeyFrames>
-                            </Storyboard>
-                        </BeginStoryboard>
-                    </EventTrigger.Actions>
-                </EventTrigger>
-            </Style.Triggers>
-        </Style>
-    </UserControl.Style>
+   
     <Grid>
-        <WrapPanel Background="Gray">
+        <Grid.Background>
+            <ImageBrush ImageSource="/Image/images.jpg"/>
+        </Grid.Background>
+        <WrapPanel >
             <TextBlock Width="100" Text="Username"></TextBlock>
             <TextBox Margin="10,0,0,0" Text="{Binding CurrentUser.Username,Mode=TwoWay}" Width="100" Height="30" Name="Username"></TextBox>
             <TextBlock Width="100" Text="Password"></TextBlock>
             <TextBox Margin="10,0,0,0" Text="{Binding CurrentUser.Password,Mode=TwoWay}" Width="100" Height="30" Name="Password"></TextBox>
-            <Button Margin="10,0,0,0" Width="100" Content="Add" Command="{Binding addUser}"></Button>
-            <Button Margin="30,0,0,0" Width="100" Content="Update" Command="{Binding updateUser}"></Button>
+            <Button Background="Azure" Margin="10,0,0,0" Width="100" Content="Add" Command="{Binding addUser}"></Button>
+            <Button Background="Azure" Margin="30,0,0,0" Width="100" Content="Update" Command="{Binding updateUser}"></Button>
             <CheckBox Content="CanCreateBook" IsChecked="{Binding CurrentUser.CanCreateBook}" ></CheckBox>
             <CheckBox Content="CanCreateUser" IsChecked="{Binding CurrentUser.CanCreateUser}"></CheckBox>
             <CheckBox Content="CanCreateBranch" IsChecked="{Binding CurrentUser.CanCreateBranch}"></CheckBox>
             <CheckBox Content="CanCreateCustomer" IsChecked="{Binding CurrentUser.CanCreateCustomer}"></CheckBox>
             <CheckBox Content="CanRent" IsChecked="{Binding CurrentUser.CanRent}"></CheckBox>
         </WrapPanel>
-        <ListView Name="List"   SelectedItem="{Binding SelectUser }"  ItemsSource="{Binding Users}" Grid.Row="2" Margin="0,50,0,0" Grid.ColumnSpan="2">
+        <ListView Name="List" Background="Transparent"   SelectedItem="{Binding SelectUser }"  ItemsSource="{Binding Users}" Grid.Row="2" Margin="0,50,0,0" Grid.ColumnSpan="2">
                 
             <ListView.ContextMenu>
                 <ContextMenu >
@@ -57,7 +38,7 @@
                     <GridViewColumn Header="No" Width="30" >
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Padding="5,0" Text="{Binding Id}" TextAlignment="Center" VerticalAlignment="Center">
+                                <TextBlock Padding="5,0" Background="Azure" Text="{Binding Id}" TextAlignment="Center" VerticalAlignment="Center">
                                 </TextBlock>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
@@ -65,7 +46,7 @@
                     <GridViewColumn Header="Username" Width="100">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Padding="5,0" Text="{Binding Username}" TextAlignment="Center" VerticalAlignment="Center">
+                                <TextBlock Padding="5,0" Background="Azure" Text="{Binding Username}" TextAlignment="Center" VerticalAlignment="Center">
                                 </TextBlock>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
@@ -73,7 +54,7 @@
                     <GridViewColumn Header="Password" Width="90" >
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Padding="5,0" Text="{Binding Password}" TextAlignment="Center" VerticalAlignment="Center">
+                                <TextBlock Padding="5,0" Background="Azure" Text="{Binding Password}" TextAlignment="Center" VerticalAlignment="Center">
                                 </TextBlock>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
@@ -81,7 +62,7 @@
                     <GridViewColumn Header="CanCreateBook" Width="90" >
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Padding="5,0" Text="{Binding CanCreateBook}" TextAlignment="Center" VerticalAlignment="Center">
+                                <TextBlock Padding="5,0" Background="Azure"  Text="{Binding CanCreateBook}" TextAlignment="Center" VerticalAlignment="Center">
                                 </TextBlock>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
@@ -89,7 +70,7 @@
                     <GridViewColumn Header="CanCreateUser" Width="90" >
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Padding="5,0" Text="{Binding CanCreateUser}" TextAlignment="Center" VerticalAlignment="Center">
+                                <TextBlock Padding="5,0" Background="Azure" Text="{Binding CanCreateUser}" TextAlignment="Center" VerticalAlignment="Center">
                                 </TextBlock>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
@@ -97,7 +78,7 @@
                     <GridViewColumn Header="CanCreateBranch" Width="90" >
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Padding="5,0" Text="{Binding CanCreateBranch}" TextAlignment="Center" VerticalAlignment="Center">
+                                <TextBlock Padding="5,0" Background="Azure" Text="{Binding CanCreateBranch}" TextAlignment="Center" VerticalAlignment="Center">
                                 </TextBlock>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
@@ -105,7 +86,7 @@
                     <GridViewColumn Header="CanCreateCustomer" Width="90" >
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Padding="5,0" Text="{Binding CanCreateCustomer}" TextAlignment="Center" VerticalAlignment="Center">
+                                <TextBlock Padding="5,0" Background="Azure" Text="{Binding CanCreateCustomer}" TextAlignment="Center" VerticalAlignment="Center">
                                 </TextBlock>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
@@ -113,20 +94,18 @@
                     <GridViewColumn Header="CanRent" Width="90" >
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Name="CanRent" Padding="5,0" Text="{Binding CanRent}" TextAlignment="Center" VerticalAlignment="Center">
+                                <TextBlock Name="CanRent" Background="Azure" Padding="5,0" Text="{Binding CanRent}" TextAlignment="Center" VerticalAlignment="Center">
                                     <!--<Image  Source="/Image/True.jpg">
                                    <Image.Style>
                                        <Style TargetType="{x:Type Image}">
-                                           <Style.Triggers>
-                                               <DataTrigger Binding="{Binding CanRent}" Value="False">
+                                           <Style.Triggers >
+                                               <DataTrigger Binding="{Binding ElementName=CanRent ,Path=Text}"  Value="False">
                                                    <Setter Property="Source" Value="/Image/False.png"/>
                                                </DataTrigger>
                                            </Style.Triggers>
                                        </Style>
                                        
                                    </Image.Style>     
-                                        
-                                        
                                     </Image>-->
                                 </TextBlock>
                             </DataTemplate>

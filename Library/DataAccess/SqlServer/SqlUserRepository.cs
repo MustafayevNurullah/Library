@@ -1,5 +1,6 @@
 ﻿using Library.Domain.Abstraction;
 using Library.Entity;
+using Library.Hash;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -49,7 +50,7 @@ namespace Library.DataAccess.SqlServer
                         UserEntity userEntity = new UserEntity();
                         userEntity.Id = Convert.ToInt32(sqlDataReader[nameof(userEntity.Id)]);
                         userEntity.Username = Convert.ToString(sqlDataReader[nameof(userEntity.Username)]);
-                        userEntity.Password = Convert.ToString(sqlDataReader[nameof(userEntity.Password)]);
+                        userEntity.Password =  Convert.ToString(sqlDataReader[nameof(userEntity.Password)]);
                         userEntity.CanCreateBook = Convert.ToBoolean(sqlDataReader[nameof(userEntity.CanCreateBook)]);
                         userEntity.CanCreateBranch = Convert.ToBoolean(sqlDataReader[nameof(userEntity.CanCreateBranch)]);
                         userEntity.CanCreateCustomer = Convert.ToBoolean(sqlDataReader[nameof(userEntity.CanCreateCustomer)]);
@@ -65,7 +66,26 @@ namespace Library.DataAccess.SqlServer
 
         public void Insert(UserEntity insert)
         {
-            throw new NotImplementedException();
+            using (SqlConnection connection = new SqlConnection(ConnectionString))
+            {
+                connection.Open();
+                string cmd = @"Insert into Users(Presently,CanCreateBook,CanCreateBranch,CanCreateCustomer,CanCreateUser,CanRent,Password,Username)" +
+                $"Values('{insert.Presently}','{insert.CanCreateBook}','{insert.CanCreateBranch}','{insert.CanCreateCustomer}','{insert.CanCreateUser}','{insert.CanRent}','{insert.Password}','{insert.Username}')";
+                using (SqlCommand sqlCommand = new SqlCommand(cmd, connection))
+                {
+                    insert.Presently = false;
+                    sqlCommand.Parameters.AddWithValue("@CanCreateBook", insert.CanCreateBook);
+                    sqlCommand.Parameters.AddWithValue("@CanCreateBranch", insert.CanCreateBranch);
+                    sqlCommand.Parameters.AddWithValue("@CanCreateCustomer", insert.CanCreateCustomer);
+                    sqlCommand.Parameters.AddWithValue("@CanCreateUser", insert.CanCreateUser);
+                    sqlCommand.Parameters.AddWithValue("@CanRent", insert.CanRent);
+                    sqlCommand.Parameters.AddWithValue("@Password", insert.Password);
+                    sqlCommand.Parameters.AddWithValue("@Username", insert.Username);
+                    sqlCommand.Parameters.AddWithValue("@Presently", insert.Presently);
+
+                    sqlCommand.ExecuteNonQuery();
+                }
+            }
         }
 
         public void Update(UserEntity Update)

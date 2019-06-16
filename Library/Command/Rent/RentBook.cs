@@ -32,6 +32,7 @@ namespace Library.Command.Rent
         public void Execute(object parameter)
         {
             App.Db.RentRepository.Insert(rentViewModel.CurrentRentBook);
+            rentViewModel.CurrentRentBook = new RentEntity();
         }
     }
 }

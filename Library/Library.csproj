@@ -113,6 +113,7 @@
     <Compile Include="Domain\Entity\Permission.cs" />
     <Compile Include="Domain\Entity\RentEntity.cs" />
     <Compile Include="Domain\Entity\UserEntity.cs" />
+    <Compile Include="Hash\Encrypt_Decrypt.cs" />
     <Compile Include="UserControls\BuyReport.xaml.cs">
       <DependentUpon>BuyReport.xaml</DependentUpon>
     </Compile>
@@ -290,9 +291,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Library.sql" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Hash\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

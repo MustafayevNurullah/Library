@@ -5,31 +5,14 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Library.UserControls"
              mc:Ignorable="d" 
-             d:DesignHeight="250" d:DesignWidth="600" HorizontalAlignment="Left">
-    <UserControl.Style >
-        <Style TargetType="UserControl">
-            <Style.Triggers>
-                <EventTrigger  RoutedEvent="Window.Loaded">
-                    <EventTrigger.Actions>
-                        <BeginStoryboard>
-                            <Storyboard>
-                                <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="Width" Duration="0:0:12" >
-                                    <LinearDoubleKeyFrame Value="100" KeyTime="0:0:0"/>
-                                    <LinearDoubleKeyFrame Value="300" KeyTime="0:0:1"/>
-                                    <LinearDoubleKeyFrame Value="500" KeyTime="0:0:2"/>
-                                    <LinearDoubleKeyFrame Value="600" KeyTime="0:0:3"/>
-                                    <LinearDoubleKeyFrame Value="670" KeyTime="0:0:4"/>
-                                </DoubleAnimationUsingKeyFrames>
-                            </Storyboard>
-                        </BeginStoryboard>
-                    </EventTrigger.Actions>
-                </EventTrigger>
-            </Style.Triggers>
-        </Style>
-    </UserControl.Style>
+             d:DesignHeight="250" d:DesignWidth="670" HorizontalAlignment="Left">
+    
     <Grid>
-        <DockPanel   Background="LightGray" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
+        <DockPanel   Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
                      Grid.ColumnSpan="2" >
+            <DockPanel.Background>
+                <ImageBrush ImageSource="/Image/images.jpg"/>
+            </DockPanel.Background>
             <StackPanel>
                 <WrapPanel>
                     <TextBlock HorizontalAlignment="Left"  Text="Name" Width="100" Height="30"    >
@@ -47,14 +30,6 @@
                 </WrapPanel>
             </StackPanel>
             <StackPanel>
-
-            </StackPanel>
-            <StackPanel>
-                <WrapPanel>
-                </WrapPanel>
-
-            </StackPanel>
-            <StackPanel>
                 <TextBlock Margin="100,0,0,0" Height="30" VerticalAlignment="Top" Text="Customer" Width="100" ></TextBlock>
                 <TextBlock Margin="100,0,0,0" Height="30" VerticalAlignment="Top" Text="SalePrice" Width="100" ></TextBlock>
                 <TextBlock Margin="100,0,0,0" Height="30" VerticalAlignment="Top" Text="Date" Width="100" ></TextBlock>
@@ -70,10 +45,10 @@
                 </TextBox>
             </StackPanel>
             <StackPanel>
-                <Button Name="Buy" Height="30" Width="95" HorizontalAlignment="Right" Command="{Binding buyBookCommand}" VerticalAlignment="Top" Content="Buy" >
-                </Button>
             </StackPanel>
         </DockPanel>
+                <Button Name="Buy" Grid.Row="1" Background="Azure" Height="40" Width="120"  HorizontalAlignment="Center" Command="{Binding buyBookCommand}" VerticalAlignment="Bottom" Content="Sale" >
+                </Button>
        
         
     </Grid>

@@ -30,6 +30,7 @@ namespace Library.Command.BuyBook
         public void Execute(object parameter)
         {
             App.Db.SaleRepository.Insert(buyViewModel.CurrentBuyBook);
+            buyViewModel.CurrentBuyBook = new BuyEntity();
         }
     }
 }

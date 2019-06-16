@@ -1,4 +1,5 @@
 ﻿using Library.Entity;
+using Library.Hash;
 using Library.ViewModel;
 using Newtonsoft.Json;
 using System;
@@ -29,10 +30,15 @@ namespace Library.Command.User
         {
             var item = userViewModel.Users.FirstOrDefault(x => x.Id == userViewModel.CurrentUser.Id);
             int index = userViewModel.Users.IndexOf(item);
+            if(userViewModel.CurrentUser.Password!=userViewModel.Users[index].Password)
+            {
+            userViewModel.CurrentUser.Password = Encrypt_Decrypt.Encrypt(userViewModel.CurrentUser.Password);
+            }
+            item.Password = userViewModel.CurrentUser.Password;
             userViewModel.Users[index] = userViewModel.CurrentUser;
             App.Db.UserRepository.Update(userViewModel.CurrentUser);
             userViewModel.CurrentUser = new UserEntity();
-          //  userViewModel.SelectUser = new UserEntity();
+            userViewModel.SelectUser = new UserEntity();
         }
     }
 }

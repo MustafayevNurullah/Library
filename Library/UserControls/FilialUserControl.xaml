@@ -11,44 +11,23 @@
             <GradientStop Color="#AEADAB"/>
         </LinearGradientBrush>
     </UserControl.Resources>
-    
-    <UserControl.Style >
-        <Style TargetType="UserControl">
-            <Style.Triggers>
-                <EventTrigger  RoutedEvent="Window.Loaded">
-                    <EventTrigger.Actions>
-                        <BeginStoryboard>
-                            <Storyboard>
-                                <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="Width" Duration="0:0:12" >
-
-                                    <LinearDoubleKeyFrame Value="100" KeyTime="0:0:0"/>
-                                    <LinearDoubleKeyFrame Value="300" KeyTime="0:0:1"/>
-                                    <LinearDoubleKeyFrame Value="500" KeyTime="0:0:2"/>
-                                    <LinearDoubleKeyFrame Value="600" KeyTime="0:0:3"/>
-                                    <LinearDoubleKeyFrame Value="670" KeyTime="0:0:4"/>
-
-                                </DoubleAnimationUsingKeyFrames>
-                            </Storyboard>
-                        </BeginStoryboard>
-                    </EventTrigger.Actions>
-                </EventTrigger>
-            </Style.Triggers>
-        </Style>
-    </UserControl.Style>
     <Grid>
-        <WrapPanel Background="Gray">
+        <WrapPanel >
+            <WrapPanel.Background>
+                <ImageBrush ImageSource="/Image/images.jpg"/>
+
+            </WrapPanel.Background>
             <TextBlock Width="100" Text="Name"></TextBlock>
             <Border Width="110" Height="35" CornerRadius="10" Background="White">
                 <TextBox BorderThickness="0" Text="{Binding CurrentFilial.Name,Mode=TwoWay}"  Name="Name" Foreground="{StaticResource TBForeColor}" FontSize="20"  TextAlignment="Left"  Width="100" Height="30">
                 </TextBox>
             </Border>
             <TextBlock Width="100" Text="Address"></TextBlock>
-            <!--<TextBox Margin="10,0,0,0" Text="{Binding CurrentFilial.Address,Mode=TwoWay}" Width="100" Height="30" Name="Address"></TextBox>-->
             <Border Width="110" Height="35" CornerRadius="10" Background="White">
                 <TextBox BorderThickness="0"  Name="Address" Foreground="{StaticResource TBForeColor}" FontSize="20" Text="{Binding CurrentFilial.Address,Mode=TwoWay}" TextAlignment="Left"  Width="100" Height="30">
                 </TextBox>
             </Border>
-            <Button Margin="10,0,0,0" Width="100"  Content="Add" IsEnabled="True" Command="{Binding addFilial}">
+            <Button Margin="10,0,0,0" Background="Azure" Width="100"  Content="Add" IsEnabled="True" Command="{Binding addFilial}">
                 <Button.Style>
                     <Style TargetType="{x:Type Button}">
                         <Style.Triggers>
@@ -59,15 +38,10 @@
                                 <Setter Property="IsEnabled" Value="False"/>
                             </DataTrigger>
                         </Style.Triggers>   
-                                
-                        
-                        
                     </Style>
                 </Button.Style>
-                
-                
             </Button>
-            <Button Margin="30,0,0,0" Width="100" Content="Update" Command="{Binding updateFilial}"></Button>
+            <Button Margin="30,0,0,0" Width="100" Background="Azure" Content="Update" Command="{Binding updateFilial}"></Button>
 
         </WrapPanel>
         <ListView Name="List" Background="Transparent"   SelectedItem="{Binding SelectFilial }" ItemsSource="{Binding Filials}" Grid.Row="2" Margin="0,50,0,0" Grid.ColumnSpan="2">
@@ -83,7 +57,7 @@
                     <GridViewColumn Header="No"  >
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Padding="5,0" Text="{Binding Id}" TextAlignment="Center" VerticalAlignment="Center">
+                                <TextBlock Background="Azure" Padding="5,0" Text="{Binding Id}" TextAlignment="Center" VerticalAlignment="Center">
                                 </TextBlock>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
@@ -91,7 +65,7 @@
                     <GridViewColumn Header="Name" Width="100">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Padding="5,0" Text="{Binding Name}" TextAlignment="Center" VerticalAlignment="Center">
+                                <TextBlock Padding="5,0" Background="Azure"  Text="{Binding Name}" TextAlignment="Center" VerticalAlignment="Center">
                                 </TextBlock>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
@@ -99,7 +73,7 @@
                     <GridViewColumn Header="Adress" Width="90" >
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Padding="5,0" Text="{Binding Address}" TextAlignment="Center" VerticalAlignment="Center">
+                                <TextBlock Padding="5,0" Background="Azure"  Text="{Binding Address}" TextAlignment="Center" VerticalAlignment="Center">
                                 </TextBlock>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>

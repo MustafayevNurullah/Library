@@ -1,4 +1,5 @@
 ﻿using Library.Entity;
+using Library.Hash;
 using Library.ViewModel;
 using Newtonsoft.Json;
 using System;
@@ -29,7 +30,7 @@ namespace Library.Command.Login
 
         public void Execute(object parameter)
         {
-            var passwordUser = (parameter as PasswordBox).Password;
+            var passwordUser = Encrypt_Decrypt.Encrypt( (parameter as PasswordBox).Password);
           var item=loginViewModel.Users.FirstOrDefault(x => x.Username == loginViewModel.CurrentUser.Username && x.Password==passwordUser);
             if (item!=null)
             {

@@ -6,29 +6,6 @@
              xmlns:local="clr-namespace:Library.ViewModel"
              mc:Ignorable="d" 
              d:DesignHeight="250" d:DesignWidth="670" HorizontalAlignment="Left">
-    <UserControl.Style >
-        <Style TargetType="UserControl">
-            <Style.Triggers>
-                <EventTrigger  RoutedEvent="Window.Loaded">
-                    <EventTrigger.Actions>
-                        <BeginStoryboard>
-                            <Storyboard>
-                                <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="Width" Duration="0:0:12" >
-
-                                    <LinearDoubleKeyFrame Value="100" KeyTime="0:0:0"/>
-                                    <LinearDoubleKeyFrame Value="300" KeyTime="0:0:1"/>
-                                    <LinearDoubleKeyFrame Value="500" KeyTime="0:0:2"/>
-                                    <LinearDoubleKeyFrame Value="600" KeyTime="0:0:3"/>
-                                    <LinearDoubleKeyFrame Value="670" KeyTime="0:0:4"/>
-
-                                </DoubleAnimationUsingKeyFrames>
-                            </Storyboard>
-                        </BeginStoryboard>
-                    </EventTrigger.Actions>
-                </EventTrigger>
-            </Style.Triggers>
-        </Style>
-    </UserControl.Style>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition />
@@ -40,23 +17,34 @@
 HorizontalAlignment="Stretch"
                     Grid.ColumnSpan="2" >
         </DockPanel>
-        <DockPanel Background="LightGray"  Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
+        <DockPanel   Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
                      Grid.ColumnSpan="2" >
-           
+            <DockPanel.Background>
+                <ImageBrush ImageSource="/Image/images.jpg"/>
+
+            </DockPanel.Background>
+
             <StackPanel>
                 <WrapPanel>
                     <TextBlock HorizontalAlignment="Left"  Text="Name"  Width="100" Height="30"    >
                     </TextBlock>
-                        <TextBox Height="30" Width="100 " Text="{Binding CurrentBook.Name,Mode=TwoWay}"  Name="Name" >
+                    <Border Width="110"  Height="35" Margin="0,5,0,0" CornerRadius="10" Background="White">
+                      <TextBox Height="30" BorderThickness="0"  Width="100 " Text="{Binding CurrentBook.Name,Mode=TwoWay}"  Name="Name"  >
                     </TextBox>
+                    </Border>
                 </WrapPanel>
                 <WrapPanel>
                     <TextBlock HorizontalAlignment="Left"  Text="Author" Width="100" Height="30"    ></TextBlock>
-                    <TextBox Height="30" Width="100" Text="{Binding CurrentBook.Author,Mode=TwoWay}"  Name="Author"></TextBox>
+
+                    <Border Width="110" Height="35" Margin="0,5,0,0" CornerRadius="10" Background="White">
+                        <TextBox Height="30" BorderThickness="0" Width="100" Text="{Binding CurrentBook.Author,Mode=TwoWay}"  Name="Author"></TextBox>
+                    </Border>
                 </WrapPanel>
                 <WrapPanel>
                     <TextBlock HorizontalAlignment="Left" Text="Count"   Width="100" Height="30"></TextBlock>
-                    <TextBox Height="30" Width="100"  Name="Count" Text="{Binding CurrentBook.Count,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                    <Border Width="110" Height="35" Margin="0,5,0,0" CornerRadius="10" Background="White">
+                        <TextBox Height="30" BorderThickness="0" Width="100"  Name="Count" Text="{Binding CurrentBook.Count,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                    </Border>
                 </WrapPanel>
             </StackPanel>
             <StackPanel>
@@ -71,19 +59,25 @@ HorizontalAlignment="Stretch"
                 <TextBlock Margin="100,0,0,0" Height="30" VerticalAlignment="Top" Text="BuyPrice" Width="100" ></TextBlock>
             </StackPanel>
             <StackPanel>
-                <ComboBox Name="Filial" Height="30" Width="100"  ItemsSource="{Binding filials}" DisplayMemberPath="Name"
+                <ComboBox Name="Filial" Margin="0,5,0,0" Height="30" Width="100" Background="Gray"  BorderThickness="0"  ItemsSource="{Binding filials}" DisplayMemberPath="Name"
                               SelectedItem="{Binding CurrentBook.Branch,Mode=TwoWay }"
                              SelectedValuePath="Id"
                               SelectedValue="{Binding CurrentBook.BranchId ,Mode=TwoWay}" ></ComboBox>
-                <TextBox Height="30" Name="SalePrice" VerticalAlignment="Top" Width="100 " Text="{Binding CurrentBook.SalePrice,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}">
+
+                <Border Width="110" Height="35" Margin="0,5,0,0" CornerRadius="10" Background="White">
+                    <TextBox Height="30"  BorderThickness="0" Name="SalePrice" VerticalAlignment="Top" Width="100 " Text="{Binding CurrentBook.SalePrice,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}">
                 </TextBox>
-                <TextBox Height="30" Name="ByPrice" VerticalAlignment="Top" Width="100 " Text="{Binding CurrentBook.BuyPrice,Mode=TwoWay}">
+                </Border>
+
+                <Border Width="110" Margin="0,5,0,0" Height="35" CornerRadius="10" Background="White">
+                    <TextBox Height="30" Name="ByPrice" BorderThickness="0" VerticalAlignment="Top" Width="100 " Text="{Binding CurrentBook.BuyPrice,Mode=TwoWay}">
                 </TextBox>
+                </Border>
             </StackPanel>
             <StackPanel>
-                <Button Height="30" Width="95" Background="Transparent"   HorizontalAlignment="Right" VerticalAlignment="Top" Command="{Binding addBook}" Content="Add" Name="Add"  >
+                <Button  Height="30" Width="95" Margin="0,5,0,0" Background="Azure"   HorizontalAlignment="Right" VerticalAlignment="Top" Command="{Binding addBook}" Content="Add" Name="Add"  >
                 </Button>
-                <Button Name="Update" Height="30" Width="95" HorizontalAlignment="Right" Command="{Binding UpdateBook}" VerticalAlignment="Top" Content="Update" >
+                <Button Name="Update" Background="Azure" Margin="0,5,0,0" Height="30" Width="95" HorizontalAlignment="Right" Command="{Binding UpdateBook}" VerticalAlignment="Top" Content="Update" >
                     <Button.Style>
                         <Style TargetType="{x:Type Button}">
                             <Style.Triggers>
@@ -94,7 +88,7 @@ HorizontalAlignment="Stretch"
                         </Style>
                     </Button.Style>
                 </Button>
-                <Button Height="30" Width="95" HorizontalAlignment="Right" Command="{Binding DeleteBook}" VerticalAlignment="Top" Content="Delete"  >
+                <Button Height="30" Width="95" Background="Azure" Margin="0,5,0,0" HorizontalAlignment="Right" Command="{Binding DeleteBook}" VerticalAlignment="Top" Content="Delete"  >
                     <Button.Style>
                         <Style TargetType="{x:Type Button}">
                             <Style.Triggers>
@@ -126,7 +120,7 @@ HorizontalAlignment="Stretch"
                     <GridViewColumn Header="No" Width="30" >
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock  Padding="5,0" Text="{Binding Id}" TextAlignment="Center" VerticalAlignment="Center">
+                                <TextBlock  Background="Azure" Padding="5,0" Text="{Binding Id}" TextAlignment="Center" VerticalAlignment="Center">
                                 </TextBlock>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
@@ -134,7 +128,7 @@ HorizontalAlignment="Stretch"
                     <GridViewColumn Header="Name" Width="100">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Padding="5,0" Text="{Binding Name}" TextAlignment="Center" VerticalAlignment="Center">
+                                <TextBlock Padding="5,0" Background="Azure"  Text="{Binding Name}" TextAlignment="Center" VerticalAlignment="Center">
                                 </TextBlock>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
@@ -142,7 +136,7 @@ HorizontalAlignment="Stretch"
                     <GridViewColumn Header="Author" Width="60">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Padding="5,0" Text="{Binding Author}"   TextAlignment="Center" VerticalAlignment="Center">
+                                <TextBlock Padding="5,0" Background="Azure"  Text="{Binding Author}"   TextAlignment="Center" VerticalAlignment="Center">
                                 </TextBlock>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
@@ -151,7 +145,7 @@ HorizontalAlignment="Stretch"
                     <GridViewColumn Header="Count" Width="100">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Padding="5,0" Text="{Binding Count}" TextAlignment="Center" VerticalAlignment="Center">
+                                <TextBlock Padding="5,0" Background="Azure"  Text="{Binding Count}" TextAlignment="Center" VerticalAlignment="Center">
                                 </TextBlock>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
@@ -159,7 +153,7 @@ HorizontalAlignment="Stretch"
                     <GridViewColumn Header="Filial" Width="100">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Padding="5,0" Text="{Binding Branch.Name}"  TextAlignment="Center" VerticalAlignment="Center">
+                                <TextBlock Padding="5,0" Background="Azure"  Text="{Binding Branch.Name}"  TextAlignment="Center" VerticalAlignment="Center">
                                 </TextBlock>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
@@ -168,7 +162,7 @@ HorizontalAlignment="Stretch"
                     <GridViewColumn Header="SalePrice" Width="100">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Padding="5,0" Text="{Binding SalePrice}" TextAlignment="Center" VerticalAlignment="Center">
+                                <TextBlock Padding="5,0" Background="Azure"  Text="{Binding SalePrice}" TextAlignment="Center" VerticalAlignment="Center">
                                 </TextBlock>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
@@ -176,7 +170,7 @@ HorizontalAlignment="Stretch"
                     <GridViewColumn Header="ByPrice" Width="100">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Padding="5,0" Text="{Binding BuyPrice}" TextAlignment="Center" VerticalAlignment="Center">
+                                <TextBlock Padding="5,0" Background="Azure"  Text="{Binding BuyPrice}" TextAlignment="Center" VerticalAlignment="Center">
                                 </TextBlock>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>

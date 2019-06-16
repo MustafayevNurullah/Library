@@ -30,6 +30,7 @@ namespace Library.Command.Rent
         public void Execute(object parameter)
         {
             mainViewModel.Window1.MainBorder.Child = new RentUserControl(BookViewModel);
+            
         }
     }
 }

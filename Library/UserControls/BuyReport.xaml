@@ -6,37 +6,17 @@
              xmlns:local="clr-namespace:Library.UserControls"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800"  HorizontalAlignment="Left">
-    <UserControl.Style >
-        <Style TargetType="UserControl">
-            <Style.Triggers>
-                <EventTrigger  RoutedEvent="Window.Loaded">
-                    <EventTrigger.Actions>
-                        <BeginStoryboard>
-                            <Storyboard>
-                                <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="Width" Duration="0:0:12" >
-
-                                    <LinearDoubleKeyFrame Value="100" KeyTime="0:0:0"/>
-                                    <LinearDoubleKeyFrame Value="300" KeyTime="0:0:1"/>
-                                    <LinearDoubleKeyFrame Value="500" KeyTime="0:0:2"/>
-                                    <LinearDoubleKeyFrame Value="600" KeyTime="0:0:3"/>
-                                    <LinearDoubleKeyFrame Value="670" KeyTime="0:0:4"/>
-
-                                </DoubleAnimationUsingKeyFrames>
-                            </Storyboard>
-                        </BeginStoryboard>
-                    </EventTrigger.Actions>
-                </EventTrigger>
-            </Style.Triggers>
-        </Style>
-    </UserControl.Style>
     <Grid>
         <ListView  Visibility="Visible" Name="List"   SelectedItem="{Binding SelectB }" ItemsSource="{Binding BuyBooks}" Grid.Row="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.ColumnSpan="2">
+            <ListView.Background>
+                <ImageBrush ImageSource="/Image/images.jpg"/>
+            </ListView.Background>
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="No" Width="30" >
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Padding="5,0" Text="{Binding Id}" TextAlignment="Center" VerticalAlignment="Center">
+                                <TextBlock Padding="5,0" Background="Azure" Text="{Binding Id}" TextAlignment="Center" VerticalAlignment="Center">
                                 </TextBlock>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
@@ -44,7 +24,7 @@
                     <GridViewColumn Header="Name" Width="100">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Padding="5,0" Text="{Binding Book.Name}" TextAlignment="Center" VerticalAlignment="Center">
+                                <TextBlock Padding="5,0" Background="Azure" Text="{Binding Book.Name}" TextAlignment="Center" VerticalAlignment="Center">
                                 </TextBlock>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
@@ -52,7 +32,7 @@
                     <GridViewColumn Header="Customer" Width="60">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Padding="5,0" Text="{Binding Customer.Name}"   TextAlignment="Center" VerticalAlignment="Center">
+                                <TextBlock Padding="5,0" Background="Azure" Text="{Binding Customer.Name}"   TextAlignment="Center" VerticalAlignment="Center">
                                 </TextBlock>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
@@ -61,7 +41,7 @@
                     <GridViewColumn Header="User" Width="100">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Padding="5,0" Text="{Binding User.Username}" TextAlignment="Center" VerticalAlignment="Center">
+                                <TextBlock Padding="5,0" Background="Azure" Text="{Binding User.Username}" TextAlignment="Center" VerticalAlignment="Center">
                                 </TextBlock>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
@@ -69,7 +49,7 @@
                     <GridViewColumn Header="Date" Width="100">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Padding="5,0" Text="{Binding Date}"  TextAlignment="Center" VerticalAlignment="Center">
+                                <TextBlock Padding="5,0" Background="Azure" Text="{Binding Date}"  TextAlignment="Center" VerticalAlignment="Center">
                                 </TextBlock>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
@@ -78,7 +58,7 @@
                     <GridViewColumn Header="SalePrice" Width="100">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Padding="5,0" Text="{Binding Book.SalePrice}" TextAlignment="Center" VerticalAlignment="Center">
+                                <TextBlock Padding="5,0" Background="Azure" Text="{Binding Book.SalePrice}" TextAlignment="Center" VerticalAlignment="Center">
                                 </TextBlock>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
@@ -86,7 +66,7 @@
                     <GridViewColumn Header="ByPrice" Width="100">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Padding="5,0" Text="{Binding Book.BuyPrice}" TextAlignment="Center" VerticalAlignment="Center">
+                                <TextBlock Padding="5,0" Background="Azure" Text="{Binding Book.BuyPrice}" TextAlignment="Center" VerticalAlignment="Center">
                                 </TextBlock>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>

@@ -6,29 +6,7 @@
              xmlns:local="clr-namespace:Library.UserControls"
              mc:Ignorable="d" 
              d:DesignHeight="250" d:DesignWidth="600" HorizontalAlignment="Left">
-    <UserControl.Style >
-        <Style TargetType="UserControl">
-            <Style.Triggers>
-                <EventTrigger  RoutedEvent="Window.Loaded">
-                    <EventTrigger.Actions>
-                        <BeginStoryboard>
-                            <Storyboard>
-                                <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="Width" Duration="0:0:12" >
-
-                                    <LinearDoubleKeyFrame Value="100" KeyTime="0:0:0"/>
-                                    <LinearDoubleKeyFrame Value="300" KeyTime="0:0:1"/>
-                                    <LinearDoubleKeyFrame Value="500" KeyTime="0:0:2"/>
-                                    <LinearDoubleKeyFrame Value="600" KeyTime="0:0:3"/>
-                                    <LinearDoubleKeyFrame Value="670" KeyTime="0:0:4"/>
-
-                                </DoubleAnimationUsingKeyFrames>
-                            </Storyboard>
-                        </BeginStoryboard>
-                    </EventTrigger.Actions>
-                </EventTrigger>
-            </Style.Triggers>
-        </Style>
-    </UserControl.Style>
+   
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition />
@@ -41,9 +19,11 @@ HorizontalAlignment="Stretch"
                     Grid.ColumnSpan="2" >
 
         </DockPanel>
-        <DockPanel   Background="LightGray" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
+        <DockPanel   Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
                      Grid.ColumnSpan="2" >
-
+            <DockPanel.Background>
+                <ImageBrush ImageSource="/Image/images.jpg"/>
+            </DockPanel.Background>
             <StackPanel>
                 <WrapPanel>
                     <TextBlock HorizontalAlignment="Left"  Text="Name" Width="100" Height="30"    >
@@ -98,7 +78,7 @@ HorizontalAlignment="Stretch"
         <TextBlock  Height="30" Text="Worker" FontWeight="Bold" FontFamily="30"  Width="100" HorizontalAlignment="Center" Grid.ColumnSpan="2" Margin="246,0,246,1">
         </TextBlock>
 
-        <ListView Visibility="Visible" Name="List"   SelectedItem="{Binding SelectWorker }" ItemsSource="{Binding Workers}" Grid.Row="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.ColumnSpan="2">
+        <ListView Visibility="Visible"  Name="List"   SelectedItem="{Binding SelectWorker }" ItemsSource="{Binding Workers}" Grid.Row="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.ColumnSpan="2">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="No" Width="30" >

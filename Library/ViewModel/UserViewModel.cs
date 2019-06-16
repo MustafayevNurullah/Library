@@ -9,6 +9,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 
 namespace Library.ViewModel
 {
@@ -29,6 +30,7 @@ namespace Library.ViewModel
             Users = new ObservableCollection<UserEntity>();
         }
        UserEntity currentuser;
+        object parameter;
        public UserEntity CurrentUser
         {
             get
@@ -38,7 +40,10 @@ namespace Library.ViewModel
             }
             set
             {
+
                 currentuser = value;
+              
+                
                 OnpropertyChanged(new PropertyChangedEventArgs("CurrentUser"));
             }
             
@@ -55,11 +60,15 @@ namespace Library.ViewModel
             }
             set
             {
-                if (value.Presently != true)
+                if (value!=null)
+                {
+
+                if ( value.Presently != true)
                 {
                     selectuser = value;
                     CurrentUser = selectuser.Clone();
                     OnpropertyChanged(new PropertyChangedEventArgs("SelectUser"));
+                   }
                 }
                 }
         }

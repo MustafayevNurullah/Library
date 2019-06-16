@@ -27,9 +27,8 @@ namespace Library.Command
         }
         public void Execute(object parameter)
         {
-
-            bookViewModel.Books.Add(bookViewModel.CurrentBook);
-            App.Db.BookRepository.Insert(bookViewModel.CurrentBook);         
+                bookViewModel.Books.Add(bookViewModel.CurrentBook);
+                App.Db.BookRepository.Insert(bookViewModel.CurrentBook);         
                 bookViewModel.CurrentBook = new BookEntity();
                 bookViewModel.SelectBook = new BookEntity();
         }

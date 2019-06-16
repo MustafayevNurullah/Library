@@ -38,10 +38,13 @@
         <DockPanel  Background="Gray" Grid.Row="0"  VerticalAlignment="Stretch"
 HorizontalAlignment="Stretch"
                     Grid.ColumnSpan="2" >
-
         </DockPanel>
-        <DockPanel   Background="LightGray" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
+        
+        <DockPanel    Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
                      Grid.ColumnSpan="2" >
+            <DockPanel.Background>
+                <ImageBrush ImageSource="/Image/images.jpg"/>
+            </DockPanel.Background>
 
             <StackPanel>
                 <WrapPanel>
@@ -61,14 +64,6 @@ HorizontalAlignment="Stretch"
                 </WrapPanel>
             </StackPanel>
             <StackPanel>
-
-            </StackPanel>
-            <StackPanel>
-                <WrapPanel>
-                </WrapPanel>
-
-            </StackPanel>
-            <StackPanel>
                 <TextBlock Margin="100,0,0,0" Height="30" VerticalAlignment="Top" Text="DataTime" Width="100" ></TextBlock>
 
             </StackPanel>
@@ -84,16 +79,15 @@ HorizontalAlignment="Stretch"
                 <Button Name="Update" Height="30" Width="95" HorizontalAlignment="Right" Command="{Binding updateCustomer}" VerticalAlignment="Top" Content="Update" >
                 </Button>
                 <Button Height="30" Width="95" HorizontalAlignment="Right" Command="{Binding deleteCustomer}" VerticalAlignment="Top" Content="Delete"  >
-
                 </Button>
-            </StackPanel>
 
+            </StackPanel>
         </DockPanel>
 
         <TextBlock  Height="30" Text="Customer" FontWeight="Bold" FontFamily="30"  Width="100" HorizontalAlignment="Center" Grid.ColumnSpan="2" Margin="246,0,246,1">
         </TextBlock>
 
-        <ListView Visibility="Visible" Name="List"   SelectedItem="{Binding SelectCustomer}" ItemsSource="{Binding Customers}" Grid.Row="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.ColumnSpan="2">
+        <ListView Visibility="Visible" Name="List"    SelectedItem="{Binding SelectCustomer}" ItemsSource="{Binding Customers}" Grid.Row="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.ColumnSpan="2">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="No" Width="30" >

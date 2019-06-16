@@ -31,6 +31,6 @@ namespace Library.ViewModel
             DataContext = bookViewModel;
         }
 
-        
+       
     }
 }
