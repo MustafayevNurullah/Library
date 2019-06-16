@@ -1,6 +1,8 @@
-﻿using Library.ViewModel;
+﻿using Library.Entity;
+using Library.ViewModel;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,8 +26,9 @@ namespace Library.UserControls
         public Rentreport()
         {
             InitializeComponent();
-            RentReportViewModel rentReportViewModel = new RentReportViewModel();
-            DataContext = rentReportViewModel;
+            RentViewModel rentViewModel = new RentViewModel();
+            rentViewModel.RetnBooks = new ObservableCollection<RentEntity>(App.Db.RentRepository.GetAll());
+            DataContext = rentViewModel;
         }
 
     }

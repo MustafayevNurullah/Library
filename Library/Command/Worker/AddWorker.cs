@@ -41,8 +41,8 @@ namespace Library.Command
                     workerViewModel.CurrentWorker.Id = 1;
                 }
                 workerViewModel.Workers.Add(workerViewModel.CurrentWorker);
-                string json = JsonConvert.SerializeObject(workerViewModel.Workers);
-                System.IO.File.WriteAllText("Workers.json", json);
+                
+                App.Db.WorkerRepository.Insert(workerViewModel.CurrentWorker);
                 workerViewModel.CurrentWorker = new WorkerEntity();
                 workerViewModel.SelectWorker = new WorkerEntity();
             }

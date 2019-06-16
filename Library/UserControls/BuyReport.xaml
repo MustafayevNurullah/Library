@@ -30,7 +30,7 @@
         </Style>
     </UserControl.Style>
     <Grid>
-        <ListView  Visibility="Visible" Name="List"   SelectedItem="{Binding SelectB }" ItemsSource="{Binding Buyrepors}" Grid.Row="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.ColumnSpan="2">
+        <ListView  Visibility="Visible" Name="List"   SelectedItem="{Binding SelectB }" ItemsSource="{Binding BuyBooks}" Grid.Row="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.ColumnSpan="2">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="No" Width="30" >
@@ -44,7 +44,7 @@
                     <GridViewColumn Header="Name" Width="100">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Padding="5,0" Text="{Binding BookId.Name}" TextAlignment="Center" VerticalAlignment="Center">
+                                <TextBlock Padding="5,0" Text="{Binding Book.Name}" TextAlignment="Center" VerticalAlignment="Center">
                                 </TextBlock>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
@@ -61,7 +61,7 @@
                     <GridViewColumn Header="User" Width="100">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Padding="5,0" Text="{Binding UserId.Username}" TextAlignment="Center" VerticalAlignment="Center">
+                                <TextBlock Padding="5,0" Text="{Binding User.Username}" TextAlignment="Center" VerticalAlignment="Center">
                                 </TextBlock>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
@@ -78,7 +78,7 @@
                     <GridViewColumn Header="SalePrice" Width="100">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Padding="5,0" Text="{Binding BookId.SalePrice}" TextAlignment="Center" VerticalAlignment="Center">
+                                <TextBlock Padding="5,0" Text="{Binding Book.SalePrice}" TextAlignment="Center" VerticalAlignment="Center">
                                 </TextBlock>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
@@ -86,7 +86,7 @@
                     <GridViewColumn Header="ByPrice" Width="100">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Padding="5,0" Text="{Binding BookId.BuyPrice}" TextAlignment="Center" VerticalAlignment="Center">
+                                <TextBlock Padding="5,0" Text="{Binding Book.BuyPrice}" TextAlignment="Center" VerticalAlignment="Center">
                                 </TextBlock>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>

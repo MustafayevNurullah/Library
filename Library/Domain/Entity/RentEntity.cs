@@ -10,14 +10,17 @@ namespace Library.Entity
     {
 
         public int Id { get; set; }
-        public UserEntity UserId { get; set; }
+        public int UserId { get; set; }
+        public int BookId { get; set; }
+        public int CustomerId { get; set; }
+        public UserEntity User { get; set; }
         public int No { get; set; }
-        public BookEntity BookId { get; set; }
+        public BookEntity Book { get; set; }
         public CustomerEntity Customer { get; set; }
         public DateTime RentDate { get; set; }
         public DateTime Deadline { get; set; }
         public DateTime RealDate { get; set; }
-        public string DailyRentPrice { get; set; }
+        public double DailyRentPrice { get; set; }
         public RentEntity Clone()
         {
             RentEntity rentEntity = new RentEntity();

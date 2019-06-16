@@ -16,7 +16,7 @@ namespace Library.Command
         CustomerViewModel customerViewModel { get; set; }
         public UpdateCustomer (CustomerViewModel customerViewMOdel)
         {
-            this.customerViewModel = customerViewModel;
+            this.customerViewModel = customerViewMOdel;
         }
 
         public bool CanExecute(object parameter)
@@ -26,11 +26,10 @@ namespace Library.Command
 
         public void Execute(object parameter)
         {
-            var item = customerViewModel.Customers.FirstOrDefault(x => x.Id == customerViewModel.SelectCustomer.Id);
+            var item = customerViewModel.Customers.FirstOrDefault(x => x.Id == customerViewModel.CurrentCustomer.Id);
             int index = customerViewModel.Customers.IndexOf(item);
+            App.Db.CustomerRepository.Update(item);
             customerViewModel.Customers[index] = customerViewModel.CurrentCustomer;
-            string json = JsonConvert.SerializeObject(customerViewModel.Customers);
-            System.IO.File.WriteAllText("Customers.json", json);
             customerViewModel.CurrentCustomer = new CustomerEntity();
             customerViewModel.SelectCustomer = new CustomerEntity();
         }

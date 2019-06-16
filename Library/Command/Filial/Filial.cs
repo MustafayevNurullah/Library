@@ -23,17 +23,14 @@ namespace Library.Command
         MainViewModel MainViewModel { get; set; }
         public Filial (MainViewModel mainViewModel)
         {
-            if (File.Exists("Users.json"))
-            {
-                string jsonFilial = File.ReadAllText("Users.json");
-                this.Users = JsonConvert.DeserializeObject<List<UserEntity>>(jsonFilial);
-            }
+            Users = new List<UserEntity>();
+            Users = App.Db.UserRepository.GetAll();
             MainViewModel = mainViewModel;
         }
         public bool CanExecute(object parameter)
         {
-            //  return Users.FirstOrDefault(x => x.Presently == true).CanCreateBranch;
-            return true;
+              return Users.FirstOrDefault(x => x.Presently == true).CanCreateBranch;
+            //return true;
         }
 
         public void Execute(object parameter)

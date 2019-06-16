@@ -17,20 +17,17 @@ namespace Library.Command.User
         public event EventHandler CanExecuteChanged;
         MainViewModel MainViewModel { get; set; }
         List<UserEntity> Users;
-
         public User(MainViewModel mainViewModel)
         {
             MainViewModel = mainViewModel;
-            if (File.Exists("Users.json"))
-            {
-                string jsonFilial = File.ReadAllText("Users.json");
-                Users = JsonConvert.DeserializeObject<List<UserEntity>>(jsonFilial);
-            }
+            Users = new List<UserEntity>();
+            Users = App.Db.UserRepository.GetAll();
         }
         public bool CanExecute(object parameter)
         {
-            //return Users.FirstOrDefault(x => x.Presently == true).CanCreateUser;
-            return true;
+            
+            return Users.FirstOrDefault(x => x.Presently == true).CanCreateUser;
+            //return true;
         }
 
         public void Execute(object parameter)

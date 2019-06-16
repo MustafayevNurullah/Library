@@ -1,6 +1,8 @@
-﻿using Library.ViewModel;
+﻿using Library.Entity;
+using Library.ViewModel;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,8 +26,9 @@ namespace Library.UserControls
         public BuyReport()
         {
             InitializeComponent();
-            BuyReportViewModel buyReportViewModel = new BuyReportViewModel();
-            DataContext = buyReportViewModel;
+            BuyViewModel buyViewModel = new BuyViewModel();
+            buyViewModel.BuyBooks = new ObservableCollection<BuyEntity>(App.Db.SaleRepository.GetAll());
+            DataContext = buyViewModel;
         }
     }
 }

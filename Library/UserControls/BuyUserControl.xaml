@@ -34,7 +34,7 @@
                 <WrapPanel>
                     <TextBlock HorizontalAlignment="Left"  Text="Name" Width="100" Height="30"    >
                     </TextBlock>
-                    <TextBox Height="30" Width="100 " Text="{Binding CurrentBuyBook.BookId.Name,Mode=TwoWay}"  Name="Name" >
+                    <TextBox Height="30" IsEnabled="False" Width="100 " Text="{Binding CurrentBuyBook.Book.Name,Mode=TwoWay}"  Name="Name" >
                     </TextBox>
                 </WrapPanel>
                 <WrapPanel>
@@ -43,7 +43,7 @@
                 </WrapPanel>
                 <WrapPanel>
                     <TextBlock HorizontalAlignment="Left" Text="Price"   Width="100" Height="30"></TextBlock>
-                    <TextBox IsEnabled="False" Height="30" Width="100"  Name="Price" Text="{Binding CurrentBuyBook.BookId.SalePrice,Mode=TwoWay}"></TextBox>
+                    <TextBox IsEnabled="False" Height="30" Width="100"  Name="Price" Text="{Binding CurrentBuyBook.Book.SalePrice,Mode=TwoWay}"></TextBox>
                 </WrapPanel>
             </StackPanel>
             <StackPanel>
@@ -63,8 +63,8 @@
             <StackPanel>
                 <ComboBox Name="Customers" Height="30" Width="100" ItemsSource="{Binding customerList}" DisplayMemberPath="Name"
                               SelectedItem="{Binding CurrentBuyBook.Customer }" SelectedValuePath="Id"
-                              SelectedValue="{Binding CurrentBuyBook.Customer.Id ,Mode=TwoWay}"></ComboBox>
-                <TextBox Height="30" Name="BuyPrice" VerticalAlignment="Top" Width="100 " Text="{Binding CurrentBuyBook.Price,Mode=TwoWay}">
+                              SelectedValue="{Binding CurrentBuyBook.CustomerId ,Mode=TwoWay}"></ComboBox>
+                <TextBox Height="30" Name="BuyPrice" VerticalAlignment="Top" Width="100 " Text="{Binding CurrentBuyBook.SalePrice,Mode=TwoWay}">
                 </TextBox>
                 <TextBox IsEnabled="False" Height="30" Name="Date" VerticalAlignment="Top" Width="100 " Text="{Binding CurrentBuyBook.Date}">
                 </TextBox>

@@ -30,10 +30,9 @@ namespace Library.Command.User
             var item = userViewModel.Users.FirstOrDefault(x => x.Id == userViewModel.CurrentUser.Id);
             int index = userViewModel.Users.IndexOf(item);
             userViewModel.Users[index] = userViewModel.CurrentUser;
-            string json = JsonConvert.SerializeObject(userViewModel.Users);
-            System.IO.File.WriteAllText("Users.json", json);
+            App.Db.UserRepository.Update(userViewModel.CurrentUser);
             userViewModel.CurrentUser = new UserEntity();
-            userViewModel.SelectUser = new UserEntity();
+          //  userViewModel.SelectUser = new UserEntity();
         }
     }
 }

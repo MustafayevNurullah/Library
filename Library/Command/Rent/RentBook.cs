@@ -20,11 +20,7 @@ namespace Library.Command.Rent
         public RentBook(RentViewModel rentViewModel)
         {
             this.rentViewModel = rentViewModel;
-            if (File.Exists("Users.json"))
-            {
-                string jsonFilial = File.ReadAllText("Users.json");
-                this.Users = JsonConvert.DeserializeObject<List<UserEntity>>(jsonFilial);
-            }
+           
         }
 
 
@@ -35,24 +31,7 @@ namespace Library.Command.Rent
 
         public void Execute(object parameter)
         {
-            var item = rentViewModel.RetnBooks.FirstOrDefault(x => x.Id == rentViewModel.CurrentRentBook.Id);
-            if (item == null)
-            {
-                if (rentViewModel.RetnBooks.Count != 0)
-                {
-                    rentViewModel.CurrentRentBook.Id = rentViewModel.RetnBooks[rentViewModel.RetnBooks.Count - 1].Id + 1;
-                }
-                else
-                {
-                    rentViewModel.CurrentRentBook.Id = 1;
-                }
-                rentViewModel.CurrentRentBook.UserId = Users[Users.IndexOf(Users.FirstOrDefault(x => x.Presently == true))];
-                rentViewModel.RetnBooks.Add(rentViewModel.CurrentRentBook);
-                string json = JsonConvert.SerializeObject(rentViewModel.RetnBooks);
-                System.IO.File.WriteAllText("RentBooks.json", json);
-                rentViewModel.CurrentRentBook = new RentEntity();
-                rentViewModel.SelectRentBook = new RentEntity();
-            }
+            App.Db.RentRepository.Insert(rentViewModel.CurrentRentBook);
         }
     }
 }

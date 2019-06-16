@@ -1,6 +1,7 @@
 ﻿using Library.ViewModel;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -25,6 +26,7 @@ namespace Library.UserControls
         {
             InitializeComponent();
             UserViewModel userViewModel = new UserViewModel();
+            userViewModel.Users = new ObservableCollection<Entity.UserEntity>( App.Db.UserRepository.GetAll());
             DataContext = userViewModel;
         }
     }

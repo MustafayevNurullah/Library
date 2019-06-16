@@ -94,21 +94,19 @@ namespace Library.DataAccess.SqlServer
             {
                 Connection.Open();
                  cmd = $"Select Name From Branchs Where Branchs.Id={Id}";
+                        FilialEntity filialEntity = new FilialEntity();
                 using (SqlCommand sqlCommand = new SqlCommand(cmd, Connection))
                 {
                     SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
-                        FilialEntity filialEntity = new FilialEntity();
                     while (sqlDataReader.Read())
                     {
                         filialEntity.Name = Convert.ToString(sqlDataReader[nameof(filialEntity.Name)]);
-                        filialEntity.Address = Convert.ToString(sqlDataReader[nameof(filialEntity.Address)]);
-                        filialEntity.Id = Convert.ToInt32(sqlDataReader[nameof(filialEntity.Id)]);
+                     //   filialEntity.Id = Convert.ToInt32(sqlDataReader[nameof(filialEntity.Id)]);
+                       // filialEntity.Address = Convert.ToString(sqlDataReader[nameof(filialEntity.Address)]);
                     }
-                    return filialEntity ;
                 }
+                    return filialEntity ;
             }
-
-
 
         }
     }

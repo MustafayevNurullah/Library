@@ -20,9 +20,6 @@ namespace Library.DataAccess.SqlServer
             SqlContex = sqlContex;
         }
 
-
-
-
         public void Delete(BookEntity delete)
         {
             using (SqlConnection Connection = new SqlConnection(ConnectionString))
@@ -75,33 +72,61 @@ namespace Library.DataAccess.SqlServer
             using (SqlConnection connection = new SqlConnection(ConnectionString))
             {
                 connection.Open();
-              //  string cmd = @"Insert into Books(Name,Author,Count,BranchName,BuyPrice,SalePrice)" +
-               // $"Values('{insert.Name}','{insert.Author}','{insert.Count},'{insert.BranchName},'{insert.BuyPrice}','{insert.SalePrice}')";
-              //  using (SqlCommand sqlCommand = new SqlCommand(cmd, connection))
-               // {
-                 //   sqlCommand.Parameters.AddWithValue("@Name", insert.Name);
-                 //   sqlCommand.Parameters.AddWithValue("@Author", insert.Author);
-                 //   sqlCommand.Parameters.AddWithValue("@Count", insert.Count);
-                 ////   sqlCommand.Parameters.AddWithValue("@BranchName", insert.BranchName);
-                 //   sqlCommand.Parameters.AddWithValue("@BuyPrice", insert.BuyPrice);
-                 //   sqlCommand.Parameters.AddWithValue("@SalePrice", insert.SalePrice);
-                 //   sqlCommand.ExecuteNonQuery();
-                //}
+                string cmd = @"Insert into Books(Name,Author,Count,BranchId,BuyPrice,SalePrice)" +
+                $"Values('{insert.Name}','{insert.Author}','{insert.Count}','{insert.BranchId}','{insert.BuyPrice}','{insert.SalePrice}')";
+                using (SqlCommand sqlCommand = new SqlCommand(cmd, connection))
+                {
+                    sqlCommand.Parameters.AddWithValue("@Author", insert.Author);
+                    sqlCommand.Parameters.AddWithValue("@Name", insert.Name);
+                    sqlCommand.Parameters.AddWithValue("@BranchId", insert.BranchId);
+                    sqlCommand.Parameters.AddWithValue("@Count", insert.Count);
+                    sqlCommand.Parameters.AddWithValue("@BuyPrice", insert.BuyPrice);
+                    sqlCommand.Parameters.AddWithValue("@SalePrice", insert.SalePrice);
+                    sqlCommand.ExecuteNonQuery();
+                }
             }
         }
         public void Update(BookEntity Update)
         {
-            string cmd = $"UPDATE Branchs " +
-                 $"SET Name = @Name,Address = @Address WHERE Branchs.Id = @Id";
+            string cmd = $"UPDATE Books " +
+                 $"SET Name = @Name,Author = @Author,BranchId=@BranchId,Count=@Count,BuyPrice=@BuyPrice,SalePrice=@SalePrice WHERE Books.Id = @Id";
             using (SqlConnection connection = new SqlConnection(ConnectionString))
             {
                 connection.Open();
                 using (SqlCommand command = new SqlCommand(cmd, connection))
                 {
-                    command.Parameters.AddWithValue("@Name", Update.Name);
                     command.Parameters.AddWithValue("@Id", Update.Id);
+                    command.Parameters.AddWithValue("@Name", Update.Name);
+                    command.Parameters.AddWithValue("@Author", Update.Author);
+                    command.Parameters.AddWithValue("@BranchId", Update.BranchId);
+                    command.Parameters.AddWithValue("@Count", Update.Count);
+                    command.Parameters.AddWithValue("@BuyPrice", Update.BuyPrice);
+                    command.Parameters.AddWithValue("@SalePrice", Update.SalePrice);
                     command.ExecuteNonQuery();
                 }
+            }
+        }
+
+        public BookEntity GetBook(int Id)
+        {
+            string cmd;
+            using (SqlConnection Connection = new SqlConnection(ConnectionString))
+            {
+                Connection.Open();
+                cmd = $"Select Name,SalePrice From Books Where Books.Id={Id}";
+                BookEntity bookEntity = new BookEntity();
+                using (SqlCommand sqlCommand = new SqlCommand(cmd, Connection))
+                {
+                    SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
+                    while (sqlDataReader.Read())
+                    {
+                        bookEntity.Name = Convert.ToString(sqlDataReader[nameof(bookEntity.Name)]);
+                        bookEntity.SalePrice = Convert.ToDouble(sqlDataReader[nameof(bookEntity.SalePrice)]);
+                        //   filialEntity.Id = Convert.ToInt32(sqlDataReader[nameof(filialEntity.Id)]);
+                        // filialEntity.Address = Convert.ToString(sqlDataReader[nameof(filialEntity.Address)]);
+                    }
+                }
+                return bookEntity;
             }
         }
     }

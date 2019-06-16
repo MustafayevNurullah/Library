@@ -73,7 +73,7 @@ HorizontalAlignment="Stretch"
 
             </StackPanel>
             <StackPanel>
-                <TextBox Height="30" Name="DataTime" VerticalAlignment="Top" Width="100 " Text="{Binding CurrentCustomer.Datatime,Mode=TwoWay}">
+                <TextBox Height="30" Name="DataTime" VerticalAlignment="Top" Width="100 " Text="{Binding CurrentCustomer.Data,Mode=TwoWay}">
                 </TextBox>
             </StackPanel>
             <StackPanel>
@@ -93,7 +93,7 @@ HorizontalAlignment="Stretch"
         <TextBlock  Height="30" Text="Customer" FontWeight="Bold" FontFamily="30"  Width="100" HorizontalAlignment="Center" Grid.ColumnSpan="2" Margin="246,0,246,1">
         </TextBlock>
 
-        <ListView Visibility="Visible" Name="List"   SelectedItem="{Binding SelectCustomer }" ItemsSource="{Binding Customers}" Grid.Row="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.ColumnSpan="2">
+        <ListView Visibility="Visible" Name="List"   SelectedItem="{Binding SelectCustomer}" ItemsSource="{Binding Customers}" Grid.Row="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.ColumnSpan="2">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="No" Width="30" >
@@ -132,7 +132,7 @@ HorizontalAlignment="Stretch"
                     <GridViewColumn Header="DataTime" Width="100">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Padding="5,0" Text="{Binding Datatime}"  TextAlignment="Center" VerticalAlignment="Center">
+                                <TextBlock Padding="5,0" Text="{Binding Data}"  TextAlignment="Center" VerticalAlignment="Center">
                                 </TextBlock>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>

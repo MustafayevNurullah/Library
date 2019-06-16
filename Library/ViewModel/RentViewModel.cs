@@ -20,26 +20,8 @@ namespace Library.ViewModel
         public RentViewModel( )
         {
             rentBook = new RentBook(this);
-            CurrentRentBook = new RentEntity();
             SelectRentBook = new RentEntity();
-            RetnBooks = new ObservableCollection<RentEntity>();
-            if (File.Exists("Customers.json"))
-            {
-                string jsonBook = File.ReadAllText("Customers.json");
-                customerList = JsonConvert.DeserializeObject<List<CustomerEntity>>(jsonBook);
-            }
-            if (File.Exists("Users.json"))
-            {
-                string jsonFilial = File.ReadAllText("Users.json");
-                this.Users = JsonConvert.DeserializeObject<List<UserEntity>>(jsonFilial);
-
-                Users.RemoveAll(x => x.Presently == false);
-            }
-            if (File.Exists("Rent.json"))
-            {
-                string jsonBook = File.ReadAllText("BuyBooks.json");
-                RetnBooks = JsonConvert.DeserializeObject<ObservableCollection<RentEntity>>(jsonBook);
-            }
+            
         }
 
 

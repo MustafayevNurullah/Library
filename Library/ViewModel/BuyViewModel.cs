@@ -20,27 +20,8 @@ namespace Library.ViewModel
         public BuyViewModel()
         {
             buyBookCommand = new BuyBookCommand(this);
-            CurrentBuyBook = new BuyEntity();
+           // CurrentBuyBook = new BuyEntity();
             SelectBuyBook = new BuyEntity();
-            BuyBooks = new ObservableCollection<BuyEntity>();
-
-            if (File.Exists("Customers.json"))
-            {
-                string jsonBook = File.ReadAllText("Customers.json");
-               customerList = JsonConvert.DeserializeObject<List<CustomerEntity>>(jsonBook);
-            }
-            if (File.Exists("Users.json"))
-            {
-                string jsonFilial = File.ReadAllText("Users.json");
-                this.Users = JsonConvert.DeserializeObject<List<UserEntity>>(jsonFilial);
-
-                Users.RemoveAll(x => x.Presently == false);
-            }
-            if (File.Exists("BuyBooks.json"))
-            {
-                string jsonBook = File.ReadAllText("BuyBooks.json");
-                BuyBooks = JsonConvert.DeserializeObject<ObservableCollection<BuyEntity>>(jsonBook);
-            }
         }
         BuyEntity currenbuybook { get; set; }
         public BuyEntity CurrentBuyBook
@@ -87,8 +68,6 @@ namespace Library.ViewModel
                 OnpropertyChanged(new PropertyChangedEventArgs(("BuyBooks")));
             }
         }
-
-
 
     }
 }

@@ -29,7 +29,6 @@ namespace Library.Command
         {
 
             bookViewModel.Books.Add(bookViewModel.CurrentBook);
-            
             App.Db.BookRepository.Insert(bookViewModel.CurrentBook);         
                 bookViewModel.CurrentBook = new BookEntity();
                 bookViewModel.SelectBook = new BookEntity();

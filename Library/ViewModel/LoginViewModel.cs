@@ -23,7 +23,6 @@ namespace Library.ViewModel
             this.Login = Login;
             login = new Login(this);
             CurrentUser = new UserEntity();
-            Users = new ObservableCollection<UserEntity>();
           
         }
         
@@ -53,15 +52,8 @@ namespace Library.ViewModel
             }
             set
             {
-                if (File.Exists("Users.json"))
-                {
-                    string jsonFilial = File.ReadAllText("Users.json");
-                    this.users = JsonConvert.DeserializeObject<ObservableCollection<UserEntity>>(jsonFilial);
-                }
-                else
-                {
+                
                     users = value;
-                }
                 OnpropertyChanged(new PropertyChangedEventArgs(("Users")));
             }
         }

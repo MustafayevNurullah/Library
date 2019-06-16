@@ -23,13 +23,8 @@ namespace Library.ViewModel
             deleteCustomer = new DeleteCustomer(this);
             updateCustomer = new UpdateCustomer(this);
             SelectCustomer = new CustomerEntity();
-            Customers = new ObservableCollection<CustomerEntity>();
             CurrentCustomer = new CustomerEntity();
-            if (File.Exists("Customers.json"))
-            {
-                string jsonBook = File.ReadAllText("Customers.json");
-                this.Customers = JsonConvert.DeserializeObject<ObservableCollection<CustomerEntity>>(jsonBook);
-            }
+          
         }
 
         private CustomerEntity currentcustomer;

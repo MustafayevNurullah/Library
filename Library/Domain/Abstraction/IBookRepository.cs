@@ -9,5 +9,7 @@ namespace Library.Domain.Abstraction
 {
   public  interface IBookRepository:IRepository<BookEntity>
     {
+        BookEntity GetBook(int Id);
+
     }
 }

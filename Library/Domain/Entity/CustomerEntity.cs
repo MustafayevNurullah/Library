@@ -13,7 +13,7 @@ namespace Library.Entity
         public string Name { get; set; }
         public string Surname { get; set; }
         public string Phone { get; set; }
-        public string Datatime { get; set; }
+        public string Data { get; set; }
 
         public CustomerEntity Clone()
         {
@@ -23,7 +23,7 @@ namespace Library.Entity
             customerEntity.Name = this.Name;
             customerEntity.Surname = this.Surname;
             customerEntity.Phone = this.Phone;
-            customerEntity.Datatime = this.Datatime;
+            customerEntity.Data = this.Data;
             return customerEntity;
         }
 

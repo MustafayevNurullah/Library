@@ -29,8 +29,7 @@ namespace Library.Command
             var item = workerViewModel.Workers.FirstOrDefault(x => x.Id == workerViewModel.CurrentWorker.Id);
             int index = workerViewModel.Workers.IndexOf(item);
             workerViewModel.Workers[index] = workerViewModel.CurrentWorker;
-            string json = JsonConvert.SerializeObject(workerViewModel.Workers);
-            System.IO.File.WriteAllText("Workers.json", json);
+            App.Db.WorkerRepository.Update(workerViewModel.CurrentWorker);
             workerViewModel.CurrentWorker = new WorkerEntity();
             workerViewModel.SelectWorker = new WorkerEntity();
         }

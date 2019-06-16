@@ -1,6 +1,8 @@
-﻿using Library.ViewModel;
+﻿using Library.Entity;
+using Library.ViewModel;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -25,6 +27,8 @@ namespace Library.UserControls
         {
             InitializeComponent();
             WorkerViewModel workerViewModel = new WorkerViewModel();
+            workerViewModel.Workers = new ObservableCollection<WorkerEntity>(App.Db.WorkerRepository.GetAll());
+            workerViewModel.filials = new List<FilialEntity>(App.Db.BranchRepository.GetAll());
             DataContext = workerViewModel;
         }
     }

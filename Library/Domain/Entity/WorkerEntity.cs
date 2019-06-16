@@ -13,8 +13,9 @@ namespace Library.Entity
         public string Name { get; set; }
         public string Surname { get; set; }
         public string Phone { get; set; }
-        public string Salary { get; set; }
+        public double Salary { get; set; }
         public FilialEntity Filial { get; set; }
+        public int BranchId  { get; set; }
 
         public WorkerEntity Clone()
         {
@@ -26,11 +27,9 @@ namespace Library.Entity
             workerEntity.Phone = this.Phone;
             workerEntity.Salary = this.Salary;
             workerEntity.Filial = this.Filial;
+            workerEntity.BranchId = this.BranchId;
             return workerEntity;
 
         }
-
-
-
     }
 }

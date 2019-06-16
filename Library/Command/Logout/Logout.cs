@@ -27,15 +27,10 @@ namespace Library.Command.Logout
         public void Execute(object parameter)
         {
             List<UserEntity> users = new List<UserEntity>();
-            if (File.Exists("Users.json"))
-            {
-                string jsonFilial = File.ReadAllText("Users.json");
-                users = JsonConvert.DeserializeObject<List<UserEntity>>(jsonFilial);
+            users = App.Db.UserRepository.GetAll();
                 var item=users.FirstOrDefault(x => x.Presently == true);
                 users[users.IndexOf(item)].Presently = false;
-                string json = JsonConvert.SerializeObject(users);
-                System.IO.File.WriteAllText("Users.json", json);
-            }
+            App.Db.UserRepository.Update(users[users.IndexOf(item)]);
             mainViewModel.Window1.Close();
         }
     }

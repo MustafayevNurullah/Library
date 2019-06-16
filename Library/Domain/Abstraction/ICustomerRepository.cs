@@ -9,5 +9,6 @@ namespace Library.Domain.Abstraction
 {
    public interface ICustomerRepository:IRepository<CustomerEntity>
     {
+        CustomerEntity GetCustomer(int Id);
     }
 }

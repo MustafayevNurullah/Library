@@ -55,7 +55,7 @@ namespace Library.ViewModel
             }
             set
             {
-                if ( value.Presently!=true)
+                if (value.Presently != true)
                 {
                     selectuser = value;
                     CurrentUser = selectuser.Clone();
@@ -71,16 +71,9 @@ namespace Library.ViewModel
                 return users;
             }
             set
-            {
-                if (File.Exists("Users.json"))
-                {
-                    string jsonFilial = File.ReadAllText("Users.json");
-                    this.users = JsonConvert.DeserializeObject<ObservableCollection<UserEntity>>(jsonFilial);
-                }
-                else
-                {
+            {    
                     users = value;
-                }
+               
                 OnpropertyChanged(new PropertyChangedEventArgs(("Users")));
             }
         }

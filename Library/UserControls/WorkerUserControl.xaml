@@ -77,7 +77,7 @@ HorizontalAlignment="Stretch"
             <StackPanel>
                 <ComboBox Name="Filial" Height="30" Width="100" ItemsSource="{Binding filials}" DisplayMemberPath="Name"
                               SelectedItem="{Binding CurrentWorker.Filial }" SelectedValuePath="Id"
-                              SelectedValue="{Binding CurrentWorker.Filial.Id ,Mode=TwoWay}"></ComboBox>
+                              SelectedValue="{Binding CurrentWorker.BranchId ,Mode=TwoWay}"></ComboBox>
                 <TextBox Height="30" Name="Phone" VerticalAlignment="Top" Width="100 " Text="{Binding CurrentWorker.Phone,Mode=TwoWay}">
                 </TextBox>
             </StackPanel>

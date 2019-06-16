@@ -1,7 +1,9 @@
 ﻿using Library.Command.Login;
+using Library.Entity;
 using Library.ViewModel;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -26,6 +28,7 @@ namespace Library.View
             InitializeComponent();
             
            LoginViewModel Login = new LoginViewModel(this);
+            Login.Users = new ObservableCollection<UserEntity>(App.Db.UserRepository.GetAll());
             
          DataContext = Login;
         }

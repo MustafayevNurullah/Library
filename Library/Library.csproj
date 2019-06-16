@@ -109,11 +109,9 @@
     <Compile Include="Domain\Abstraction\IUserRepository.cs" />
     <Compile Include="Domain\Abstraction\IWorkerRepository.cs" />
     <Compile Include="Domain\Entity\BuyEntity.cs" />
-    <Compile Include="Domain\Entity\BuyReportEntity.cs" />
     <Compile Include="Domain\Entity\CustomerEntity.cs" />
     <Compile Include="Domain\Entity\Permission.cs" />
     <Compile Include="Domain\Entity\RentEntity.cs" />
-    <Compile Include="Domain\Entity\RentReportEntity.cs" />
     <Compile Include="Domain\Entity\UserEntity.cs" />
     <Compile Include="UserControls\BuyReport.xaml.cs">
       <DependentUpon>BuyReport.xaml</DependentUpon>
@@ -144,13 +142,11 @@
       <DependentUpon>BookUser.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModel\BookViewModel.cs" />
-    <Compile Include="ViewModel\BuyReportViewModel.cs" />
     <Compile Include="ViewModel\BuyViewModel.cs" />
     <Compile Include="ViewModel\CustomerViewModel.cs" />
     <Compile Include="ViewModel\FilialViewModel.cs" />
     <Compile Include="ViewModel\LoginViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
-    <Compile Include="ViewModel\RentReportViewModel.cs" />
     <Compile Include="ViewModel\RentViewModel.cs" />
     <Compile Include="ViewModel\UserViewModel.cs" />
     <Compile Include="ViewModel\WorkerViewModel.cs" />
@@ -294,6 +290,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Library.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Hash\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

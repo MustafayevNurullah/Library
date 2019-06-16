@@ -9,5 +9,8 @@ namespace Library.Domain.Abstraction
 {
    public interface IUserRepository:IRepository<UserEntity>
     {
+
+        UserEntity GetUser(int Id);
+        UserEntity GetUserPresenly( );
     }
 }

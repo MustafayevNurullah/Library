@@ -42,8 +42,7 @@ namespace Library.Command
                     customerViewModel.CurrentCustomer.Id = 1;
                 }
                 customerViewModel.Customers.Add(customerViewModel.CurrentCustomer);
-                string json = JsonConvert.SerializeObject(customerViewModel.Customers);
-                System.IO.File.WriteAllText("Customers.json", json);
+                App.Db.CustomerRepository.Insert(customerViewModel.CurrentCustomer);
                 customerViewModel.CurrentCustomer = new CustomerEntity();
                 customerViewModel.SelectCustomer = new CustomerEntity();
             }

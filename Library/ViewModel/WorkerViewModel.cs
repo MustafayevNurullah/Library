@@ -25,19 +25,7 @@ namespace Library.ViewModel
             DeleteWorker = new DeleteWorker(this);
             CurrentWorker = new WorkerEntity();
             SelectWorker = new WorkerEntity();
-            Workers = new ObservableCollection<WorkerEntity>();
-            filials = new List<FilialEntity>();
-            if (File.Exists("Filials.json"))
-            {
-                string jsonFilial = File.ReadAllText("Filials.json");
-                this.filials = JsonConvert.DeserializeObject<List<FilialEntity>>(jsonFilial);
-            }
            
-            if (File.Exists("Workers.json"))
-            {
-                string jsonBook = File.ReadAllText("Workers.json");
-                this.Workers = JsonConvert.DeserializeObject<ObservableCollection<WorkerEntity>>(jsonBook);
-            }
         }
     private WorkerEntity currentworker;
         public WorkerEntity CurrentWorker

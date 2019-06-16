@@ -1,6 +1,8 @@
-﻿using Library.ViewModel;
+﻿using Library.Entity;
+using Library.ViewModel;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -25,8 +27,14 @@ namespace Library.UserControls
         {
             InitializeComponent();
             BuyViewModel buyViewModel = new BuyViewModel();
-            buyViewModel.CurrentBuyBook.BookId = bookViewModel.SelectBook;
+            buyViewModel.CurrentBuyBook = new BuyEntity();
+            buyViewModel.CurrentBuyBook.BookId = bookViewModel.CurrentBook.BranchId;
+            buyViewModel.CurrentBuyBook.Book = bookViewModel.CurrentBook;
+            buyViewModel.CurrentBuyBook.User = App.Db.UserRepository.GetUserPresenly();
+            buyViewModel.CurrentBuyBook.UserId = buyViewModel.CurrentBuyBook.User.Id;
             buyViewModel.CurrentBuyBook.Date = DateTime.Now;
+            buyViewModel.customerList = App.Db.CustomerRepository.GetAll();
+            
             DataContext = buyViewModel;
 
         }

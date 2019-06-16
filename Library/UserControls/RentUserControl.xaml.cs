@@ -24,8 +24,15 @@ namespace Library.UserControls
         public RentUserControl(BookViewModel bookViewModel)
         {
             RentViewModel rentViewModel = new RentViewModel();
-            rentViewModel.CurrentRentBook.BookId = bookViewModel.SelectBook;
-            rentViewModel.CurrentRentBook.RealDate= DateTime.Now;
+            rentViewModel.CurrentRentBook.Book = bookViewModel.CurrentBook;
+            rentViewModel.CurrentRentBook.BookId = rentViewModel.CurrentRentBook.Book.Id;
+            rentViewModel.CurrentRentBook.User = App.Db.UserRepository.GetUserPresenly();
+            rentViewModel.CurrentRentBook.UserId = rentViewModel.CurrentRentBook.User.Id;
+            rentViewModel.CurrentRentBook.RentDate = DateTime.Now;
+            rentViewModel.CurrentRentBook.RealDate = DateTime.Now;
+            rentViewModel.CurrentRentBook.Deadline = DateTime.Now;
+
+            rentViewModel.customerList = new List<Entity.CustomerEntity>(App.Db.CustomerRepository.GetAll());
             DataContext = rentViewModel;
             InitializeComponent();
         }

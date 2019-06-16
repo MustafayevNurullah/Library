@@ -35,8 +35,7 @@ namespace Library.Command.Login
             {
             var index = loginViewModel.Users.IndexOf(item);
                 loginViewModel.Users[index].Presently = true;
-                string json = JsonConvert.SerializeObject(loginViewModel.Users);
-                System.IO.File.WriteAllText("Users.json", json);
+                App.Db.UserRepository.Update(loginViewModel.Users[index]);
                 Window1 window1 = new Window1();
                 loginViewModel.Login.Close();
                 window1.ShowDialog();

@@ -72,8 +72,9 @@ HorizontalAlignment="Stretch"
             </StackPanel>
             <StackPanel>
                 <ComboBox Name="Filial" Height="30" Width="100"  ItemsSource="{Binding filials}" DisplayMemberPath="Name"
-                              SelectedItem="{Binding CurrentBook.BranchName,Mode=TwoWay }"
-                              ></ComboBox>
+                              SelectedItem="{Binding CurrentBook.Branch,Mode=TwoWay }"
+                             SelectedValuePath="Id"
+                              SelectedValue="{Binding CurrentBook.BranchId ,Mode=TwoWay}" ></ComboBox>
                 <TextBox Height="30" Name="SalePrice" VerticalAlignment="Top" Width="100 " Text="{Binding CurrentBook.SalePrice,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}">
                 </TextBox>
                 <TextBox Height="30" Name="ByPrice" VerticalAlignment="Top" Width="100 " Text="{Binding CurrentBook.BuyPrice,Mode=TwoWay}">
@@ -158,7 +159,7 @@ HorizontalAlignment="Stretch"
                     <GridViewColumn Header="Filial" Width="100">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Padding="5,0" Text="{Binding BranchName}"  TextAlignment="Center" VerticalAlignment="Center">
+                                <TextBlock Padding="5,0" Text="{Binding Branch.Name}"  TextAlignment="Center" VerticalAlignment="Center">
                                 </TextBlock>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>

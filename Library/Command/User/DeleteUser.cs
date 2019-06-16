@@ -23,21 +23,18 @@ namespace Library.Command.User
         {
             return true;
         }
-
         public void Execute(object parameter)
         {
             var item = userViewModel.Users.FirstOrDefault(x => x.Id == userViewModel.SelectUser.Id);
+            App.Db.UserRepository.Delete(item);
             userViewModel.Users.Remove(item);
             ObservableCollection<UserEntity> NewFilials = userViewModel.Users;
             for (int i = 0; i < NewFilials.Count; i++)
             {
                 userViewModel.Users[i] = userViewModel.Users[i];
             }
-
-            string json = JsonConvert.SerializeObject(userViewModel.Users);
-            System.IO.File.WriteAllText("Filials.json", json);
             userViewModel.CurrentUser = new UserEntity();
             userViewModel.SelectUser = new UserEntity();
-        }
+            }
     }
 }

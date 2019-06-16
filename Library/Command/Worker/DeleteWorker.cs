@@ -30,13 +30,13 @@ namespace Library.Command
         {
             var item = workerViewModel.Workers.FirstOrDefault(x => x.Id == workerViewModel.SelectWorker.Id);
             workerViewModel.Workers.Remove(item);
+            App.Db.WorkerRepository.Delete(item);
             ObservableCollection<WorkerEntity> NewFilials = workerViewModel.Workers;
             for (int i = 0; i < NewFilials.Count; i++)
             {
                 workerViewModel.Workers[i] = workerViewModel.Workers[i];
             }
-            string json = JsonConvert.SerializeObject(workerViewModel.Workers);
-            System.IO.File.WriteAllText("Workers.json", json);
+           
             workerViewModel.CurrentWorker = new WorkerEntity();
             workerViewModel.SelectWorker = new WorkerEntity();
         }

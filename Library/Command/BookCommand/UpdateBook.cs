@@ -31,8 +31,7 @@ namespace Library.Command
             var item = bookViewModel.Books.FirstOrDefault(x => x.Id == bookViewModel.SelectBook.Id);
             int index = bookViewModel.Books.IndexOf(item);
             bookViewModel.Books[index] = bookViewModel.CurrentBook;
-            string json = JsonConvert.SerializeObject(bookViewModel.Books);
-            System.IO.File.WriteAllText("Filials.json", json);
+            App.Db.BookRepository.Update(bookViewModel.CurrentBook);
             bookViewModel.CurrentBook = new BookEntity();
             bookViewModel.SelectBook = new BookEntity();
         }

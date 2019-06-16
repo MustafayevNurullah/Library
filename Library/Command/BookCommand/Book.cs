@@ -20,18 +20,16 @@ namespace Library.Command
         MainViewModel MainView { get; set; }
         public Book(MainViewModel MainView)
         {
-            if (File.Exists("Users.json"))
-            {
-                string jsonFilial = File.ReadAllText("Users.json");
-                this.Users = JsonConvert.DeserializeObject<List<UserEntity>>(jsonFilial);
-            }
-            this.MainView = MainView;
+           
+                this.MainView = MainView;
+            Users = new List<UserEntity>();
+            Users = App.Db.UserRepository.GetAll();
         }
 
         public bool CanExecute(object parameter)
         {
-            //  return Users.FirstOrDefault(x => x.Presently == true).CanCreateBook;
-            return true;
+           return Users.FirstOrDefault(x => x.Presently == true).CanCreateBook;
+        //    return true;
 
 
         }

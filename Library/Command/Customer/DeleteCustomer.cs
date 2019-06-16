@@ -36,8 +36,7 @@ namespace Library.Command
             {
                 customerView.Customers[i] = customerView.Customers[i];
             }
-            string json = JsonConvert.SerializeObject(customerView.Customers);
-            System.IO.File.WriteAllText("Books.json", json);
+            App.Db.CustomerRepository.Delete(item);
             customerView.CurrentCustomer = new CustomerEntity();
             customerView.SelectCustomer = new CustomerEntity();
         }

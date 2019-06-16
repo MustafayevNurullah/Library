@@ -41,7 +41,7 @@
                 <WrapPanel>
                     <TextBlock HorizontalAlignment="Left"  Text="Name" Width="100" Height="30"    >
                     </TextBlock>
-                    <TextBox Height="30" Width="100 " Text="{Binding CurrentRentBook.BookId.Name,Mode=TwoWay}"  Name="Name" >
+                    <TextBox Height="30" IsEnabled="False" Width="100 " Text="{Binding CurrentRentBook.Book.Name,Mode=TwoWay}"  Name="Name" >
                     </TextBox>
                 </WrapPanel>
                 <WrapPanel>
@@ -50,7 +50,7 @@
                 </WrapPanel>
                 <WrapPanel>
                     <TextBlock HorizontalAlignment="Left" Text="Price"   Width="100" Height="30"></TextBlock>
-                    <TextBox Height="30" Width="100"  Name="Price" Text="{Binding CurrentRentBook.Price,Mode=TwoWay}"></TextBox>
+                    <TextBox Height="30" Width="100"  Name="Price" Text="{Binding CurrentRentBook.DailyRentPrice,Mode=TwoWay}"></TextBox>
                 </WrapPanel>
             </StackPanel>
             <StackPanel>
@@ -73,7 +73,7 @@
                               SelectedValue="{Binding CurrentRentBook.Customer.Id ,Mode=TwoWay}"></ComboBox>
                 <TextBox Height="30" Name="BuyPrice" VerticalAlignment="Top" Width="100 " Text="{Binding CurrentRentBook.BookId.BuyPrice,Mode=TwoWay}">
                 </TextBox>
-                <TextBox IsEnabled="False" Height="30" Name="Date" VerticalAlignment="Top" Width="100 " Text="{Binding CurrentRentBook.Date}">
+                <TextBox IsEnabled="False" Height="30" Name="Date" VerticalAlignment="Top" Width="100 " Text="{Binding CurrentRentBook.RentDate}">
                 </TextBox>
             </StackPanel>
             <StackPanel>
