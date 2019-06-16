@@ -15,9 +15,10 @@
             <TextBlock Width="100" Text="Username"></TextBlock>
             <TextBox Margin="10,0,0,0" Text="{Binding CurrentUser.Username,Mode=TwoWay}" Width="100" Height="30" Name="Username"></TextBox>
             <TextBlock Width="100" Text="Password"></TextBlock>
-            <TextBox Margin="10,0,0,0" Text="{Binding CurrentUser.Password,Mode=TwoWay}" Width="100" Height="30" Name="Password"></TextBox>
-            <Button Background="Azure" Margin="10,0,0,0" Width="100" Content="Add" Command="{Binding addUser}"></Button>
-            <Button Background="Azure" Margin="30,0,0,0" Width="100" Content="Update" Command="{Binding updateUser}"></Button>
+            <PasswordBox Name="Password"  FontSize="20" BorderThickness="0"   Width="100"  Height="30">
+            </PasswordBox>
+            <Button CommandParameter="{Binding ElementName=Password}" Background="Azure" Margin="10,0,0,0" Width="100" Content="Add" Command="{Binding addUser}"></Button>
+            <Button CommandParameter="{Binding ElementName=Password}" Background="Azure" Margin="30,0,0,0" Width="100" Content="Update" Command="{Binding updateUser}"></Button>
             <CheckBox Content="CanCreateBook" IsChecked="{Binding CurrentUser.CanCreateBook}" ></CheckBox>
             <CheckBox Content="CanCreateUser" IsChecked="{Binding CurrentUser.CanCreateUser}"></CheckBox>
             <CheckBox Content="CanCreateBranch" IsChecked="{Binding CurrentUser.CanCreateBranch}"></CheckBox>
@@ -51,14 +52,14 @@
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
-                    <GridViewColumn Header="Password" Width="90" >
+                    <!--<GridViewColumn Header="Password" Width="90" >
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
                                 <TextBlock Padding="5,0" Background="Azure" Text="{Binding Password}" TextAlignment="Center" VerticalAlignment="Center">
                                 </TextBlock>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
-                    </GridViewColumn>
+                    </GridViewColumn>-->
                     <GridViewColumn Header="CanCreateBook" Width="90" >
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>

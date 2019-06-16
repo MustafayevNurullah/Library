@@ -67,6 +67,9 @@ namespace Library.ViewModel
                 {
                     selectuser = value;
                     CurrentUser = selectuser.Clone();
+                        
+
+
                     OnpropertyChanged(new PropertyChangedEventArgs("SelectUser"));
                    }
                 }

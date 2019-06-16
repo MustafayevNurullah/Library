@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Library.UserControls"
              mc:Ignorable="d" 
-             d:DesignHeight="200" d:DesignWidth="520" Background="Red" HorizontalAlignment="Left">
+             d:DesignHeight="250" d:DesignWidth="670" Background="Red" HorizontalAlignment="Left">
    
     <Grid>
 
@@ -52,7 +52,7 @@
                 <ComboBox Name="Customers" Height="30" Width="100" ItemsSource="{Binding customerList}" DisplayMemberPath="Name"
                               SelectedItem="{Binding CurrentRentBook.Customer }" SelectedValuePath="Id"
                               SelectedValue="{Binding CurrentRentBook.Customer.Id ,Mode=TwoWay}"></ComboBox>
-                <TextBox Height="30" Name="BuyPrice" VerticalAlignment="Top" Width="100 " Text="{Binding CurrentRentBook.BookId.BuyPrice,Mode=TwoWay}">
+                <TextBox Height="30" Name="BuyPrice" VerticalAlignment="Top" Width="100 " Text="{Binding CurrentRentBook.RealDate,Mode=TwoWay}">
                 </TextBox>
                 <TextBox IsEnabled="False" Height="30" Name="Date" VerticalAlignment="Top" Width="100 " Text="{Binding CurrentRentBook.RentDate}">
                 </TextBox>

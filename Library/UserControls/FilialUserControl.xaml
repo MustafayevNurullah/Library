@@ -17,9 +17,9 @@
                 <ImageBrush ImageSource="/Image/images.jpg"/>
 
             </WrapPanel.Background>
-            <TextBlock Width="100" Text="Name"></TextBlock>
+            <TextBlock Width="100"  Text="Name" ></TextBlock>
             <Border Width="110" Height="35" CornerRadius="10" Background="White">
-                <TextBox BorderThickness="0" Text="{Binding CurrentFilial.Name,Mode=TwoWay}"  Name="Name" Foreground="{StaticResource TBForeColor}" FontSize="20"  TextAlignment="Left"  Width="100" Height="30">
+                <TextBox BorderThickness="0" Text="{Binding CurrentFilial.Name,Mode=TwoWay}"   Name="Name" Foreground="{StaticResource TBForeColor}" FontSize="20"  TextAlignment="Left"  Width="100" Height="30">
                 </TextBox>
             </Border>
             <TextBlock Width="100" Text="Address"></TextBlock>
@@ -27,7 +27,7 @@
                 <TextBox BorderThickness="0"  Name="Address" Foreground="{StaticResource TBForeColor}" FontSize="20" Text="{Binding CurrentFilial.Address,Mode=TwoWay}" TextAlignment="Left"  Width="100" Height="30">
                 </TextBox>
             </Border>
-            <Button Margin="10,0,0,0" Background="Azure" Width="100"  Content="Add" IsEnabled="True" Command="{Binding addFilial}">
+            <Button  Margin="10,0,0,0" Background="Azure" Width="100"  Content="Add" IsEnabled="True" Command="{Binding addFilial}">
                 <Button.Style>
                     <Style TargetType="{x:Type Button}">
                         <Style.Triggers>

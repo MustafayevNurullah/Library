@@ -57,6 +57,7 @@ namespace Library.DataAccess.SqlServer
                         userEntity.CanCreateUser = Convert.ToBoolean(sqlDataReader[nameof(userEntity.CanCreateUser)]);
                         userEntity.CanRent = Convert.ToBoolean(sqlDataReader[nameof(userEntity.CanRent)]);
                         userEntity.Presently = Convert.ToBoolean(sqlDataReader[nameof(userEntity.Presently)]);
+                      
                         users.Add(userEntity);
                     }
                     return users;

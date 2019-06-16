@@ -8,7 +8,6 @@ namespace Library.Entity
 {
    public class RentEntity
     {
-
         public int Id { get; set; }
         public int UserId { get; set; }
         public int BookId { get; set; }
@@ -35,9 +34,6 @@ namespace Library.Entity
             rentEntity.RealDate = this.RealDate;
             rentEntity.DailyRentPrice = this.DailyRentPrice;
             return rentEntity;
-
-
         }
-
     }
 }

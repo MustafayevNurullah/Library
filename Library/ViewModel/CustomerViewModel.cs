@@ -56,7 +56,11 @@ namespace Library.ViewModel
             set
             {
                 selectcustomer = value;
+                if(value!=null)
+                {
+
                 CurrentCustomer = SelectCustomer.Clone();
+                }
 
                 OnpropertyChanged(new PropertyChangedEventArgs(nameof(SelectCustomer)));
             }

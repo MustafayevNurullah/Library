@@ -51,7 +51,11 @@ namespace Library.ViewModel
             set
             {
                 selectworker = value;
+                if(value!=null)
+                {
+
                 CurrentWorker = selectworker.Clone();
+                }
                 OnpropertyChanged(new PropertyChangedEventArgs(nameof(SelectWorker)));
             }
         }

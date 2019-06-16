@@ -54,8 +54,11 @@ namespace Library.ViewModel
             }
             set
             {
-               
+               if(value!=null)
+                {
+
                 currentbook = value;
+                }
                 OnpropertyChanged(new PropertyChangedEventArgs(nameof(CurrentBook)));
             }
         }

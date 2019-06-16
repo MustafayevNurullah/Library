@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 using System.Windows.Input;
 
 namespace Library.Command.User
@@ -28,6 +29,7 @@ namespace Library.Command.User
 
         public void Execute(object parameter)
         {
+
             var item = userViewModel.Users.FirstOrDefault(x => x.Id == userViewModel.CurrentUser.Id);
             int index = userViewModel.Users.IndexOf(item);
             if(userViewModel.CurrentUser.Password!=userViewModel.Users[index].Password)
@@ -37,6 +39,8 @@ namespace Library.Command.User
             item.Password = userViewModel.CurrentUser.Password;
             userViewModel.Users[index] = userViewModel.CurrentUser;
             App.Db.UserRepository.Update(userViewModel.CurrentUser);
+                (parameter as PasswordBox).Password = string.Empty;
+
             userViewModel.CurrentUser = new UserEntity();
             userViewModel.SelectUser = new UserEntity();
         }

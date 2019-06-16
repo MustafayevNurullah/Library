@@ -46,9 +46,11 @@ namespace Library.Command.User
                 {
                     userViewModel.CurrentUser.Id = 1;
                 }
+                userViewModel.CurrentUser.Password = (parameter as PasswordBox).Password;
                 userViewModel.CurrentUser.Password=Encrypt_Decrypt.Encrypt(userViewModel.CurrentUser.Password);
                 userViewModel.Users.Add(userViewModel.CurrentUser);
                 App.Db.UserRepository.Insert(userViewModel.CurrentUser);
+                (parameter as PasswordBox).Password = string.Empty;
                 userViewModel.CurrentUser = new UserEntity();
                 userViewModel.SelectUser = new UserEntity();
             }
