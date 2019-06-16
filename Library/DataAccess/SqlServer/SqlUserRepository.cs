@@ -47,10 +47,13 @@ namespace Library.DataAccess.SqlServer
 
                     while (sqlDataReader.Read())
                     {
+
                         UserEntity userEntity = new UserEntity();
+
                         userEntity.Id = Convert.ToInt32(sqlDataReader[nameof(userEntity.Id)]);
                         userEntity.Username = Convert.ToString(sqlDataReader[nameof(userEntity.Username)]);
                         userEntity.Password =  Convert.ToString(sqlDataReader[nameof(userEntity.Password)]);
+                      //  userEntity.Password = Hash.Encrypt_Decrypt.Encrypt(userEntity.Password);
                         userEntity.CanCreateBook = Convert.ToBoolean(sqlDataReader[nameof(userEntity.CanCreateBook)]);
                         userEntity.CanCreateBranch = Convert.ToBoolean(sqlDataReader[nameof(userEntity.CanCreateBranch)]);
                         userEntity.CanCreateCustomer = Convert.ToBoolean(sqlDataReader[nameof(userEntity.CanCreateCustomer)]);
